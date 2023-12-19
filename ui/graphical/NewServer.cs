@@ -149,7 +149,7 @@ namespace glowberry.ui.graphical
 
             try
             {
-                ServerBuilder builder = ServerAPI.Builder(TextBoxServerName.Text, ComboBoxServerType.Text,
+                ServerBuilding builder = ServerAPI.Builder(TextBoxServerName.Text, ComboBoxServerType.Text,
                     ComboServerVersion.Text);
                 
                 builder.VerifyInformation();
