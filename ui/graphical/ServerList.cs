@@ -417,6 +417,7 @@ namespace glowberry.ui.graphical
                 // This prevents accidental data corruption.
                 string settingsFile = ServersSection.GetFirstDocumentNamed("server_settings.xml");
                 using var _ = await FileUtilExtensions.WaitForFileAsync(settingsFile);
+                new ServerAPI().Interactions(serverName).KillServerProcess();
                 
                 return;
             }
