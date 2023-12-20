@@ -412,11 +412,6 @@ namespace glowberry.ui.graphical
             if (stopMode is "Kill")
             {
                 buttonRow.Cells[6].Tag = "Wait";  // After killing, prevent button spamming.
-
-                // Wait for the settings file to be released by the server process and kill it.
-                // This prevents accidental data corruption.
-                string settingsFile = ServersSection.GetFirstDocumentNamed("server_settings.xml");
-                using var _ = await FileUtilExtensions.WaitForFileAsync(settingsFile);
                 new ServerAPI().Interactions(serverName).KillServerProcess();
                 
                 return;
