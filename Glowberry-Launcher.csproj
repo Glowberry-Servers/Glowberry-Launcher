@@ -33,6 +33,9 @@
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
+    <PropertyGroup>
+        <ApplicationIcon>../Glowberry-Assets/main/logo.ico</ApplicationIcon>
+    </PropertyGroup>
     <ItemGroup>
         <Reference Include="GlowberryDLL">
           <HintPath>..\GlowberryDLL\bin\Release\GlowberryDLL.dll</HintPath>
@@ -99,10 +102,15 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include=".gitignore" />
-      <Content Include="icon.ico" />
-      <Content Include="Installer.nsi" />
-      <Content Include="LICENSE.txt" />
+        <Content Include=".gitignore" />
+        <Content Include="Installer.nsi" />
+        <Content Include="LICENSE.txt" />
+        <Content Include="..\Glowberry-Helper\bin\Release\gbhelper.exe">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\Glowberry-Console\bin\Release\glowberry.exe">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="LaminariaCore-Winforms" Version="1.0.0" />
