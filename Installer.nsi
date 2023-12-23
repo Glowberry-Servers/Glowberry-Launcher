@@ -22,13 +22,13 @@
 ; change this to wherever the files to be packaged reside
 !define srcdir ".\bin\Debug"
  
-!define company "MrKelpy"
+!define company "Glowberry Servers"
  
-!define prodversion "1.3.5"
-!define prodname "MCSM Launcher v${prodversion}"
-!define exec "MCSMLauncher.exe"
+!define prodversion "1.3.6"
+!define prodname "Glowberry Launcher v${prodversion}"
+!define exec "Glowberry Launcher.exe"
 
-!define setup "MCSMSetup-${prodversion}.exe"
+!define setup "GBLASetup-${prodversion}.exe"
 ; optional stuff
  
 ; Set the text which prompts the user to enter the installation directory
