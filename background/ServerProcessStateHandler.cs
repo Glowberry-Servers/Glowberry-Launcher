@@ -29,13 +29,13 @@ namespace glowberry.common.background
                 foreach (DataGridViewRow row in ServerList.INSTANCE.GridServerList.Rows)
                 {
                     // Gets the server name from the row.
-                    string? serverName = row.Cells[2]?.Value.ToString();
+                    string serverName = row.Cells[2]?.Value.ToString();
                     if (serverName == null) continue;
                     
                     // Only update the server button state if the server is running.
                     if (row.Cells[5]?.Value.ToString() is not ("Running" or "Starting" or "Stopping") && !FirstRunBypassFlag) continue;
                     await ServerList.INSTANCE.UpdateServerButtonStateAsync(serverName);
-                }
+                } 
                 
                 FirstRunBypassFlag = false;
             }

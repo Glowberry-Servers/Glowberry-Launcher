@@ -263,7 +263,8 @@ namespace glowberry.ui.graphical
             if (row == null || row.Cells[3].Value?.ToString() == "Copied to Clipboard") return;
             
             // Updates the server's IP address in the server list.
-            row.Cells[3].Value = editor.GetFromBuffers("server-ip") != null
+            row.Cells[3].Value = editor.GetFromBuffers("server-ip") != null 
+                                 && editor.GetFromBuffers("server-ip") != "" 
                 ? editor.GetFromBuffers("server-ip")
                 : settings.IPAddress + ":" + editor.GetFromBuffers("server-port");
         }
@@ -318,7 +319,7 @@ namespace glowberry.ui.graphical
                 case 6 when e.RowIndex >= 0 && selectedRow.Cells[6].Value.ToString() == "Stop" 
                             || selectedRow.Cells[6].Value.ToString() == "Kill":
                 {
-                    await StopButtonClick(selectedRow);
+                    StopButtonClick(selectedRow);
                     break;
                 }
                 
@@ -369,10 +370,11 @@ namespace glowberry.ui.graphical
             
             try
             {
+                // Starts the server and waits for the gbhelper to update the server settings.
                 INSTANCE.ForceUpdateServerState(serverSection.SimpleName, "Starting");
                 INSTANCE.GetRowFromName(serverSection.SimpleName).Cells[3].Value = "Resolving...";
-                new ServerAPI().Starter(serverSection.SimpleName).Run(new MessageProcessingOutputHandler());
-
+                new ServerAPI().Starter(serverSection.SimpleName).Run();
+                
                 this.UpdateServerIP(GlobalEditorsCache.INSTANCE.GetOrCreate(serverSection));
                 this.ForceUpdateServerState(serverName, "Running");
             }
@@ -387,6 +389,7 @@ namespace glowberry.ui.graphical
                 INSTANCE.ForceUpdateServerState(serverSection.SimpleName, "Start");
             }
             
+            
             return Task.CompletedTask;
         }
         
@@ -394,8 +397,8 @@ namespace glowberry.ui.graphical
         /// When the user clicks on the "Stop" button, it'll send a stop command to the server, and change
         /// the button to a "Kill" button, which will kill the server's process if clicked on again.
         /// </summary>
-        /// <param name="buttonRow"></param>
-        private async Task StopButtonClick(DataGridViewRow buttonRow)
+        /// <param name="buttonRow">The row in which the button was clicked on</param>
+        private void StopButtonClick(DataGridViewRow buttonRow)
         {
             // If the server is not running or being stopped, ignore the button click.
             string serverState = buttonRow.Cells[5].Value.ToString();
@@ -407,10 +410,15 @@ namespace glowberry.ui.graphical
             
             // Get the necessary information from the row and the server's API.
             string serverName = buttonRow.Cells[2].Value.ToString();
+            ServerEditor editor = new ServerAPI().Editor(serverName).Raw();
 
             // If the stopping button is in kill mode, kill its process immediately.
             if (stopMode is "Kill")
             {
+                // Synchronizes the settings file with the buffer
+                editor.SynchronizeSettings();
+                if (editor.GetServerInformation().CurrentServerProcessID == -1) return;
+                
                 buttonRow.Cells[6].Tag = "Wait";  // After killing, prevent button spamming.
                 new ServerAPI().Interactions(serverName).KillServerProcess();
                 
