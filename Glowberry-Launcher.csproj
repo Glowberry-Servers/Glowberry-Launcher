@@ -105,6 +105,9 @@
         <Content Include=".gitignore" />
         <Content Include="Installer.nsi" />
         <Content Include="LICENSE.txt" />
+        <Content Include="..\Glowberry-Assets\main\logo.ico">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
         <Content Include="..\Glowberry-Helper\bin\Release\gbhelper.exe">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
