@@ -20,9 +20,9 @@
 ;    3. This notice may not be removed or altered from any source distribution.
  
 ; change this to wherever the files to be packaged reside
-!define srcdir ".\bin\Debug"
+!define srcdir "bin/Debug"
  
-!define company "Glowberry Servers"
+!define company "Glowberry"
  
 !define prodversion "1.3.6"
 !define prodname "Glowberry Launcher v${prodversion}"
@@ -41,7 +41,7 @@
 ; !define licensefile "LICENSE.txt"
  
 ; icons must be Microsoft .ICO files
-!define icon "icon.ico"
+!define icon "logo.ico"
  
 ; installer background screen
 ; !define screenimage background.bmp
@@ -70,7 +70,7 @@ Name "${prodname}"
 Caption "${prodname}"
  
 !ifdef icon
-Icon "${icon}"
+Icon "${srcdir}\${icon}"
 !endif
  
 OutFile "${setup}"
