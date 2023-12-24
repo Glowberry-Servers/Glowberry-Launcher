@@ -7,7 +7,7 @@
         <ProjectGuid>{77AB644F-D1E5-4C54-8C97-03601862CEED}</ProjectGuid>
         <OutputType>WinExe</OutputType>
         <RootNamespace>glowberry</RootNamespace>
-        <AssemblyName>Glowberry_Launcher</AssemblyName>
+        <AssemblyName>Glowberry Launcher</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -106,14 +106,15 @@
         <Content Include="Installer.nsi" />
         <Content Include="LICENSE.txt" />
         <Content Include="..\Glowberry-Helper\bin\Release\gbhelper.exe">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Content Include="..\Glowberry-Console\bin\Release\glowberry.exe">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="LaminariaCore-Winforms" Version="1.0.0" />
+      <PackageReference Include="Open.Nat" Version="2.1.0" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

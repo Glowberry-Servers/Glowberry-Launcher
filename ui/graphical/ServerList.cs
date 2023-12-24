@@ -370,13 +370,24 @@ namespace glowberry.ui.graphical
             
             try
             {
+                // Prepares the system file watcher to check for the server started flag
+                FileSystemWatcher watcher = new FileSystemWatcher(serverSection.SectionFullPath);
+                watcher.Filter = ".flag.started";
+
+                watcher.Created += (sender, args) => 
+                {
+                    new ServerAPI().Editor(serverName).Raw().SynchronizeSettings();
+                    this.UpdateServerIP(GlobalEditorsCache.INSTANCE.GetOrCreate(serverSection));
+                    this.ForceUpdateServerState(serverName, "Running");
+                    watcher.Dispose();
+                };
+
+                watcher.EnableRaisingEvents = true;
+                
                 // Starts the server and waits for the gbhelper to update the server settings.
                 INSTANCE.ForceUpdateServerState(serverSection.SimpleName, "Starting");
                 INSTANCE.GetRowFromName(serverSection.SimpleName).Cells[3].Value = "Resolving...";
                 new ServerAPI().Starter(serverSection.SimpleName).Run();
-                
-                this.UpdateServerIP(GlobalEditorsCache.INSTANCE.GetOrCreate(serverSection));
-                this.ForceUpdateServerState(serverName, "Running");
             }
             
             // If an error occurs, let the user know.
@@ -410,15 +421,10 @@ namespace glowberry.ui.graphical
             
             // Get the necessary information from the row and the server's API.
             string serverName = buttonRow.Cells[2].Value.ToString();
-            ServerEditor editor = new ServerAPI().Editor(serverName).Raw();
 
             // If the stopping button is in kill mode, kill its process immediately.
             if (stopMode is "Kill")
             {
-                // Synchronizes the settings file with the buffer
-                editor.SynchronizeSettings();
-                if (editor.GetServerInformation().CurrentServerProcessID == -1) return;
-                
                 buttonRow.Cells[6].Tag = "Wait";  // After killing, prevent button spamming.
                 new ServerAPI().Interactions(serverName).KillServerProcess();
                 
