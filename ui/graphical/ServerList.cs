@@ -384,7 +384,7 @@ namespace glowberry.ui.graphical
 
                 watcher.EnableRaisingEvents = true;
                 
-                // Starts the server and waits for the gbhelper to update the server settings.
+                // Starts the server a  nd waits for the gbhelper to update the server settings.
                 INSTANCE.ForceUpdateServerState(serverSection.SimpleName, "Starting");
                 INSTANCE.GetRowFromName(serverSection.SimpleName).Cells[3].Value = "Resolving...";
                 new ServerAPI().Starter(serverSection.SimpleName).Run();
@@ -399,8 +399,7 @@ namespace glowberry.ui.graphical
                 
                 INSTANCE.ForceUpdateServerState(serverSection.SimpleName, "Start");
             }
-            
-            
+
             return Task.CompletedTask;
         }
         

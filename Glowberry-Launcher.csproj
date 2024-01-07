@@ -105,13 +105,13 @@
         <Content Include=".gitignore" />
         <Content Include="Installer.nsi" />
         <Content Include="LICENSE.txt" />
-        <Content Include="..\Glowberry-Assets\main\logo.ico">
+        <Content Include="..\Glowberry-Assets\main\logo.ico" Visible="False">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-        <Content Include="..\Glowberry-Helper\bin\Release\gbhelper.exe">
+        <Content Include="..\Glowberry-Helper\bin\Release\gbhelper.exe" Visible="False">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-        <Content Include="..\Glowberry-Console\bin\Release\glowberry.exe">
+        <Content Include="..\Glowberry-Console\bin\Release\glowberry.exe" Visible="False">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
