@@ -24,7 +24,7 @@
  
 !define company "Glowberry"
  
-!define prodversion "1.4.0"
+!define prodversion "1.4.1"
 !define prodname "Glowberry Launcher v${prodversion}"
 !define exec "Glowberry Launcher.exe"
 
