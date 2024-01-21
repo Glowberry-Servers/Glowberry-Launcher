@@ -116,7 +116,8 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="LaminariaCore-Winforms" Version="1.0.0" />
+      <PackageReference Include="LaminariaCore-General" Version="1.1.1" />
+      <PackageReference Include="LaminariaCore-Winforms" Version="1.0.1" />
       <PackageReference Include="Open.Nat" Version="2.1.0" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
