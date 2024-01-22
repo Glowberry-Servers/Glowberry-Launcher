@@ -40,7 +40,7 @@ namespace glowberry.ui.graphical
         /// <param name="e">The event arguments</param>
         private async void Mainframe_Load(object sender, EventArgs e)
         {
-            Text += @" v" + ConfigurationManager.AppSettings.Get("Version.App");
+            Text += @" v" + Program.Version;
             MenuBar.Renderer = new CustomMenuStripRenderer(MenuBar.BackColor);
 
             // Updates the server list.
