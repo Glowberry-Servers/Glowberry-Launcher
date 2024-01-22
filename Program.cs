@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 using glowberry.common;
@@ -8,6 +9,19 @@ namespace glowberry
 {
     internal static class Program
     {
+        /// <summary>
+        /// Get the program version for the DLL unless an override is specified, otherwise use its value.
+        /// </summary>
+        public static string Version
+        {
+            get
+            {
+                string over = ConfigurationManager.AppSettings.Get("Version.App.Override");
+                return over == "disabled" ? GlobalVersionManager.GetVersion("launcher") : over;
+            }
+        }
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -32,5 +46,6 @@ namespace glowberry
                 Logging.Logger.Fatal(e.Message + "\n" + e.StackTrace, LoggingType.File);
             }
         }
+        
     }
 }
