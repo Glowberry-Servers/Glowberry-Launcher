@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using glowberry.common.interfaces;
 using glowberry.ui.graphical;
 
-namespace glowberry.common.background
+namespace glowberry.background
 {
     /// <summary>
     /// This class implements a background process for checking the state of every server every second, and
