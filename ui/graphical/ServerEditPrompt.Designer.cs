@@ -81,16 +81,16 @@ namespace glowberry.ui.graphical
             this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.CheckBoxRollingServerBackups = new System.Windows.Forms.CheckBox();
+            this.NumericPlayerdataBackups = new System.Windows.Forms.NumericUpDown();
+            this.CheckBoxRollingPlayerdataBackups = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.NumericServerBackups = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericPlayerdataBackups)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericServerBackups)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -194,7 +194,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonFolderBrowsing2
             // 
-            this.ButtonFolderBrowsing2.Location = new System.Drawing.Point(580, 335);
+            this.ButtonFolderBrowsing2.Location = new System.Drawing.Point(579, 335);
             this.ButtonFolderBrowsing2.Name = "ButtonFolderBrowsing2";
             this.ButtonFolderBrowsing2.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowsing2.TabIndex = 16;
@@ -288,7 +288,7 @@ namespace glowberry.ui.graphical
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(13, 379);
+            this.label9.Location = new System.Drawing.Point(14, 379);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(262, 31);
@@ -298,7 +298,7 @@ namespace glowberry.ui.graphical
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(13, 415);
+            this.textBox4.Location = new System.Drawing.Point(14, 415);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(261, 26);
@@ -347,7 +347,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonOpenServerFolder
             // 
-            this.ButtonOpenServerFolder.Location = new System.Drawing.Point(668, 373);
+            this.ButtonOpenServerFolder.Location = new System.Drawing.Point(668, 379);
             this.ButtonOpenServerFolder.Name = "ButtonOpenServerFolder";
             this.ButtonOpenServerFolder.Size = new System.Drawing.Size(291, 52);
             this.ButtonOpenServerFolder.TabIndex = 35;
@@ -357,7 +357,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonSave
             // 
-            this.ButtonSave.Location = new System.Drawing.Point(668, 431);
+            this.ButtonSave.Location = new System.Drawing.Point(668, 437);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Size = new System.Drawing.Size(291, 52);
             this.ButtonSave.TabIndex = 36;
@@ -371,7 +371,7 @@ namespace glowberry.ui.graphical
             this.ButtonDeleteServer.FlatAppearance.BorderSize = 0;
             this.ButtonDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDeleteServer.ForeColor = System.Drawing.Color.White;
-            this.ButtonDeleteServer.Location = new System.Drawing.Point(668, 489);
+            this.ButtonDeleteServer.Location = new System.Drawing.Point(668, 495);
             this.ButtonDeleteServer.Name = "ButtonDeleteServer";
             this.ButtonDeleteServer.Size = new System.Drawing.Size(289, 32);
             this.ButtonDeleteServer.TabIndex = 38;
@@ -381,7 +381,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonFolderBrowsing3
             // 
-            this.ButtonFolderBrowsing3.Location = new System.Drawing.Point(580, 414);
+            this.ButtonFolderBrowsing3.Location = new System.Drawing.Point(579, 407);
             this.ButtonFolderBrowsing3.Name = "ButtonFolderBrowsing3";
             this.ButtonFolderBrowsing3.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowsing3.TabIndex = 41;
@@ -392,7 +392,7 @@ namespace glowberry.ui.graphical
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(320, 391);
+            this.label11.Location = new System.Drawing.Point(320, 384);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(254, 27);
@@ -402,7 +402,7 @@ namespace glowberry.ui.graphical
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(320, 422);
+            this.textBox3.Location = new System.Drawing.Point(320, 415);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(253, 26);
@@ -487,7 +487,7 @@ namespace glowberry.ui.graphical
             this.label12.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label12.Location = new System.Drawing.Point(298, 255);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(1, 260);
+            this.label12.Size = new System.Drawing.Size(1, 275);
             this.label12.TabIndex = 53;
             this.label12.Text = "label12";
             // 
@@ -498,7 +498,7 @@ namespace glowberry.ui.graphical
             this.label13.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label13.Location = new System.Drawing.Point(639, 255);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(1, 260);
+            this.label13.Size = new System.Drawing.Size(1, 275);
             this.label13.TabIndex = 54;
             // 
             // checkBox3
@@ -553,7 +553,7 @@ namespace glowberry.ui.graphical
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(668, 315);
+            this.button1.Location = new System.Drawing.Point(668, 321);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(291, 52);
             this.button1.TabIndex = 63;
@@ -571,64 +571,70 @@ namespace glowberry.ui.graphical
             this.checkBox8.UseVisualStyleBackColor = true;
             this.checkBox8.Visible = false;
             // 
-            // numericUpDown2
+            // CheckBoxRollingServerBackups
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(525, 468);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(96, 26);
-            this.numericUpDown2.TabIndex = 67;
-            this.numericUpDown2.Tag = "spawn-protection";
-            this.numericUpDown2.Visible = false;
+            this.CheckBoxRollingServerBackups.Location = new System.Drawing.Point(318, 464);
+            this.CheckBoxRollingServerBackups.Name = "CheckBoxRollingServerBackups";
+            this.CheckBoxRollingServerBackups.Size = new System.Drawing.Size(256, 34);
+            this.CheckBoxRollingServerBackups.TabIndex = 66;
+            this.CheckBoxRollingServerBackups.Tag = "server";
+            this.CheckBoxRollingServerBackups.Text = "Rolling Server Backups";
+            this.CheckBoxRollingServerBackups.UseVisualStyleBackColor = true;
+            this.CheckBoxRollingServerBackups.CheckedChanged += new System.EventHandler(this.HandleCheckBoxRollingBackupsNumeric);
             // 
-            // checkBox10
+            // NumericPlayerdataBackups
             // 
-            this.checkBox10.Location = new System.Drawing.Point(318, 464);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(201, 34);
-            this.checkBox10.TabIndex = 66;
-            this.checkBox10.Tag = "";
-            this.checkBox10.Text = "Rolling Server Backups";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.NumericPlayerdataBackups.Location = new System.Drawing.Point(556, 499);
+            this.NumericPlayerdataBackups.Minimum = new decimal(new int[] { 1, 0, 0, -2147483648 });
+            this.NumericPlayerdataBackups.Name = "NumericPlayerdataBackups";
+            this.NumericPlayerdataBackups.Size = new System.Drawing.Size(65, 26);
+            this.NumericPlayerdataBackups.TabIndex = 69;
+            this.NumericPlayerdataBackups.Tag = "rollingplayerdatabackups";
+            this.NumericPlayerdataBackups.Value = new decimal(new int[] { 1, 0, 0, -2147483648 });
+            this.NumericPlayerdataBackups.Visible = false;
             // 
-            // numericUpDown4
+            // CheckBoxRollingPlayerdataBackups
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(525, 499);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(96, 26);
-            this.numericUpDown4.TabIndex = 69;
-            this.numericUpDown4.Tag = "spawn-protection";
-            this.numericUpDown4.Visible = false;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.Location = new System.Drawing.Point(318, 495);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(201, 34);
-            this.checkBox11.TabIndex = 68;
-            this.checkBox11.Tag = "";
-            this.checkBox11.Text = "Rolling Server Backups";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.CheckBoxRollingPlayerdataBackups.Location = new System.Drawing.Point(318, 495);
+            this.CheckBoxRollingPlayerdataBackups.Name = "CheckBoxRollingPlayerdataBackups";
+            this.CheckBoxRollingPlayerdataBackups.Size = new System.Drawing.Size(255, 34);
+            this.CheckBoxRollingPlayerdataBackups.TabIndex = 68;
+            this.CheckBoxRollingPlayerdataBackups.Tag = "playerdata";
+            this.CheckBoxRollingPlayerdataBackups.Text = "Rolling Playerdata Backups";
+            this.CheckBoxRollingPlayerdataBackups.UseVisualStyleBackColor = true;
+            this.CheckBoxRollingPlayerdataBackups.CheckedChanged += new System.EventHandler(this.HandleCheckBoxRollingBackupsNumeric);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(668, 257);
+            this.button2.Location = new System.Drawing.Point(668, 263);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(291, 52);
             this.button2.TabIndex = 70;
             this.button2.Text = "Open Console";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // NumericServerBackups
+            // 
+            this.NumericServerBackups.Location = new System.Drawing.Point(556, 469);
+            this.NumericServerBackups.Minimum = new decimal(new int[] { 1, 0, 0, -2147483648 });
+            this.NumericServerBackups.Name = "NumericServerBackups";
+            this.NumericServerBackups.Size = new System.Drawing.Size(65, 26);
+            this.NumericServerBackups.TabIndex = 71;
+            this.NumericServerBackups.Tag = "rollingserverbackups";
+            this.NumericServerBackups.Value = new decimal(new int[] { 1, 0, 0, -2147483648 });
+            this.NumericServerBackups.Visible = false;
+            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(988, 541);
+            this.ClientSize = new System.Drawing.Size(987, 546);
+            this.Controls.Add(this.NumericServerBackups);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.numericUpDown4);
-            this.Controls.Add(this.checkBox11);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.checkBox10);
+            this.Controls.Add(this.NumericPlayerdataBackups);
+            this.Controls.Add(this.CheckBoxRollingPlayerdataBackups);
+            this.Controls.Add(this.CheckBoxRollingServerBackups);
             this.Controls.Add(this.checkBox8);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label14);
@@ -684,18 +690,19 @@ namespace glowberry.ui.graphical
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericPlayerdataBackups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericServerBackups)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.NumericUpDown NumericServerBackups;
+        private System.Windows.Forms.NumericUpDown NumericPlayerdataBackups;
+
         private System.Windows.Forms.Button button2;
 
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox CheckBoxRollingServerBackups;
+        private System.Windows.Forms.CheckBox CheckBoxRollingPlayerdataBackups;
 
         private System.Windows.Forms.Button button1;
 

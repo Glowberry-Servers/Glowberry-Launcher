@@ -27,6 +27,12 @@ namespace glowberry.ui.graphical
         private ServerEditing EditingAPI { get; set; }
 
         /// <summary>
+        /// The values of the rolling backups that have been loaded into the form. This is useful
+        /// for resetting the values if the user decides to disable and re-enable the rolling backups.
+        /// </summary>
+        private int[] LoadedRollingValues { get; set; } = new int[2];
+
+        /// <summary>
         /// Main constructor for the ServerEditPrompt form. Initialises the form and loads the
         /// information from the server.properties file into the form.
         /// </summary>
@@ -39,6 +45,8 @@ namespace glowberry.ui.graphical
             
             // Loads the properties and settings into the form
             LoadToForm(EditingAPI.GetCurrentServerSettings());
+            LoadedRollingValues[0] = EditingAPI.GetServerInformation().RollingServerBackups;
+            LoadedRollingValues[1] = EditingAPI.GetServerInformation().RollingPlayerdataBackups;
 
             // Edits some values in the form that have to be manually placed
             CheckBoxCracked.Checked = EditingAPI.Check(ServerLogicChecks.IsCracked);
@@ -250,6 +258,32 @@ namespace glowberry.ui.graphical
         private void ServerEditPrompt_FormClosed(object sender, FormClosedEventArgs e)
         {
             ServerList.INSTANCE.SortGrid();
+        }
+
+        /// <summary>
+        /// Unlocks the rolling backups numeric box when the checkbox is checked, and locks it when it is not.
+        /// Upon unlocking, the numeric box's minimum is set to 1 and upon locking, to -1, aswell as the value.
+        /// </summary>
+        private void HandleCheckBoxRollingBackupsNumeric(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox) sender;
+
+            foreach (NumericUpDown numericBox in Controls.OfType<NumericUpDown>())
+            {
+                // If the numeric box's name doesn't contain the tag of the checkbox, skip it.
+                if (!numericBox.Name.ToLower().Contains(checkBox.Tag.ToString())) continue;
+                numericBox.Visible = checkBox.Checked;
+                numericBox.Minimum = checkBox.Checked ? 1 : -1;
+                
+                // If the numeric box is not visible, save the value to the loaded values array before resetting it.
+                if (!numericBox.Visible) LoadedRollingValues[checkBox.Tag.ToString() == "server" ? 0 : 1] = (int)numericBox.Value;
+
+                // Loads the value from the rolling backups, and calculates the definite value to set based on the minimum
+                int loadedValue = LoadedRollingValues[checkBox.Tag.ToString() == "server" ? 0 : 1];
+                int definiteValue = loadedValue >= numericBox.Minimum ? loadedValue : (int)numericBox.Minimum;
+                
+                numericBox.Value = checkBox.Checked ? numericBox.Value = definiteValue : numericBox.Value = -1;
+            }
         }
     }
 }

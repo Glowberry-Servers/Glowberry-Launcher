@@ -13,6 +13,7 @@ using glowberry.common;
 using glowberry.common.factories;
 using glowberry.common.handlers;
 using LaminariaCore_General.utils;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace glowberry.ui.graphical
 {
@@ -232,10 +233,10 @@ namespace glowberry.ui.graphical
         /// <param name="e">The event arguments</param>
         private void FolderBrowserButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = FolderBrowser.ShowDialog();
-            if (result == DialogResult.OK)
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                int index = ComboBoxJavaVersion.Items.Add(FolderBrowser.SelectedPath);
+                int index = ComboBoxJavaVersion.Items.Add(dialog.FileName);
                 ComboBoxJavaVersion.SelectedItem = ComboBoxJavaVersion.Items[index];
             }
         }

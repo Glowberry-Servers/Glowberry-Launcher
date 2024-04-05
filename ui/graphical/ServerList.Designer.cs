@@ -37,7 +37,6 @@
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.dnjlfe = new System.Windows.Forms.Label();
             this.GridServerList = new System.Windows.Forms.DataGridView();
-            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.ServerType = new System.Windows.Forms.DataGridViewImageColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,7 @@
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Play = new System.Windows.Forms.DataGridViewButtonColumn();
             this.StopButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.ServerListLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).BeginInit();
             this.SuspendLayout();
@@ -57,16 +57,18 @@
             this.ServerListLayout.Controls.Add(this.GridServerList);
             this.ServerListLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ServerListLayout.Location = new System.Drawing.Point(0, 0);
+            this.ServerListLayout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ServerListLayout.Name = "ServerListLayout";
-            this.ServerListLayout.Size = new System.Drawing.Size(800, 450);
+            this.ServerListLayout.Size = new System.Drawing.Size(1200, 692);
             this.ServerListLayout.TabIndex = 1;
             // 
             // jkghvcgjv
             // 
             this.jkghvcgjv.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.jkghvcgjv.Location = new System.Drawing.Point(32, 4);
+            this.jkghvcgjv.Location = new System.Drawing.Point(48, 6);
+            this.jkghvcgjv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jkghvcgjv.Name = "jkghvcgjv";
-            this.jkghvcgjv.Size = new System.Drawing.Size(727, 40);
+            this.jkghvcgjv.Size = new System.Drawing.Size(1090, 62);
             this.jkghvcgjv.TabIndex = 19;
             this.jkghvcgjv.Text = resources.GetString("jkghvcgjv.Text");
             this.jkghvcgjv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,19 +77,19 @@
             // 
             this.ButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonRefresh.Location = new System.Drawing.Point(764, 4);
-            this.ButtonRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonRefresh.Location = new System.Drawing.Point(1144, 26);
             this.ButtonRefresh.Name = "ButtonRefresh";
-            this.ButtonRefresh.Size = new System.Drawing.Size(25, 25);
+            this.ButtonRefresh.Size = new System.Drawing.Size(38, 38);
             this.ButtonRefresh.TabIndex = 18;
             this.ButtonRefresh.UseVisualStyleBackColor = true;
             this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
             // dnjlfe
             // 
-            this.dnjlfe.Location = new System.Drawing.Point(12, 10);
+            this.dnjlfe.Location = new System.Drawing.Point(18, 15);
+            this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dnjlfe.Name = "dnjlfe";
-            this.dnjlfe.Size = new System.Drawing.Size(14, 14);
+            this.dnjlfe.Size = new System.Drawing.Size(21, 22);
             this.dnjlfe.TabIndex = 17;
             this.dnjlfe.Tag = "tooltip";
             this.ToolTips.SetToolTip(this.dnjlfe, resources.GetString("dnjlfe.ToolTip"));
@@ -118,14 +120,15 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GridServerList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GridServerList.Location = new System.Drawing.Point(12, 47);
+            this.GridServerList.Location = new System.Drawing.Point(18, 72);
+            this.GridServerList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GridServerList.MultiSelect = false;
             this.GridServerList.Name = "GridServerList";
             this.GridServerList.ReadOnly = true;
             this.GridServerList.RowHeadersVisible = false;
             this.GridServerList.ShowCellToolTips = false;
             this.GridServerList.ShowEditingIcon = false;
-            this.GridServerList.Size = new System.Drawing.Size(776, 367);
+            this.GridServerList.Size = new System.Drawing.Size(1164, 565);
             this.GridServerList.TabIndex = 6;
             this.GridServerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridServerList_CellContentClick);
             this.GridServerList.SelectionChanged += new System.EventHandler(this.GridServerList_SelectionChanged);
@@ -138,7 +141,7 @@
             this.ServerType.Name = "ServerType";
             this.ServerType.ReadOnly = true;
             this.ServerType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ServerType.Width = 71;
+            this.ServerType.Width = 99;
             // 
             // Version
             // 
@@ -147,7 +150,7 @@
             this.Version.Name = "Version";
             this.Version.ReadOnly = true;
             this.Version.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Version.Width = 48;
+            this.Version.Width = 69;
             // 
             // ServerName
             // 
@@ -173,7 +176,7 @@
             this.Edit.ReadOnly = true;
             this.Edit.Text = "Options";
             this.Edit.UseColumnTextForButtonValue = true;
-            this.Edit.Width = 76;
+            this.Edit.Width = 99;
             // 
             // Play
             // 
@@ -182,7 +185,7 @@
             this.Play.Name = "Play";
             this.Play.ReadOnly = true;
             this.Play.Text = "Start";
-            this.Play.Width = 76;
+            this.Play.Width = 99;
             // 
             // StopButton
             // 
@@ -191,14 +194,15 @@
             this.StopButton.Name = "StopButton";
             this.StopButton.ReadOnly = true;
             this.StopButton.Text = "Stop";
-            this.StopButton.Width = 76;
+            this.StopButton.Width = 99;
             // 
             // ServerList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.ServerListLayout);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ServerList";
             this.Text = "Form1";
             this.ServerListLayout.ResumeLayout(false);
