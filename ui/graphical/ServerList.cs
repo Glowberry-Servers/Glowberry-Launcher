@@ -25,7 +25,7 @@ namespace glowberry.ui.graphical
     {
         
         /// <summary>
-        /// The servers section, containing all of the servers.
+        /// The servers section, containing all the servers.
         /// </summary>
         private Section ServersSection { get; }
 

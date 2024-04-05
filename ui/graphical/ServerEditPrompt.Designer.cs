@@ -64,7 +64,6 @@ namespace glowberry.ui.graphical
             this.ButtonFolderBrowsing3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.FolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.label6 = new System.Windows.Forms.Label();
             this.CheckBoxSpawnProtection = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -82,9 +81,16 @@ namespace glowberry.ui.graphical
             this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -149,7 +155,7 @@ namespace glowberry.ui.graphical
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(320, 316);
+            this.textBox5.Location = new System.Drawing.Point(319, 269);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(253, 26);
@@ -159,7 +165,7 @@ namespace glowberry.ui.graphical
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(321, 361);
+            this.label7.Location = new System.Drawing.Point(320, 314);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(254, 27);
@@ -169,7 +175,7 @@ namespace glowberry.ui.graphical
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(321, 390);
+            this.textBox6.Location = new System.Drawing.Point(320, 343);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(253, 26);
@@ -178,7 +184,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonFolderBrowsing
             // 
-            this.ButtonFolderBrowsing.Location = new System.Drawing.Point(580, 308);
+            this.ButtonFolderBrowsing.Location = new System.Drawing.Point(579, 261);
             this.ButtonFolderBrowsing.Name = "ButtonFolderBrowsing";
             this.ButtonFolderBrowsing.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowsing.TabIndex = 15;
@@ -188,7 +194,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonFolderBrowsing2
             // 
-            this.ButtonFolderBrowsing2.Location = new System.Drawing.Point(581, 382);
+            this.ButtonFolderBrowsing2.Location = new System.Drawing.Point(580, 335);
             this.ButtonFolderBrowsing2.Name = "ButtonFolderBrowsing2";
             this.ButtonFolderBrowsing2.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowsing2.TabIndex = 16;
@@ -375,7 +381,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonFolderBrowsing3
             // 
-            this.ButtonFolderBrowsing3.Location = new System.Drawing.Point(581, 461);
+            this.ButtonFolderBrowsing3.Location = new System.Drawing.Point(580, 414);
             this.ButtonFolderBrowsing3.Name = "ButtonFolderBrowsing3";
             this.ButtonFolderBrowsing3.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowsing3.TabIndex = 41;
@@ -386,7 +392,7 @@ namespace glowberry.ui.graphical
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(321, 438);
+            this.label11.Location = new System.Drawing.Point(320, 391);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(254, 27);
@@ -396,7 +402,7 @@ namespace glowberry.ui.graphical
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(321, 469);
+            this.textBox3.Location = new System.Drawing.Point(320, 422);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(253, 26);
@@ -406,7 +412,7 @@ namespace glowberry.ui.graphical
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(319, 290);
+            this.label6.Location = new System.Drawing.Point(318, 243);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(254, 27);
@@ -551,7 +557,7 @@ namespace glowberry.ui.graphical
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(291, 52);
             this.button1.TabIndex = 63;
-            this.button1.Text = "Open Console";
+            this.button1.Text = "Configure Schedules";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // checkBox8
@@ -565,12 +571,64 @@ namespace glowberry.ui.graphical
             this.checkBox8.UseVisualStyleBackColor = true;
             this.checkBox8.Visible = false;
             // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(525, 468);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(96, 26);
+            this.numericUpDown2.TabIndex = 67;
+            this.numericUpDown2.Tag = "spawn-protection";
+            this.numericUpDown2.Visible = false;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.Location = new System.Drawing.Point(318, 464);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(201, 34);
+            this.checkBox10.TabIndex = 66;
+            this.checkBox10.Tag = "";
+            this.checkBox10.Text = "Rolling Server Backups";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(525, 499);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(96, 26);
+            this.numericUpDown4.TabIndex = 69;
+            this.numericUpDown4.Tag = "spawn-protection";
+            this.numericUpDown4.Visible = false;
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.Location = new System.Drawing.Point(318, 495);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(201, 34);
+            this.checkBox11.TabIndex = 68;
+            this.checkBox11.Tag = "";
+            this.checkBox11.Text = "Rolling Server Backups";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(668, 257);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(291, 52);
+            this.button2.TabIndex = 70;
+            this.button2.Text = "Open Console";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(988, 541);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.numericUpDown4);
+            this.Controls.Add(this.checkBox11);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.checkBox10);
             this.Controls.Add(this.checkBox8);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label14);
@@ -626,9 +684,18 @@ namespace glowberry.ui.graphical
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button button2;
+
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.CheckBox checkBox11;
 
         private System.Windows.Forms.Button button1;
 
@@ -652,8 +719,6 @@ namespace glowberry.ui.graphical
         private System.Windows.Forms.CheckBox checkBox3;
 
         private System.Windows.Forms.CheckBox checkBox1;
-
-        private System.Windows.Forms.FolderBrowserDialog FolderBrowser;
 
         private System.Windows.Forms.Button ButtonFolderBrowsing3;
         private System.Windows.Forms.Label label11;

@@ -11,6 +11,7 @@ using glowberry.api.server;
 using glowberry.api.server.enumeration;
 using LaminariaCore_General.common;
 using LaminariaCore_General.utils;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using static glowberry.common.Constants;
 
 namespace glowberry.ui.graphical
@@ -237,8 +238,8 @@ namespace glowberry.ui.graphical
             TextBox boundTextBox =
                 Controls.OfType<TextBox>().First(x => x.Tag.ToString() == button.Tag.ToString());
 
-            DialogResult result = FolderBrowser.ShowDialog();
-            if (result == DialogResult.OK) boundTextBox.Text = FolderBrowser.SelectedPath;
+            CommonOpenFileDialog fileDialog = new CommonOpenFileDialog { IsFolderPicker = true };;
+            if (fileDialog.ShowDialog() == CommonFileDialogResult.Ok) boundTextBox.Text = fileDialog.FileName;
         }
 
         /// <summary>
