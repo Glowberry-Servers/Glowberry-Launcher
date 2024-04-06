@@ -83,7 +83,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(555, 162);
+            this.label8.Location = new System.Drawing.Point(555, 128);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 22);
             this.label8.TabIndex = 19;
@@ -92,7 +92,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(555, 242);
+            this.label7.Location = new System.Drawing.Point(555, 225);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(21, 22);
             this.label7.TabIndex = 18;
@@ -110,7 +110,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(555, 399);
+            this.label5.Location = new System.Drawing.Point(555, 419);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(21, 22);
             this.label5.TabIndex = 16;
@@ -132,18 +132,19 @@
             // 
             // ButtonFolderBrowser
             // 
-            this.ButtonFolderBrowser.Location = new System.Drawing.Point(49, 388);
+            this.ButtonFolderBrowser.Location = new System.Drawing.Point(49, 408);
             this.ButtonFolderBrowser.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonFolderBrowser.Name = "ButtonFolderBrowser";
             this.ButtonFolderBrowser.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowser.TabIndex = 14;
             this.ButtonFolderBrowser.UseVisualStyleBackColor = true;
+            this.ButtonFolderBrowser.Click += new System.EventHandler(this.FolderBrowserButton_Click);
             // 
             // ComboBoxJavaVersion
             // 
             this.ComboBoxJavaVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxJavaVersion.FormattingEnabled = true;
-            this.ComboBoxJavaVersion.Location = new System.Drawing.Point(96, 396);
+            this.ComboBoxJavaVersion.Location = new System.Drawing.Point(96, 416);
             this.ComboBoxJavaVersion.Name = "ComboBoxJavaVersion";
             this.ComboBoxJavaVersion.Size = new System.Drawing.Size(453, 28);
             this.ComboBoxJavaVersion.TabIndex = 13;
@@ -151,7 +152,7 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(96, 363);
+            this.label4.Location = new System.Drawing.Point(96, 383);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(453, 32);
             this.label4.TabIndex = 12;
@@ -174,9 +175,9 @@
             // 
             this.LabelServerNameError.BackColor = System.Drawing.Color.Transparent;
             this.LabelServerNameError.ForeColor = System.Drawing.Color.Firebrick;
-            this.LabelServerNameError.Location = new System.Drawing.Point(190, 188);
+            this.LabelServerNameError.Location = new System.Drawing.Point(96, 154);
             this.LabelServerNameError.Name = "LabelServerNameError";
-            this.LabelServerNameError.Size = new System.Drawing.Size(248, 14);
+            this.LabelServerNameError.Size = new System.Drawing.Size(453, 12);
             this.LabelServerNameError.TabIndex = 10;
             this.LabelServerNameError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -190,6 +191,7 @@
             this.ButtonBuild.TabIndex = 7;
             this.ButtonBuild.Text = "Build Server";
             this.ButtonBuild.UseVisualStyleBackColor = true;
+            this.ButtonBuild.Click += new System.EventHandler(this.ButtonBuild_Click);
             // 
             // ComboServerVersion
             // 
@@ -200,6 +202,7 @@
             this.ComboServerVersion.Name = "ComboServerVersion";
             this.ComboServerVersion.Size = new System.Drawing.Size(453, 28);
             this.ComboServerVersion.TabIndex = 6;
+            this.ComboServerVersion.SelectedIndexChanged += new System.EventHandler(this.ComboServerVersion_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -215,15 +218,16 @@
             // 
             this.ComboBoxServerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxServerType.FormattingEnabled = true;
-            this.ComboBoxServerType.Location = new System.Drawing.Point(96, 239);
+            this.ComboBoxServerType.Location = new System.Drawing.Point(96, 222);
             this.ComboBoxServerType.Name = "ComboBoxServerType";
             this.ComboBoxServerType.Size = new System.Drawing.Size(453, 28);
             this.ComboBoxServerType.TabIndex = 4;
+            this.ComboBoxServerType.SelectedIndexChanged += new System.EventHandler(this.ComboBoxServerType_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(96, 207);
+            this.label2.Location = new System.Drawing.Point(96, 190);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(453, 32);
             this.label2.TabIndex = 3;
@@ -233,7 +237,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(96, 127);
+            this.label1.Location = new System.Drawing.Point(96, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(453, 32);
             this.label1.TabIndex = 1;
@@ -242,10 +246,11 @@
             // 
             // TextBoxServerName
             // 
-            this.TextBoxServerName.Location = new System.Drawing.Point(96, 159);
+            this.TextBoxServerName.Location = new System.Drawing.Point(96, 125);
             this.TextBoxServerName.Name = "TextBoxServerName";
             this.TextBoxServerName.Size = new System.Drawing.Size(453, 26);
             this.TextBoxServerName.TabIndex = 0;
+            this.TextBoxServerName.TextChanged += new System.EventHandler(this.TextBoxServerName_TextChanged);
             // 
             // miniToolStrip
             // 

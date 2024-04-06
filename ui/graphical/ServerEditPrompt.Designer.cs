@@ -41,19 +41,13 @@ namespace glowberry.ui.graphical
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.ButtonFolderBrowsing = new System.Windows.Forms.Button();
             this.ButtonFolderBrowsing2 = new System.Windows.Forms.Button();
             this.CheckBoxCracked = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.ComboBoxGamemode = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -63,7 +57,6 @@ namespace glowberry.ui.graphical
             this.ButtonDeleteServer = new System.Windows.Forms.Button();
             this.ButtonFolderBrowsing3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CheckBoxSpawnProtection = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -86,6 +79,9 @@ namespace glowberry.ui.graphical
             this.CheckBoxRollingPlayerdataBackups = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.NumericServerBackups = new System.Windows.Forms.NumericUpDown();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
@@ -165,22 +161,13 @@ namespace glowberry.ui.graphical
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(320, 314);
+            this.label7.Location = new System.Drawing.Point(320, 312);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(254, 27);
+            this.label7.Size = new System.Drawing.Size(251, 27);
             this.label7.TabIndex = 13;
             this.label7.Text = "Playerdata Backups Path";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(320, 343);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(253, 26);
-            this.textBox6.TabIndex = 12;
-            this.textBox6.Tag = "playerdatabackupspath";
             // 
             // ButtonFolderBrowsing
             // 
@@ -194,7 +181,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonFolderBrowsing2
             // 
-            this.ButtonFolderBrowsing2.Location = new System.Drawing.Point(579, 335);
+            this.ButtonFolderBrowsing2.Location = new System.Drawing.Point(579, 330);
             this.ButtonFolderBrowsing2.Name = "ButtonFolderBrowsing2";
             this.ButtonFolderBrowsing2.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowsing2.TabIndex = 16;
@@ -222,52 +209,6 @@ namespace glowberry.ui.graphical
             this.checkBox2.Text = "PVP";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(13, 236);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 28);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Gamemode";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(147, 236);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 28);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Difficulty";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ComboBoxGamemode
-            // 
-            this.ComboBoxGamemode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxGamemode.FormattingEnabled = true;
-            this.ComboBoxGamemode.Items.AddRange(new object[] { "Creative", "Survival" });
-            this.ComboBoxGamemode.Location = new System.Drawing.Point(12, 269);
-            this.ComboBoxGamemode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ComboBoxGamemode.Name = "ComboBoxGamemode";
-            this.ComboBoxGamemode.Size = new System.Drawing.Size(127, 28);
-            this.ComboBoxGamemode.TabIndex = 24;
-            this.ComboBoxGamemode.Tag = "gamemode";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] { "Hard", "Normal", "Easy" });
-            this.comboBox1.Location = new System.Drawing.Point(147, 269);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(127, 28);
-            this.comboBox1.TabIndex = 25;
-            this.comboBox1.Tag = "difficulty";
-            // 
             // checkBox6
             // 
             this.checkBox6.Location = new System.Drawing.Point(118, 94);
@@ -288,30 +229,21 @@ namespace glowberry.ui.graphical
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(14, 379);
+            this.label9.Location = new System.Drawing.Point(14, 312);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(262, 31);
+            this.label9.Size = new System.Drawing.Size(261, 27);
             this.label9.TabIndex = 30;
             this.label9.Text = "Seed";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(14, 415);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(261, 26);
-            this.textBox4.TabIndex = 29;
-            this.textBox4.Tag = "level-seed";
-            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(12, 457);
+            this.label4.Location = new System.Drawing.Point(14, 383);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(263, 38);
+            this.label4.Size = new System.Drawing.Size(261, 27);
             this.label4.TabIndex = 34;
             this.label4.Text = "World Size";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -319,17 +251,17 @@ namespace glowberry.ui.graphical
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(13, 303);
+            this.label10.Location = new System.Drawing.Point(14, 243);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(261, 38);
+            this.label10.Size = new System.Drawing.Size(261, 27);
             this.label10.TabIndex = 32;
             this.label10.Text = "Level Type";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(13, 341);
+            this.textBox7.Location = new System.Drawing.Point(13, 269);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(262, 26);
@@ -338,10 +270,10 @@ namespace glowberry.ui.graphical
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(12, 495);
+            this.numericUpDown3.Location = new System.Drawing.Point(14, 407);
             this.numericUpDown3.Maximum = new decimal(new int[] { 29999984, 0, 0, 0 });
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(263, 26);
+            this.numericUpDown3.Size = new System.Drawing.Size(261, 26);
             this.numericUpDown3.TabIndex = 34;
             this.numericUpDown3.Tag = "max-world-size";
             // 
@@ -381,7 +313,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonFolderBrowsing3
             // 
-            this.ButtonFolderBrowsing3.Location = new System.Drawing.Point(579, 407);
+            this.ButtonFolderBrowsing3.Location = new System.Drawing.Point(579, 398);
             this.ButtonFolderBrowsing3.Name = "ButtonFolderBrowsing3";
             this.ButtonFolderBrowsing3.Size = new System.Drawing.Size(42, 43);
             this.ButtonFolderBrowsing3.TabIndex = 41;
@@ -392,30 +324,21 @@ namespace glowberry.ui.graphical
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(320, 384);
+            this.label11.Location = new System.Drawing.Point(318, 383);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(254, 27);
+            this.label11.Size = new System.Drawing.Size(251, 27);
             this.label11.TabIndex = 40;
             this.label11.Text = "Java Runtime";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(320, 415);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(253, 26);
-            this.textBox3.TabIndex = 39;
-            this.textBox3.Tag = "javaruntimepath";
-            // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(318, 243);
+            this.label6.Location = new System.Drawing.Point(320, 243);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(254, 27);
+            this.label6.Size = new System.Drawing.Size(251, 27);
             this.label6.TabIndex = 11;
             this.label6.Text = "Server Backups Path";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -487,7 +410,7 @@ namespace glowberry.ui.graphical
             this.label12.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label12.Location = new System.Drawing.Point(298, 255);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(1, 275);
+            this.label12.Size = new System.Drawing.Size(1, 200);
             this.label12.TabIndex = 53;
             this.label12.Text = "label12";
             // 
@@ -569,7 +492,6 @@ namespace glowberry.ui.graphical
             this.checkBox8.Tag = "upnpon";
             this.checkBox8.Text = "Use UPnP";
             this.checkBox8.UseVisualStyleBackColor = true;
-            this.checkBox8.Visible = false;
             // 
             // CheckBoxRollingServerBackups
             // 
@@ -624,12 +546,42 @@ namespace glowberry.ui.graphical
             this.NumericServerBackups.Value = new decimal(new int[] { 1, 0, 0, -2147483648 });
             this.NumericServerBackups.Visible = false;
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(14, 338);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(261, 26);
+            this.textBox4.TabIndex = 72;
+            this.textBox4.Tag = "level-seed";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(318, 338);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(253, 26);
+            this.textBox6.TabIndex = 73;
+            this.textBox6.Tag = "playerdatabackupspath";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(318, 406);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(253, 26);
+            this.textBox3.TabIndex = 74;
+            this.textBox3.Tag = "javaruntimepath";
+            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(987, 546);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.NumericServerBackups);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.NumericPlayerdataBackups);
@@ -652,7 +604,6 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.ButtonFolderBrowsing3);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.ButtonDeleteServer);
             this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.checkBox2);
@@ -663,15 +614,9 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.ComboBoxGamemode);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.ButtonFolderBrowsing2);
             this.Controls.Add(this.ButtonFolderBrowsing);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label3);
@@ -751,12 +696,7 @@ namespace glowberry.ui.graphical
 
         private System.Windows.Forms.CheckBox checkBox4;
 
-        private System.Windows.Forms.ComboBox ComboBoxGamemode;
-        private System.Windows.Forms.ComboBox comboBox1;
-
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label8;
 
         private System.Windows.Forms.CheckBox CheckBoxCracked;
 

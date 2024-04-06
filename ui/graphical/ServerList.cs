@@ -140,6 +140,10 @@ namespace glowberry.ui.graphical
             
             // Sets the server stop button text to "Stop" by default
             GetRowFromName(editingApi.GetServerName()).Cells[6].Value = "Stop";
+            
+            // Sets the height of the row to 50 pixels and the padding to 5 pixels
+            GetRowFromName(editingApi.GetServerName()).Height = 35;
+            GetRowFromName(editingApi.GetServerName()).DefaultCellStyle.Padding = new Padding(3);
         }
 
         /// <summary>

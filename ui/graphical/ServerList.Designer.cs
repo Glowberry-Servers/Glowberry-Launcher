@@ -86,7 +86,7 @@
             // 
             // dnjlfe
             // 
-            this.dnjlfe.Location = new System.Drawing.Point(18, 15);
+            this.dnjlfe.Location = new System.Drawing.Point(19, 35);
             this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dnjlfe.Name = "dnjlfe";
             this.dnjlfe.Size = new System.Drawing.Size(21, 22);
@@ -126,6 +126,7 @@
             this.GridServerList.Name = "GridServerList";
             this.GridServerList.ReadOnly = true;
             this.GridServerList.RowHeadersVisible = false;
+            this.GridServerList.RowTemplate.Height = 100;
             this.GridServerList.ShowCellToolTips = false;
             this.GridServerList.ShowEditingIcon = false;
             this.GridServerList.Size = new System.Drawing.Size(1164, 565);
