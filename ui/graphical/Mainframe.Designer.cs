@@ -34,6 +34,7 @@
             this.ServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RadminVPNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schedulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainLayout = new System.Windows.Forms.Panel();
             this.MenuBar.SuspendLayout();
             this.SuspendLayout();
@@ -42,11 +43,10 @@
             // 
             this.MenuBar.BackColor = System.Drawing.Color.Crimson;
             this.MenuBar.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.MenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.NewServerToolStripMenuItem, this.ServersToolStripMenuItem, this.RadminVPNToolStripMenuItem, this.WikiToolStripMenuItem });
+            this.MenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.NewServerToolStripMenuItem, this.ServersToolStripMenuItem, this.RadminVPNToolStripMenuItem, this.WikiToolStripMenuItem, this.schedulerToolStripMenuItem });
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
             this.MenuBar.Name = "MenuBar";
-            this.MenuBar.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.MenuBar.Size = new System.Drawing.Size(800, 24);
+            this.MenuBar.Size = new System.Drawing.Size(1200, 33);
             this.MenuBar.TabIndex = 0;
             this.MenuBar.Text = "menuStrip1";
             // 
@@ -54,7 +54,7 @@
             // 
             this.NewServerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NewServerToolStripMenuItem.Name = "NewServerToolStripMenuItem";
-            this.NewServerToolStripMenuItem.Size = new System.Drawing.Size(43, 22);
+            this.NewServerToolStripMenuItem.Size = new System.Drawing.Size(59, 29);
             this.NewServerToolStripMenuItem.Text = "New";
             this.NewServerToolStripMenuItem.Click += new System.EventHandler(this.NewServerToolStripMenuItem_Click);
             // 
@@ -62,7 +62,7 @@
             // 
             this.ServersToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ServersToolStripMenuItem.Name = "ServersToolStripMenuItem";
-            this.ServersToolStripMenuItem.Size = new System.Drawing.Size(56, 22);
+            this.ServersToolStripMenuItem.Size = new System.Drawing.Size(81, 29);
             this.ServersToolStripMenuItem.Text = "Servers";
             this.ServersToolStripMenuItem.Click += new System.EventHandler(this.ServersToolStripMenuItem_Click);
             // 
@@ -72,7 +72,7 @@
             this.RadminVPNToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.RadminVPNToolStripMenuItem.Name = "RadminVPNToolStripMenuItem";
             this.RadminVPNToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RadminVPNToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.RadminVPNToolStripMenuItem.Size = new System.Drawing.Size(124, 29);
             this.RadminVPNToolStripMenuItem.Text = "Radmin VPN";
             this.RadminVPNToolStripMenuItem.Click += new System.EventHandler(this.RadminVPNToolStripMenuItem_Click);
             // 
@@ -81,28 +81,38 @@
             this.WikiToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.WikiToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.WikiToolStripMenuItem.Name = "WikiToolStripMenuItem";
-            this.WikiToolStripMenuItem.Size = new System.Drawing.Size(42, 22);
+            this.WikiToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
             this.WikiToolStripMenuItem.Text = "Wiki";
             this.WikiToolStripMenuItem.Click += new System.EventHandler(this.WikiToolStripMenuItem_Click);
+            // 
+            // schedulerToolStripMenuItem
+            // 
+            this.schedulerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.schedulerToolStripMenuItem.Name = "schedulerToolStripMenuItem";
+            this.schedulerToolStripMenuItem.Size = new System.Drawing.Size(101, 29);
+            this.schedulerToolStripMenuItem.Text = "Scheduler";
             // 
             // MainLayout
             // 
             this.MainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainLayout.Location = new System.Drawing.Point(0, 24);
+            this.MainLayout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MainLayout.Location = new System.Drawing.Point(0, 33);
+            this.MainLayout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MainLayout.Name = "MainLayout";
-            this.MainLayout.Size = new System.Drawing.Size(800, 426);
+            this.MainLayout.Size = new System.Drawing.Size(1200, 659);
             this.MainLayout.TabIndex = 1;
             // 
             // Mainframe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.MainLayout);
             this.Controls.Add(this.MenuBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuBar;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Mainframe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glowberry Launcher";
@@ -113,6 +123,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem schedulerToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem RadminVPNToolStripMenuItem;
 

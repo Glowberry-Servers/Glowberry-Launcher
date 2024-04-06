@@ -59,7 +59,7 @@ namespace glowberry.ui.graphical
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.CheckBoxSpawnProtection = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CheckBoxServerBackups = new System.Windows.Forms.CheckBox();
             this.mkeq = new System.Windows.Forms.Label();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.NumericSpawnProtection = new System.Windows.Forms.NumericUpDown();
@@ -67,12 +67,11 @@ namespace glowberry.ui.graphical
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.CheckBoxPlayerdataBackups = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.CheckBoxRollingServerBackups = new System.Windows.Forms.CheckBox();
             this.NumericPlayerdataBackups = new System.Windows.Forms.NumericUpDown();
@@ -82,11 +81,19 @@ namespace glowberry.ui.graphical
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.LabelPlayerdataDelay = new System.Windows.Forms.Label();
+            this.LabelServerDelay = new System.Windows.Forms.Label();
+            this.NumericPlayerdataBackupsDelay = new System.Windows.Forms.NumericUpDown();
+            this.NumericServerBackupsDelay = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericPlayerdataBackups)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericServerBackups)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericPlayerdataBackupsDelay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericServerBackupsDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -279,7 +286,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonOpenServerFolder
             // 
-            this.ButtonOpenServerFolder.Location = new System.Drawing.Point(668, 379);
+            this.ButtonOpenServerFolder.Location = new System.Drawing.Point(668, 354);
             this.ButtonOpenServerFolder.Name = "ButtonOpenServerFolder";
             this.ButtonOpenServerFolder.Size = new System.Drawing.Size(291, 52);
             this.ButtonOpenServerFolder.TabIndex = 35;
@@ -289,7 +296,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonSave
             // 
-            this.ButtonSave.Location = new System.Drawing.Point(668, 437);
+            this.ButtonSave.Location = new System.Drawing.Point(668, 412);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Size = new System.Drawing.Size(291, 52);
             this.ButtonSave.TabIndex = 36;
@@ -303,7 +310,7 @@ namespace glowberry.ui.graphical
             this.ButtonDeleteServer.FlatAppearance.BorderSize = 0;
             this.ButtonDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDeleteServer.ForeColor = System.Drawing.Color.White;
-            this.ButtonDeleteServer.Location = new System.Drawing.Point(668, 495);
+            this.ButtonDeleteServer.Location = new System.Drawing.Point(668, 470);
             this.ButtonDeleteServer.Name = "ButtonDeleteServer";
             this.ButtonDeleteServer.Size = new System.Drawing.Size(289, 32);
             this.ButtonDeleteServer.TabIndex = 38;
@@ -354,15 +361,16 @@ namespace glowberry.ui.graphical
             this.CheckBoxSpawnProtection.UseVisualStyleBackColor = true;
             this.CheckBoxSpawnProtection.CheckedChanged += new System.EventHandler(this.CheckBoxSpawnProtection_CheckedChanged);
             // 
-            // checkBox1
+            // CheckBoxServerBackups
             // 
-            this.checkBox1.Location = new System.Drawing.Point(797, 36);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(160, 35);
-            this.checkBox1.TabIndex = 42;
-            this.checkBox1.Tag = "serverbackupson";
-            this.checkBox1.Text = "Server Backups";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CheckBoxServerBackups.Location = new System.Drawing.Point(797, 36);
+            this.CheckBoxServerBackups.Name = "CheckBoxServerBackups";
+            this.CheckBoxServerBackups.Size = new System.Drawing.Size(160, 35);
+            this.CheckBoxServerBackups.TabIndex = 42;
+            this.CheckBoxServerBackups.Tag = "serverbackupson";
+            this.CheckBoxServerBackups.Text = "Server Backups";
+            this.CheckBoxServerBackups.UseVisualStyleBackColor = true;
+            this.CheckBoxServerBackups.CheckedChanged += new System.EventHandler(this.CheckBoxServerBackups_CheckedChanged);
             // 
             // mkeq
             // 
@@ -408,9 +416,9 @@ namespace glowberry.ui.graphical
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label12.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label12.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label12.Location = new System.Drawing.Point(298, 255);
+            this.label12.Location = new System.Drawing.Point(298, 245);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(1, 200);
+            this.label12.Size = new System.Drawing.Size(1, 205);
             this.label12.TabIndex = 53;
             this.label12.Text = "label12";
             // 
@@ -424,15 +432,16 @@ namespace glowberry.ui.graphical
             this.label13.Size = new System.Drawing.Size(1, 275);
             this.label13.TabIndex = 54;
             // 
-            // checkBox3
+            // CheckBoxPlayerdataBackups
             // 
-            this.checkBox3.Location = new System.Drawing.Point(797, 68);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(184, 34);
-            this.checkBox3.TabIndex = 56;
-            this.checkBox3.Tag = "playerdatabackupson";
-            this.checkBox3.Text = "Playerdata Backups";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.CheckBoxPlayerdataBackups.Location = new System.Drawing.Point(797, 68);
+            this.CheckBoxPlayerdataBackups.Name = "CheckBoxPlayerdataBackups";
+            this.CheckBoxPlayerdataBackups.Size = new System.Drawing.Size(184, 34);
+            this.CheckBoxPlayerdataBackups.TabIndex = 56;
+            this.CheckBoxPlayerdataBackups.Tag = "playerdatabackupson";
+            this.CheckBoxPlayerdataBackups.Text = "Playerdata Backups";
+            this.CheckBoxPlayerdataBackups.UseVisualStyleBackColor = true;
+            this.CheckBoxPlayerdataBackups.CheckedChanged += new System.EventHandler(this.CheckBoxPlayerdataBackups_CheckedChanged);
             // 
             // checkBox7
             // 
@@ -474,15 +483,6 @@ namespace glowberry.ui.graphical
             this.label14.TabIndex = 61;
             this.label14.Text = "label14";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(668, 321);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(291, 52);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "Configure Schedules";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // checkBox8
             // 
             this.checkBox8.Location = new System.Drawing.Point(335, 91);
@@ -495,7 +495,7 @@ namespace glowberry.ui.graphical
             // 
             // CheckBoxRollingServerBackups
             // 
-            this.CheckBoxRollingServerBackups.Location = new System.Drawing.Point(318, 464);
+            this.CheckBoxRollingServerBackups.Location = new System.Drawing.Point(12, 466);
             this.CheckBoxRollingServerBackups.Name = "CheckBoxRollingServerBackups";
             this.CheckBoxRollingServerBackups.Size = new System.Drawing.Size(256, 34);
             this.CheckBoxRollingServerBackups.TabIndex = 66;
@@ -506,18 +506,18 @@ namespace glowberry.ui.graphical
             // 
             // NumericPlayerdataBackups
             // 
-            this.NumericPlayerdataBackups.Location = new System.Drawing.Point(556, 499);
+            this.NumericPlayerdataBackups.Enabled = false;
+            this.NumericPlayerdataBackups.Location = new System.Drawing.Point(247, 502);
             this.NumericPlayerdataBackups.Minimum = new decimal(new int[] { 1, 0, 0, -2147483648 });
             this.NumericPlayerdataBackups.Name = "NumericPlayerdataBackups";
             this.NumericPlayerdataBackups.Size = new System.Drawing.Size(65, 26);
             this.NumericPlayerdataBackups.TabIndex = 69;
             this.NumericPlayerdataBackups.Tag = "rollingplayerdatabackups";
             this.NumericPlayerdataBackups.Value = new decimal(new int[] { 1, 0, 0, -2147483648 });
-            this.NumericPlayerdataBackups.Visible = false;
             // 
             // CheckBoxRollingPlayerdataBackups
             // 
-            this.CheckBoxRollingPlayerdataBackups.Location = new System.Drawing.Point(318, 495);
+            this.CheckBoxRollingPlayerdataBackups.Location = new System.Drawing.Point(12, 498);
             this.CheckBoxRollingPlayerdataBackups.Name = "CheckBoxRollingPlayerdataBackups";
             this.CheckBoxRollingPlayerdataBackups.Size = new System.Drawing.Size(255, 34);
             this.CheckBoxRollingPlayerdataBackups.TabIndex = 68;
@@ -528,7 +528,7 @@ namespace glowberry.ui.graphical
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(668, 263);
+            this.button2.Location = new System.Drawing.Point(668, 296);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(291, 52);
             this.button2.TabIndex = 70;
@@ -537,14 +537,14 @@ namespace glowberry.ui.graphical
             // 
             // NumericServerBackups
             // 
-            this.NumericServerBackups.Location = new System.Drawing.Point(556, 469);
+            this.NumericServerBackups.Enabled = false;
+            this.NumericServerBackups.Location = new System.Drawing.Point(247, 470);
             this.NumericServerBackups.Minimum = new decimal(new int[] { 1, 0, 0, -2147483648 });
             this.NumericServerBackups.Name = "NumericServerBackups";
             this.NumericServerBackups.Size = new System.Drawing.Size(65, 26);
             this.NumericServerBackups.TabIndex = 71;
             this.NumericServerBackups.Tag = "rollingserverbackups";
             this.NumericServerBackups.Value = new decimal(new int[] { 1, 0, 0, -2147483648 });
-            this.NumericServerBackups.Visible = false;
             // 
             // textBox4
             // 
@@ -573,12 +573,83 @@ namespace glowberry.ui.graphical
             this.textBox3.TabIndex = 74;
             this.textBox3.Tag = "javaruntimepath";
             // 
+            // LabelPlayerdataDelay
+            // 
+            this.LabelPlayerdataDelay.BackColor = System.Drawing.Color.Transparent;
+            this.LabelPlayerdataDelay.Location = new System.Drawing.Point(351, 501);
+            this.LabelPlayerdataDelay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelPlayerdataDelay.Name = "LabelPlayerdataDelay";
+            this.LabelPlayerdataDelay.Size = new System.Drawing.Size(206, 27);
+            this.LabelPlayerdataDelay.TabIndex = 75;
+            this.LabelPlayerdataDelay.Text = "Playerdata Backups Delay";
+            this.LabelPlayerdataDelay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LabelServerDelay
+            // 
+            this.LabelServerDelay.BackColor = System.Drawing.Color.Transparent;
+            this.LabelServerDelay.Location = new System.Drawing.Point(351, 470);
+            this.LabelServerDelay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelServerDelay.Name = "LabelServerDelay";
+            this.LabelServerDelay.Size = new System.Drawing.Size(204, 27);
+            this.LabelServerDelay.TabIndex = 76;
+            this.LabelServerDelay.Text = "Server Backups Delay";
+            this.LabelServerDelay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumericPlayerdataBackupsDelay
+            // 
+            this.NumericPlayerdataBackupsDelay.Location = new System.Drawing.Point(556, 502);
+            this.NumericPlayerdataBackupsDelay.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            this.NumericPlayerdataBackupsDelay.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
+            this.NumericPlayerdataBackupsDelay.Name = "NumericPlayerdataBackupsDelay";
+            this.NumericPlayerdataBackupsDelay.Size = new System.Drawing.Size(65, 26);
+            this.NumericPlayerdataBackupsDelay.TabIndex = 78;
+            this.NumericPlayerdataBackupsDelay.Tag = "playerdatabackupsdelay";
+            this.NumericPlayerdataBackupsDelay.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            // 
+            // NumericServerBackupsDelay
+            // 
+            this.NumericServerBackupsDelay.Location = new System.Drawing.Point(556, 470);
+            this.NumericServerBackupsDelay.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            this.NumericServerBackupsDelay.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+            this.NumericServerBackupsDelay.Name = "NumericServerBackupsDelay";
+            this.NumericServerBackupsDelay.Size = new System.Drawing.Size(65, 26);
+            this.NumericServerBackupsDelay.TabIndex = 77;
+            this.NumericServerBackupsDelay.Tag = "serverbackupsdelay";
+            this.NumericServerBackupsDelay.Value = new decimal(new int[] { 120, 0, 0, 0 });
+            // 
+            // label16
+            // 
+            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label16.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label16.Location = new System.Drawing.Point(10, 450);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(630, 1);
+            this.label16.TabIndex = 79;
+            this.label16.Text = "label16";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(622, 452);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 15);
+            this.label5.TabIndex = 80;
+            this.label5.Tag = "tooltip";
+            this.ToolTip.SetToolTip(this.label5, "The unit of measurement for the delays is MINUTES.");
+            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(987, 546);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.NumericPlayerdataBackupsDelay);
+            this.Controls.Add(this.NumericServerBackupsDelay);
+            this.Controls.Add(this.LabelServerDelay);
+            this.Controls.Add(this.LabelPlayerdataDelay);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox4);
@@ -588,12 +659,11 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.CheckBoxRollingPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingServerBackups);
             this.Controls.Add(this.checkBox8);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.CheckBoxPlayerdataBackups);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.checkBox9);
@@ -601,7 +671,7 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.NumericSpawnProtection);
             this.Controls.Add(this.mkeq);
             this.Controls.Add(this.CheckBoxSpawnProtection);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.CheckBoxServerBackups);
             this.Controls.Add(this.ButtonFolderBrowsing3);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.ButtonDeleteServer);
@@ -637,9 +707,21 @@ namespace glowberry.ui.graphical
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericPlayerdataBackups)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericServerBackups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericPlayerdataBackupsDelay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericServerBackupsDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label5;
+
+        private System.Windows.Forms.NumericUpDown NumericPlayerdataBackupsDelay;
+        private System.Windows.Forms.NumericUpDown NumericServerBackupsDelay;
+        private System.Windows.Forms.Label label16;
+
+        private System.Windows.Forms.Label LabelServerDelay;
+
+        private System.Windows.Forms.Label LabelPlayerdataDelay;
 
         private System.Windows.Forms.NumericUpDown NumericServerBackups;
         private System.Windows.Forms.NumericUpDown NumericPlayerdataBackups;
@@ -648,8 +730,6 @@ namespace glowberry.ui.graphical
 
         private System.Windows.Forms.CheckBox CheckBoxRollingServerBackups;
         private System.Windows.Forms.CheckBox CheckBoxRollingPlayerdataBackups;
-
-        private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.Label label15;
 
@@ -668,9 +748,9 @@ namespace glowberry.ui.graphical
         private System.Windows.Forms.CheckBox CheckBoxSpawnProtection;
 
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox CheckBoxPlayerdataBackups;
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox CheckBoxServerBackups;
 
         private System.Windows.Forms.Button ButtonFolderBrowsing3;
         private System.Windows.Forms.Label label11;

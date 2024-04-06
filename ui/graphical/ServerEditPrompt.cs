@@ -52,6 +52,8 @@ namespace glowberry.ui.graphical
             CheckBoxCracked.Checked = EditingAPI.Check(ServerLogicChecks.IsCracked);
             CheckBoxSpawnProtection.Checked = EditingAPI.Check(ServerLogicChecks.IsSpawnProtectionEnabled);
             TextBoxServerName.Text = EditingAPI.GetServerName();
+            CheckBoxRollingServerBackups.Checked = EditingAPI.GetServerInformation().RollingServerBackups > 0;
+            CheckBoxRollingPlayerdataBackups.Checked = EditingAPI.GetServerInformation().RollingPlayerdataBackups > 0;
 
             // Loads the icons for the folder browsing buttons
             ButtonFolderBrowsing.Image = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(ConfigurationManager.AppSettings.Get("Asset.Icon.FolderBrowser"))));
@@ -64,6 +66,10 @@ namespace glowberry.ui.graphical
                 label.BackgroundImage = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(ConfigurationManager.AppSettings.Get("Asset.Icon.Tooltip"))));
                 label.BackgroundImageLayout = ImageLayout.Zoom;
             }
+            
+            // Disables (or enables) the additional backup settings
+            CheckBoxPlayerdataBackups_CheckedChanged(null, null);
+            CheckBoxServerBackups_CheckedChanged(null, null);
         }
 
         /// <summary>
@@ -129,6 +135,10 @@ namespace glowberry.ui.graphical
             // sets the spawn protection to 0 if it is disabled in the form
             formInformation["online-mode"] = (!bool.Parse(formInformation["online-mode"])).ToString().ToLower();
             if (!CheckBoxSpawnProtection.Checked) formInformation["spawn-protection"] = "0";
+
+            // These two are exceptions just used as pointers internally, and this is the best way to remove them
+            formInformation.Remove("server");
+            formInformation.Remove("playerdata");
             
             return formInformation;
         }
@@ -272,7 +282,9 @@ namespace glowberry.ui.graphical
             {
                 // If the numeric box's name doesn't contain the tag of the checkbox, skip it.
                 if (!numericBox.Name.ToLower().Contains(checkBox.Tag.ToString())) continue;
-                numericBox.Visible = checkBox.Checked;
+                if (numericBox.Name.Contains("Delay")) continue;
+                
+                numericBox.Enabled = checkBox.Checked;
                 numericBox.Minimum = checkBox.Checked ? 1 : -1;
                 
                 // If the numeric box is not visible, save the value to the loaded values array before resetting it.
@@ -285,5 +297,22 @@ namespace glowberry.ui.graphical
                 numericBox.Value = checkBox.Checked ? numericBox.Value = definiteValue : numericBox.Value = -1;
             }
         }
+
+        /// <summary>
+        /// Changes the enabled status of the extra server backups information
+        /// to match the checked state of the server backups checkbox.
+        /// </summary>
+        private void CheckBoxServerBackups_CheckedChanged(object sender, EventArgs e) =>
+            CheckBoxRollingServerBackups.Enabled = NumericServerBackups.Enabled = 
+                LabelServerDelay.Enabled = NumericServerBackupsDelay.Enabled = CheckBoxServerBackups.Checked;
+
+
+        /// <summary>
+        /// Changes the enabled status of the extra playerdata backups information
+        /// to match the checked state of the playerdata backups checkbox.
+        /// </summary>
+        private void CheckBoxPlayerdataBackups_CheckedChanged(object sender, EventArgs e) =>
+            CheckBoxRollingPlayerdataBackups.Enabled = NumericPlayerdataBackups.Enabled =
+                LabelPlayerdataDelay.Enabled = NumericPlayerdataBackupsDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
     }
 }
