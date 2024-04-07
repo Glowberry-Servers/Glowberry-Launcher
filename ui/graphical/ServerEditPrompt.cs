@@ -115,7 +115,7 @@ namespace glowberry.ui.graphical
         /// <summary>
         /// Collects all the information from the form and returns it as a dictionary.
         /// </summary>
-        /// <returns>A dictionary containing all of the settings in the form as a dictionary</returns>
+        /// <returns>A dictionary containing all the settings in the form as a dictionary</returns>
         private Dictionary<string, string> FormToDictionary()
         {
             Dictionary<string, string> formInformation = new ();
@@ -123,7 +123,8 @@ namespace glowberry.ui.graphical
             // Gets the information from the valid controls, excluding the buttons and the checkboxes,
             // and adds it them to the dictionary
             Controls.OfType<Control>()
-                .Where(x => x.GetType() != typeof(CheckBox) && x.GetType() != typeof(Button) && x.Tag != null && x.Tag.ToString() != string.Empty).ToList()
+                .Where(x => x.GetType() != typeof(CheckBox) && x.GetType() != typeof(Button) && x.GetType() != typeof(Label) 
+                            && x.Tag != null && x.Tag.ToString() != string.Empty).ToList()
                 .ForEach(x => formInformation.Add(x.Tag.ToString(), x.Text));
 
             // Does the same, but specifically for checkboxes, since they have to be parsed for booleans

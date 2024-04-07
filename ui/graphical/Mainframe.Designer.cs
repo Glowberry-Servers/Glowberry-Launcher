@@ -95,7 +95,6 @@
             // MainLayout
             // 
             this.MainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainLayout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.MainLayout.Location = new System.Drawing.Point(0, 33);
             this.MainLayout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MainLayout.Name = "MainLayout";

@@ -173,7 +173,6 @@
             // 
             // LabelServerNameError
             // 
-            this.LabelServerNameError.BackColor = System.Drawing.Color.Transparent;
             this.LabelServerNameError.ForeColor = System.Drawing.Color.Firebrick;
             this.LabelServerNameError.Location = new System.Drawing.Point(96, 154);
             this.LabelServerNameError.Name = "LabelServerNameError";
