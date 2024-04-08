@@ -123,10 +123,10 @@
             this.RichTextBoxConsoleOutput.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.RichTextBoxConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RichTextBoxConsoleOutput.HideSelection = false;
-            this.RichTextBoxConsoleOutput.Location = new System.Drawing.Point(660, 24);
+            this.RichTextBoxConsoleOutput.Location = new System.Drawing.Point(665, 12);
             this.RichTextBoxConsoleOutput.Name = "RichTextBoxConsoleOutput";
             this.RichTextBoxConsoleOutput.ReadOnly = true;
-            this.RichTextBoxConsoleOutput.Size = new System.Drawing.Size(524, 635);
+            this.RichTextBoxConsoleOutput.Size = new System.Drawing.Size(524, 629);
             this.RichTextBoxConsoleOutput.TabIndex = 15;
             this.RichTextBoxConsoleOutput.Text = "";
             // 
@@ -163,7 +163,7 @@
             // 
             this.PictureBoxLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PictureBoxLoading.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxLoading.Location = new System.Drawing.Point(283, 581);
+            this.PictureBoxLoading.Location = new System.Drawing.Point(283, 563);
             this.PictureBoxLoading.Name = "PictureBoxLoading";
             this.PictureBoxLoading.Size = new System.Drawing.Size(77, 78);
             this.PictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,7 +184,7 @@
             // 
             this.ButtonBuild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonBuild.Enabled = false;
-            this.ButtonBuild.Location = new System.Drawing.Point(96, 581);
+            this.ButtonBuild.Location = new System.Drawing.Point(96, 563);
             this.ButtonBuild.Name = "ButtonBuild";
             this.ButtonBuild.Size = new System.Drawing.Size(453, 78);
             this.ButtonBuild.TabIndex = 7;

@@ -315,5 +315,10 @@ namespace glowberry.ui.graphical
         private void CheckBoxPlayerdataBackups_CheckedChanged(object sender, EventArgs e) =>
             CheckBoxRollingPlayerdataBackups.Enabled = NumericPlayerdataBackups.Enabled =
                 LabelPlayerdataDelay.Enabled = NumericPlayerdataBackupsDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
+
+        private void ButtonOpenConsole_Click(object sender, EventArgs e)
+        {
+            new ConsoleDialog().Show();
+        }
     }
 }

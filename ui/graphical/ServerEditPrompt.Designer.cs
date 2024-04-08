@@ -62,6 +62,7 @@ namespace glowberry.ui.graphical
             this.CheckBoxServerBackups = new System.Windows.Forms.CheckBox();
             this.mkeq = new System.Windows.Forms.Label();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.NumericSpawnProtection = new System.Windows.Forms.NumericUpDown();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
@@ -76,7 +77,7 @@ namespace glowberry.ui.graphical
             this.CheckBoxRollingServerBackups = new System.Windows.Forms.CheckBox();
             this.NumericPlayerdataBackups = new System.Windows.Forms.NumericUpDown();
             this.CheckBoxRollingPlayerdataBackups = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ButtonOpenConsole = new System.Windows.Forms.Button();
             this.NumericServerBackups = new System.Windows.Forms.NumericUpDown();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -86,7 +87,6 @@ namespace glowberry.ui.graphical
             this.NumericPlayerdataBackupsDelay = new System.Windows.Forms.NumericUpDown();
             this.NumericServerBackupsDelay = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
@@ -382,6 +382,16 @@ namespace glowberry.ui.graphical
             this.mkeq.Tag = "tooltip";
             this.ToolTip.SetToolTip(this.mkeq, resources.GetString("mkeq.ToolTip"));
             // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(622, 452);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 15);
+            this.label5.TabIndex = 80;
+            this.label5.Tag = "tooltip";
+            this.ToolTip.SetToolTip(this.label5, "The unit of measurement for the delays is MINUTES.");
+            // 
             // NumericSpawnProtection
             // 
             this.NumericSpawnProtection.Location = new System.Drawing.Point(797, 132);
@@ -526,14 +536,15 @@ namespace glowberry.ui.graphical
             this.CheckBoxRollingPlayerdataBackups.UseVisualStyleBackColor = true;
             this.CheckBoxRollingPlayerdataBackups.CheckedChanged += new System.EventHandler(this.HandleCheckBoxRollingBackupsNumeric);
             // 
-            // button2
+            // ButtonOpenConsole
             // 
-            this.button2.Location = new System.Drawing.Point(668, 296);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(291, 52);
-            this.button2.TabIndex = 70;
-            this.button2.Text = "Open Console";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ButtonOpenConsole.Location = new System.Drawing.Point(668, 296);
+            this.ButtonOpenConsole.Name = "ButtonOpenConsole";
+            this.ButtonOpenConsole.Size = new System.Drawing.Size(291, 52);
+            this.ButtonOpenConsole.TabIndex = 70;
+            this.ButtonOpenConsole.Text = "Open Console";
+            this.ButtonOpenConsole.UseVisualStyleBackColor = true;
+            this.ButtonOpenConsole.Click += new System.EventHandler(this.ButtonOpenConsole_Click);
             // 
             // NumericServerBackups
             // 
@@ -628,16 +639,6 @@ namespace glowberry.ui.graphical
             this.label16.TabIndex = 79;
             this.label16.Text = "label16";
             // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(622, 452);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 15);
-            this.label5.TabIndex = 80;
-            this.label5.Tag = "tooltip";
-            this.ToolTip.SetToolTip(this.label5, "The unit of measurement for the delays is MINUTES.");
-            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -654,7 +655,7 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.NumericServerBackups);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ButtonOpenConsole);
             this.Controls.Add(this.NumericPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingServerBackups);
@@ -726,7 +727,7 @@ namespace glowberry.ui.graphical
         private System.Windows.Forms.NumericUpDown NumericServerBackups;
         private System.Windows.Forms.NumericUpDown NumericPlayerdataBackups;
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ButtonOpenConsole;
 
         private System.Windows.Forms.CheckBox CheckBoxRollingServerBackups;
         private System.Windows.Forms.CheckBox CheckBoxRollingPlayerdataBackups;
