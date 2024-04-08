@@ -142,8 +142,10 @@
             // 
             // ComboBoxJavaVersion
             // 
+            this.ComboBoxJavaVersion.DropDownHeight = 200;
             this.ComboBoxJavaVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxJavaVersion.FormattingEnabled = true;
+            this.ComboBoxJavaVersion.IntegralHeight = false;
             this.ComboBoxJavaVersion.Location = new System.Drawing.Point(96, 416);
             this.ComboBoxJavaVersion.Name = "ComboBoxJavaVersion";
             this.ComboBoxJavaVersion.Size = new System.Drawing.Size(453, 28);
@@ -194,9 +196,11 @@
             // 
             // ComboServerVersion
             // 
+            this.ComboServerVersion.DropDownHeight = 200;
             this.ComboServerVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboServerVersion.Enabled = false;
             this.ComboServerVersion.FormattingEnabled = true;
+            this.ComboServerVersion.IntegralHeight = false;
             this.ComboServerVersion.Location = new System.Drawing.Point(96, 319);
             this.ComboServerVersion.Name = "ComboServerVersion";
             this.ComboServerVersion.Size = new System.Drawing.Size(453, 28);
@@ -215,8 +219,10 @@
             // 
             // ComboBoxServerType
             // 
+            this.ComboBoxServerType.DropDownHeight = 200;
             this.ComboBoxServerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxServerType.FormattingEnabled = true;
+            this.ComboBoxServerType.IntegralHeight = false;
             this.ComboBoxServerType.Location = new System.Drawing.Point(96, 222);
             this.ComboBoxServerType.Name = "ComboBoxServerType";
             this.ComboBoxServerType.Size = new System.Drawing.Size(453, 28);
