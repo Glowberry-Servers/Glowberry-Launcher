@@ -72,7 +72,6 @@ namespace glowberry.ui.graphical
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.CheckBoxRollingServerBackups = new System.Windows.Forms.CheckBox();
             this.NumericPlayerdataBackups = new System.Windows.Forms.NumericUpDown();
@@ -87,6 +86,8 @@ namespace glowberry.ui.graphical
             this.NumericPlayerdataBackupsDelay = new System.Windows.Forms.NumericUpDown();
             this.NumericServerBackupsDelay = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
+            this.CheckBoxStartOnBoot = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
@@ -484,15 +485,6 @@ namespace glowberry.ui.graphical
             this.label15.TabIndex = 60;
             this.label15.Text = "label15";
             // 
-            // label14
-            // 
-            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label14.Location = new System.Drawing.Point(168, 168);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(802, 1);
-            this.label14.TabIndex = 61;
-            this.label14.Text = "label14";
-            // 
             // checkBox8
             // 
             this.checkBox8.Location = new System.Drawing.Point(335, 91);
@@ -638,12 +630,33 @@ namespace glowberry.ui.graphical
             this.label16.TabIndex = 79;
             this.label16.Text = "label16";
             // 
+            // CheckBoxStartOnBoot
+            // 
+            this.CheckBoxStartOnBoot.Location = new System.Drawing.Point(335, 124);
+            this.CheckBoxStartOnBoot.Name = "CheckBoxStartOnBoot";
+            this.CheckBoxStartOnBoot.Size = new System.Drawing.Size(160, 45);
+            this.CheckBoxStartOnBoot.TabIndex = 81;
+            this.CheckBoxStartOnBoot.Tag = "";
+            this.CheckBoxStartOnBoot.Text = "Start on Boot";
+            this.CheckBoxStartOnBoot.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label14.Location = new System.Drawing.Point(168, 168);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(802, 1);
+            this.label14.TabIndex = 82;
+            this.label14.Text = "label14";
+            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(987, 546);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.CheckBoxStartOnBoot);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.NumericPlayerdataBackupsDelay);
@@ -659,7 +672,6 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.CheckBoxRollingPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingServerBackups);
             this.Controls.Add(this.checkBox8);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox7);
@@ -712,6 +724,8 @@ namespace glowberry.ui.graphical
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.CheckBox CheckBoxStartOnBoot;
 
         private System.Windows.Forms.Label label5;
 

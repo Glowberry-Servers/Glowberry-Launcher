@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 using glowberry.common;
+using glowberry.common.configuration;
 using glowberry.ui.graphical;
 
 namespace glowberry

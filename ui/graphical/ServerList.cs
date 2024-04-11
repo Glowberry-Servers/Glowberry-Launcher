@@ -14,7 +14,8 @@ using glowberry.common.caches;
 using glowberry.common.models;
 using LaminariaCore_General.common;
 using LaminariaCore_General.utils;
-using static glowberry.common.Constants;
+using static glowberry.common.configuration.Constants;
+
 
 namespace glowberry.ui.graphical
 {
@@ -127,23 +128,24 @@ namespace glowberry.ui.graphical
             // We have to parse the type to get the first word, since there could be snapshots of the type,
             // making the type similar to "serverType snapshots".
             string typeImagePath = FileSystem.GetFirstSectionNamed("assets").GetFirstDocumentNamed(info.Type.Split(' ')[0].ToLower() + ".png");
+            if (typeImagePath == null || !File.Exists(typeImagePath)) typeImagePath = FileSystem.GetFirstSectionNamed("assets").GetFirstDocumentNamed("unknown.png");
             
             // Invokes the addition of the server to the list in the main thread.
             Mainframe.INSTANCE.Invoke(new MethodInvoker(() =>
             {
                 Image typeImage = Image.FromFile(typeImagePath);
                 GridServerList.Rows.Add(typeImage, info.Version, editingApi.GetServerName()); 
+                
+                // Sets the server start button text to "Start" by default
+                GetRowFromName(editingApi.GetServerName()).Cells[5].Value = "Start";
+            
+                // Sets the server stop button text to "Stop" by default
+                GetRowFromName(editingApi.GetServerName()).Cells[6].Value = "Stop";
+            
+                // Sets the height of the row to 50 pixels and the padding to 5 pixels
+                GetRowFromName(editingApi.GetServerName()).Height = 35;
+                GetRowFromName(editingApi.GetServerName()).DefaultCellStyle.Padding = new Padding(3);
             }));
-
-            // Sets the server start button text to "Start" by default
-            GetRowFromName(editingApi.GetServerName()).Cells[5].Value = "Start";
-            
-            // Sets the server stop button text to "Stop" by default
-            GetRowFromName(editingApi.GetServerName()).Cells[6].Value = "Stop";
-            
-            // Sets the height of the row to 50 pixels and the padding to 5 pixels
-            GetRowFromName(editingApi.GetServerName()).Height = 35;
-            GetRowFromName(editingApi.GetServerName()).DefaultCellStyle.Padding = new Padding(3);
         }
 
         /// <summary>

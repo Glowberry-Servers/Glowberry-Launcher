@@ -9,10 +9,11 @@ using System.Reflection;
 using System.Windows.Forms;
 using glowberry.api.server;
 using glowberry.api.server.enumeration;
+using glowberry.utils;
 using LaminariaCore_General.common;
 using LaminariaCore_General.utils;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using static glowberry.common.Constants;
+using static glowberry.common.configuration.Constants;
 
 namespace glowberry.ui.graphical
 {
@@ -52,8 +53,12 @@ namespace glowberry.ui.graphical
             CheckBoxCracked.Checked = EditingAPI.Check(ServerLogicChecks.IsCracked);
             CheckBoxSpawnProtection.Checked = EditingAPI.Check(ServerLogicChecks.IsSpawnProtectionEnabled);
             TextBoxServerName.Text = EditingAPI.GetServerName();
+            
             CheckBoxRollingServerBackups.Checked = EditingAPI.GetServerInformation().RollingServerBackups > 0;
             CheckBoxRollingPlayerdataBackups.Checked = EditingAPI.GetServerInformation().RollingPlayerdataBackups > 0;
+            
+            CheckBoxStartOnBoot.Enabled = PermissionUtils.IsUserAdmin();
+            CheckBoxStartOnBoot.Checked = WindowsSchedulerUtils.IsServerInScheduler(EditingAPI.GetServerSection());
 
             // Loads the icons for the folder browsing buttons
             ButtonFolderBrowsing.Image = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(ConfigurationManager.AppSettings.Get("Asset.Icon.FolderBrowser"))));
@@ -205,6 +210,10 @@ namespace glowberry.ui.graphical
                 EditingAPI.ChangeServerName(TextBoxServerName.Text);
                 ServerList.INSTANCE.AddServerToList(EditingAPI.GetServerSection());
             }
+            
+            // Checks if the server needs to be either added or removed from the startup schedule
+            if (CheckBoxStartOnBoot.Checked) WindowsSchedulerUtils.AddServerToTaskScheduler(EditingAPI.GetServerSection());
+            else WindowsSchedulerUtils.RemoveServerFromTaskScheduler(EditingAPI.GetServerSection());
 
             Close();
         }
