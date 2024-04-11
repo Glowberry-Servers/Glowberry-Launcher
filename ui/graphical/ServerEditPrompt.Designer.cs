@@ -536,6 +536,7 @@ namespace glowberry.ui.graphical
             this.ButtonOpenConsole.TabIndex = 70;
             this.ButtonOpenConsole.Text = "Open Console";
             this.ButtonOpenConsole.UseVisualStyleBackColor = true;
+            this.ButtonOpenConsole.Click += new System.EventHandler(this.ButtonOpenConsole_Click);
             // 
             // NumericServerBackups
             // 

@@ -68,6 +68,12 @@
         <Compile Include="ui\graphical\NewServer.Designer.cs" />
         <Compile Include="ui\graphical\PreLoadingScreen.cs" />
         <Compile Include="ui\graphical\PreLoadingScreen.Designer.cs" />
+        <Compile Include="ui\graphical\scheduler\ConsoleInterface.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="ui\graphical\scheduler\ConsoleInterface.Designer.cs">
+          <DependentUpon>ConsoleInterface.cs</DependentUpon>
+        </Compile>
         <Compile Include="ui\graphical\scheduler\SchedulerInterface.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -80,6 +86,7 @@
         <Compile Include="ui\graphical\ServerList.Designer.cs" />
         <Compile Include="ui\render\CustomMenuStripRenderer.cs" />
         <Compile Include="ui\render\MainMenuStripColorTable.cs" />
+        <Compile Include="ui\render\RichTextBoxExtensions.cs" />
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -93,6 +100,9 @@
         <EmbeddedResource Include="ui\graphical\Mainframe.resx" />
         <EmbeddedResource Include="ui\graphical\NewServer.resx" />
         <EmbeddedResource Include="ui\graphical\PreLoadingScreen.resx" />
+        <EmbeddedResource Include="ui\graphical\scheduler\ConsoleInterface.resx">
+          <DependentUpon>ConsoleInterface.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="ui\graphical\scheduler\SchedulerInterface.resx">
           <DependentUpon>SchedulerInterface.cs</DependentUpon>
         </EmbeddedResource>
