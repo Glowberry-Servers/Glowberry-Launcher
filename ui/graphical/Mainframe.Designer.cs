@@ -46,6 +46,7 @@
             this.MenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.NewServerToolStripMenuItem, this.ServersToolStripMenuItem, this.RadminVPNToolStripMenuItem, this.WikiToolStripMenuItem, this.schedulerToolStripMenuItem });
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
             this.MenuBar.Name = "MenuBar";
+            this.MenuBar.Padding = new System.Windows.Forms.Padding(6, 2, 6, 2);
             this.MenuBar.Size = new System.Drawing.Size(1200, 33);
             this.MenuBar.TabIndex = 0;
             this.MenuBar.Text = "menuStrip1";

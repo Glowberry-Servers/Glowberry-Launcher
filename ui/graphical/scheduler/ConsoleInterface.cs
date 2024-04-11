@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using glowberry.api.server;
 using glowberry.common;
 using glowberry.ui.render;
@@ -40,6 +38,11 @@ public partial class ConsoleInterface : Form
     /// The task that updates the console with the latest output.
     /// </summary>
     private Task ConsoleUpdateTask { get; set; }
+    
+    /// <summary>
+    /// Whether the console should automatically scroll to the latest output or not.
+    /// </summary>
+    private bool AutoScroll { get; set; } = true;
 
     /// <summary>
     /// Main constructor for the ConsoleInterface class. Sets the server section to use for the console and
@@ -53,11 +56,12 @@ public partial class ConsoleInterface : Form
         this.TextBoxServerInput.AutoSize = false;
         this.TextBoxServerInput.Height = 32;
         this.TextBoxServerInput.SetInnerMargins(10);
-        this.RichTextBoxConsole.TextChanged += (sender, e) => this.RichTextBoxConsole.ScrollToCaret();
+        this.RichTextBoxConsole.TextChanged += (sender, e) => this.ScrollToEnd();
         this.RichTextBoxConsole.SetInnerMargins(10);
         
         this.ServerSection = serverSection;
         this.InteractionsAPI = new ServerInteractions(serverSection.SimpleName);
+        this.MenuBarConsoleOptions.Renderer = new CustomMenuStripRenderer(Color.DarkGray);
     }
     
     /// <summary>
@@ -66,10 +70,28 @@ public partial class ConsoleInterface : Form
     private void ConsoleInterface_Load(object sender, EventArgs e)
     {
         RichTextBoxConsole.SelectionStart = RichTextBoxConsole.Text.Length;
-        TextBoxServerInput.SelectionLength = 0;
         
         // Starts off the task to update the console with the latest output
         this.ConsoleUpdateTask = Task.Run(UpdateConsoleTask);
+    }
+    
+    /// <summary>
+    /// Stops the ongoing console update task and runs it again, clearing the console.
+    /// </summary>
+    private void MenuItemRefreshConsole_Click(object sender, EventArgs e)
+    {
+        this.ConsoleUpdateTask.Dispose();
+        RichTextBoxConsole.Clear();
+        this.ConsoleUpdateTask = Task.Run(UpdateConsoleTask);
+    }
+    
+    /// <summary>
+    /// Toggles the auto-scrolling feature of the console on or off.
+    /// </summary>
+    private void MenuItemAutoScroll_Click(object sender, EventArgs e)
+    {
+        this.AutoScroll = !this.AutoScroll;
+        MenuItemAutoScroll.BackColor = this.AutoScroll ? Color.DarkGray : Color.Gray;
     }
 
     /// <summary>
@@ -130,8 +152,6 @@ public partial class ConsoleInterface : Form
                     string logOutput = Encoding.UTF8.GetString(buffer);
                     
                     RichTextBoxConsole.AppendText(logOutput);
-                    RichTextBoxConsole.SelectionStart = RichTextBoxConsole.Text.Length;
-                    RichTextBoxConsole.ScrollToCaret();
                 }));
             }
 
@@ -153,8 +173,19 @@ public partial class ConsoleInterface : Form
             this.RichTextBoxConsole.SelectionColor = System.Drawing.Color.Firebrick;
 
             this.RichTextBoxConsole.AppendText($"[Glowberry] {message}\n");
-            this.RichTextBoxConsole.ScrollToCaret();
+            this.ScrollToEnd();
         }));
+    }
+
+    /// <summary>
+    /// Scrolls to the end of the console output.
+    /// <param name="force">Whether to forcefully scroll to the bottom and ignore the auto-scroll or not</param>
+    /// </summary>
+    private void ScrollToEnd(bool force = false)
+    {
+        if (!AutoScroll && !force) return;
+        RichTextBoxConsole.SelectionStart = RichTextBoxConsole.Text.Length;
+        RichTextBoxConsole.ScrollToCaret();
     }
 
     /// <summary>

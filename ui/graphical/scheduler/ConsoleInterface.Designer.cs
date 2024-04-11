@@ -34,15 +34,13 @@ partial class ConsoleInterface
         this.panel1 = new System.Windows.Forms.Panel();
         this.label2 = new System.Windows.Forms.Label();
         this.RichTextBoxConsole = new System.Windows.Forms.RichTextBox();
-        this.toolStrip1 = new System.Windows.Forms.ToolStrip();
         this.label1 = new System.Windows.Forms.Label();
         this.TextBoxServerInput = new System.Windows.Forms.TextBox();
-        this.ToolStripRefreshConsole = new System.Windows.Forms.ToolStripLabel();
-        this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-        this.ToolStripAutoScroll = new System.Windows.Forms.ToolStripLabel();
-        this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+        this.MenuBarConsoleOptions = new System.Windows.Forms.MenuStrip();
+        this.MenuItemRefreshConsole = new System.Windows.Forms.ToolStripMenuItem();
+        this.MenuItemAutoScroll = new System.Windows.Forms.ToolStripMenuItem();
         this.panel1.SuspendLayout();
-        this.toolStrip1.SuspendLayout();
+        this.MenuBarConsoleOptions.SuspendLayout();
         this.SuspendLayout();
         // 
         // panel1
@@ -50,9 +48,9 @@ partial class ConsoleInterface
         this.panel1.BackColor = System.Drawing.Color.Gray;
         this.panel1.Controls.Add(this.label2);
         this.panel1.Controls.Add(this.RichTextBoxConsole);
-        this.panel1.Controls.Add(this.toolStrip1);
         this.panel1.Controls.Add(this.label1);
         this.panel1.Controls.Add(this.TextBoxServerInput);
+        this.panel1.Controls.Add(this.MenuBarConsoleOptions);
         this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
         this.panel1.Location = new System.Drawing.Point(0, 0);
         this.panel1.Name = "panel1";
@@ -63,7 +61,7 @@ partial class ConsoleInterface
         // label2
         // 
         this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-        this.label2.Location = new System.Drawing.Point(10, 57);
+        this.label2.Location = new System.Drawing.Point(10, 51);
         this.label2.Name = "label2";
         this.label2.Size = new System.Drawing.Size(1177, 10);
         this.label2.TabIndex = 6;
@@ -73,23 +71,13 @@ partial class ConsoleInterface
         this.RichTextBoxConsole.BackColor = System.Drawing.Color.White;
         this.RichTextBoxConsole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         this.RichTextBoxConsole.Dock = System.Windows.Forms.DockStyle.Fill;
-        this.RichTextBoxConsole.Location = new System.Drawing.Point(10, 57);
+        this.RichTextBoxConsole.Location = new System.Drawing.Point(10, 51);
         this.RichTextBoxConsole.Name = "RichTextBoxConsole";
         this.RichTextBoxConsole.ReadOnly = true;
         this.RichTextBoxConsole.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-        this.RichTextBoxConsole.Size = new System.Drawing.Size(1177, 645);
+        this.RichTextBoxConsole.Size = new System.Drawing.Size(1177, 651);
         this.RichTextBoxConsole.TabIndex = 4;
         this.RichTextBoxConsole.Text = "";
-        // 
-        // toolStrip1
-        // 
-        this.toolStrip1.AutoSize = false;
-        this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.ToolStripRefreshConsole, this.toolStripSeparator1, this.ToolStripAutoScroll, this.toolStripSeparator2 });
-        this.toolStrip1.Location = new System.Drawing.Point(10, 10);
-        this.toolStrip1.Name = "toolStrip1";
-        this.toolStrip1.Size = new System.Drawing.Size(1177, 47);
-        this.toolStrip1.TabIndex = 5;
-        this.toolStrip1.Text = "toolStrip1";
         // 
         // label1
         // 
@@ -111,27 +99,31 @@ partial class ConsoleInterface
         this.TextBoxServerInput.TextChanged += new System.EventHandler(this.TextBoxServerInput_TextChanged);
         this.TextBoxServerInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxServerInput_KeyPress);
         // 
-        // ToolStripRefreshConsole
+        // MenuBarConsoleOptions
         // 
-        this.ToolStripRefreshConsole.Name = "ToolStripRefreshConsole";
-        this.ToolStripRefreshConsole.Size = new System.Drawing.Size(139, 44);
-        this.ToolStripRefreshConsole.Text = "Refresh Console";
+        this.MenuBarConsoleOptions.AutoSize = false;
+        this.MenuBarConsoleOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.MenuItemRefreshConsole, this.MenuItemAutoScroll });
+        this.MenuBarConsoleOptions.Location = new System.Drawing.Point(10, 10);
+        this.MenuBarConsoleOptions.Name = "MenuBarConsoleOptions";
+        this.MenuBarConsoleOptions.Padding = new System.Windows.Forms.Padding(6, 2, 6, 2);
+        this.MenuBarConsoleOptions.Size = new System.Drawing.Size(1177, 41);
+        this.MenuBarConsoleOptions.TabIndex = 7;
+        this.MenuBarConsoleOptions.Text = "menuStrip1";
         // 
-        // toolStripSeparator1
+        // MenuItemRefreshConsole
         // 
-        this.toolStripSeparator1.Name = "toolStripSeparator1";
-        this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
+        this.MenuItemRefreshConsole.Name = "MenuItemRefreshConsole";
+        this.MenuItemRefreshConsole.Size = new System.Drawing.Size(151, 37);
+        this.MenuItemRefreshConsole.Text = "Refresh Console";
+        this.MenuItemRefreshConsole.Click += new System.EventHandler(this.MenuItemRefreshConsole_Click);
         // 
-        // ToolStripAutoScroll
+        // MenuItemAutoScroll
         // 
-        this.ToolStripAutoScroll.Name = "ToolStripAutoScroll";
-        this.ToolStripAutoScroll.Size = new System.Drawing.Size(99, 44);
-        this.ToolStripAutoScroll.Text = "Auto Scroll";
-        // 
-        // toolStripSeparator2
-        // 
-        this.toolStripSeparator2.Name = "toolStripSeparator2";
-        this.toolStripSeparator2.Size = new System.Drawing.Size(6, 47);
+        this.MenuItemAutoScroll.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+        this.MenuItemAutoScroll.Name = "MenuItemAutoScroll";
+        this.MenuItemAutoScroll.Size = new System.Drawing.Size(111, 37);
+        this.MenuItemAutoScroll.Text = "Auto Scroll";
+        this.MenuItemAutoScroll.Click += new System.EventHandler(this.MenuItemAutoScroll_Click);
         // 
         // ConsoleInterface
         // 
@@ -139,30 +131,26 @@ partial class ConsoleInterface
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.ClientSize = new System.Drawing.Size(1197, 748);
         this.Controls.Add(this.panel1);
+        this.MainMenuStrip = this.MenuBarConsoleOptions;
         this.Name = "ConsoleInterface";
         this.Text = "ConsoleInterface";
         this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsoleInterface_FormClosing);
         this.Load += new System.EventHandler(this.ConsoleInterface_Load);
         this.panel1.ResumeLayout(false);
         this.panel1.PerformLayout();
-        this.toolStrip1.ResumeLayout(false);
-        this.toolStrip1.PerformLayout();
+        this.MenuBarConsoleOptions.ResumeLayout(false);
+        this.MenuBarConsoleOptions.PerformLayout();
         this.ResumeLayout(false);
     }
 
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+    private System.Windows.Forms.MenuStrip MenuBarConsoleOptions;
 
-    private System.Windows.Forms.ToolStripLabel ToolStripAutoScroll;
+    private System.Windows.Forms.ToolStripMenuItem MenuItemAutoScroll;
 
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-
-    private System.Windows.Forms.ToolStripLabel ToolStripRefreshConsole;
-
-    private System.Windows.Forms.ToolStrip toolStrip1;
+    private System.Windows.Forms.MenuStrip miniToolStrip;
+    private System.Windows.Forms.ToolStripMenuItem MenuItemRefreshConsole;
 
     private System.Windows.Forms.Label label2;
-
-    private System.Windows.Forms.ToolStrip miniToolStrip;
 
     private System.Windows.Forms.Label label1;
 
