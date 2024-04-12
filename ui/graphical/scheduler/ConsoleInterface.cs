@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using glowberry.api.server;
@@ -40,6 +41,11 @@ public partial class ConsoleInterface : Form
     private Task ConsoleUpdateTask { get; set; }
     
     /// <summary>
+    /// The token used to cancel the console update task.
+    /// </summary>
+    private CancellationTokenSource ConsoleUpdateToken { get; set; }
+    
+    /// <summary>
     /// Whether the console should automatically scroll to the latest output or not.
     /// </summary>
     private new bool AutoScroll { get; set; } = true;
@@ -72,7 +78,7 @@ public partial class ConsoleInterface : Form
         CenterToParent();
         
         // Starts off the task to update the console with the latest output
-        this.ConsoleUpdateTask = Task.Run(UpdateConsoleTask);
+        this.GenerateNewTask();
     }
     
     /// <summary>
@@ -82,12 +88,33 @@ public partial class ConsoleInterface : Form
     {
         this.MenuItemRefreshConsole.Enabled = false;
         
-        this.ConsoleUpdateTask.Dispose();
+        // Clears the console and enables the input box
         RichTextBoxConsole.Clear();
-        this.ConsoleUpdateTask = Task.Run(UpdateConsoleTask);
+        this.TextBoxServerInput.Enabled = true;
+
+        // Checks if the console update task is still running and cancels it if it is
+        if (ConsoleUpdateTask != null && ConsoleUpdateToken != null)
+        {
+            this.ConsoleUpdateToken.Cancel();
+            this.ConsoleUpdateTask.Dispose();
+        }
         
+        // Generates a new task to update the console with the latest output
+        this.GenerateNewTask();
         await Task.Delay(500);
         this.MenuItemRefreshConsole.Enabled = true;
+    }
+
+    /// <summary>
+    /// Creates a new task to update the console with the latest output and assigns
+    /// the new values to the ConsoleUpdateTask and ConsoleUpdateToken properties.
+    /// </summary>
+    private void GenerateNewTask()
+    {
+        this.ConsoleUpdateToken = new CancellationTokenSource();
+        
+        this.ConsoleUpdateTask = Task.Run(() => UpdateConsoleTask(this.ConsoleUpdateToken.Token),
+            this.ConsoleUpdateToken.Token);
     }
     
     /// <summary>
@@ -102,7 +129,7 @@ public partial class ConsoleInterface : Form
     /// <summary>
     /// Continuously updates the console with the latest output from the server.
     /// </summary>
-    private async void UpdateConsoleTask()
+    private async void UpdateConsoleTask(CancellationToken token)
     {
         // Keeps track of the byte size of the last log file
         long logBytesize = 0;
@@ -113,6 +140,9 @@ public partial class ConsoleInterface : Form
         
         while (true)
         {
+            // Checks if the task has been cancelled
+            if (token.IsCancellationRequested) break;
+            
             await Task.Delay(250);  // Updates the console every 250ms
             
             // Checks if the console has been disposed
