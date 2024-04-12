@@ -109,7 +109,6 @@
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.MainLayout);
             this.Controls.Add(this.MenuBar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MenuBar;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

@@ -327,6 +327,14 @@ namespace glowberry.ui.graphical
                     break;
                 }
                 
+                // In case the user clicks on... Any "Console" button.
+                case 7 when e.RowIndex >= 0:
+                {
+                    ConsoleInterface console = new ConsoleInterface(ServersSection.GetFirstSectionNamed(selectedRow.Cells[2].Value.ToString()));
+                    console.Show(Mainframe.INSTANCE);
+                    break;
+                }
+                
             }
         }
         

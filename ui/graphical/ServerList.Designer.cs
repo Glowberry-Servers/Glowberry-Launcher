@@ -31,15 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ServerListLayout = new System.Windows.Forms.Panel();
             this.jkghvcgjv = new System.Windows.Forms.Label();
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.dnjlfe = new System.Windows.Forms.Label();
             this.GridServerList = new System.Windows.Forms.DataGridView();
+            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.ServerType = new System.Windows.Forms.DataGridViewImageColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +49,7 @@
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Play = new System.Windows.Forms.DataGridViewButtonColumn();
             this.StopButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.ConsoleButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ServerListLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).BeginInit();
             this.SuspendLayout();
@@ -114,15 +116,16 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridServerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridServerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridServerList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.ServerType, this.Version, this.ServerName, this.ServerIp, this.Edit, this.Play, this.StopButton });
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridServerList.DefaultCellStyle = dataGridViewCellStyle5;
+            this.GridServerList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.ServerType, this.Version, this.ServerName, this.ServerIp, this.Edit, this.Play, this.StopButton, this.ConsoleButton });
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridServerList.DefaultCellStyle = dataGridViewCellStyle6;
+            this.GridServerList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.GridServerList.Location = new System.Drawing.Point(18, 72);
             this.GridServerList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GridServerList.MultiSelect = false;
@@ -209,6 +212,19 @@
             this.StopButton.Text = "Stop";
             this.StopButton.Width = 99;
             // 
+            // ConsoleButton
+            // 
+            this.ConsoleButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.GhostWhite;
+            this.ConsoleButton.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ConsoleButton.HeaderText = "                     ";
+            this.ConsoleButton.Name = "ConsoleButton";
+            this.ConsoleButton.ReadOnly = true;
+            this.ConsoleButton.Text = "Console";
+            this.ConsoleButton.UseColumnTextForButtonValue = true;
+            this.ConsoleButton.Width = 99;
+            // 
             // ServerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -222,6 +238,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.DataGridViewButtonColumn ConsoleButton;
 
         private System.Windows.Forms.DataGridViewButtonColumn StopButton;
 

@@ -32,6 +32,7 @@ partial class ConsoleInterface
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsoleInterface));
         this.panel1 = new System.Windows.Forms.Panel();
         this.label2 = new System.Windows.Forms.Label();
         this.RichTextBoxConsole = new System.Windows.Forms.RichTextBox();
@@ -132,9 +133,10 @@ partial class ConsoleInterface
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.ClientSize = new System.Drawing.Size(1233, 850);
         this.Controls.Add(this.panel1);
+        this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
         this.MainMenuStrip = this.MenuBarConsoleOptions;
         this.Name = "ConsoleInterface";
-        this.Text = "ConsoleInterface";
+        this.Text = "Console - ";
         this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsoleInterface_FormClosing);
         this.Load += new System.EventHandler(this.ConsoleInterface_Load);
         this.panel1.ResumeLayout(false);

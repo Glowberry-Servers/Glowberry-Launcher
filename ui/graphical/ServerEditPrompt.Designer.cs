@@ -76,7 +76,6 @@ namespace glowberry.ui.graphical
             this.CheckBoxRollingServerBackups = new System.Windows.Forms.CheckBox();
             this.NumericPlayerdataBackups = new System.Windows.Forms.NumericUpDown();
             this.CheckBoxRollingPlayerdataBackups = new System.Windows.Forms.CheckBox();
-            this.ButtonOpenConsole = new System.Windows.Forms.Button();
             this.NumericServerBackups = new System.Windows.Forms.NumericUpDown();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -287,7 +286,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonOpenServerFolder
             // 
-            this.ButtonOpenServerFolder.Location = new System.Drawing.Point(668, 354);
+            this.ButtonOpenServerFolder.Location = new System.Drawing.Point(666, 325);
             this.ButtonOpenServerFolder.Name = "ButtonOpenServerFolder";
             this.ButtonOpenServerFolder.Size = new System.Drawing.Size(291, 52);
             this.ButtonOpenServerFolder.TabIndex = 35;
@@ -297,7 +296,7 @@ namespace glowberry.ui.graphical
             // 
             // ButtonSave
             // 
-            this.ButtonSave.Location = new System.Drawing.Point(668, 412);
+            this.ButtonSave.Location = new System.Drawing.Point(666, 383);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Size = new System.Drawing.Size(291, 52);
             this.ButtonSave.TabIndex = 36;
@@ -311,7 +310,7 @@ namespace glowberry.ui.graphical
             this.ButtonDeleteServer.FlatAppearance.BorderSize = 0;
             this.ButtonDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDeleteServer.ForeColor = System.Drawing.Color.White;
-            this.ButtonDeleteServer.Location = new System.Drawing.Point(668, 470);
+            this.ButtonDeleteServer.Location = new System.Drawing.Point(666, 441);
             this.ButtonDeleteServer.Name = "ButtonDeleteServer";
             this.ButtonDeleteServer.Size = new System.Drawing.Size(289, 32);
             this.ButtonDeleteServer.TabIndex = 38;
@@ -528,16 +527,6 @@ namespace glowberry.ui.graphical
             this.CheckBoxRollingPlayerdataBackups.UseVisualStyleBackColor = true;
             this.CheckBoxRollingPlayerdataBackups.CheckedChanged += new System.EventHandler(this.HandleCheckBoxRollingBackupsNumeric);
             // 
-            // ButtonOpenConsole
-            // 
-            this.ButtonOpenConsole.Location = new System.Drawing.Point(668, 296);
-            this.ButtonOpenConsole.Name = "ButtonOpenConsole";
-            this.ButtonOpenConsole.Size = new System.Drawing.Size(291, 52);
-            this.ButtonOpenConsole.TabIndex = 70;
-            this.ButtonOpenConsole.Text = "Open Console";
-            this.ButtonOpenConsole.UseVisualStyleBackColor = true;
-            this.ButtonOpenConsole.Click += new System.EventHandler(this.ButtonOpenConsole_Click);
-            // 
             // NumericServerBackups
             // 
             this.NumericServerBackups.Enabled = false;
@@ -668,7 +657,6 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.NumericServerBackups);
-            this.Controls.Add(this.ButtonOpenConsole);
             this.Controls.Add(this.NumericPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingServerBackups);
@@ -740,8 +728,6 @@ namespace glowberry.ui.graphical
 
         private System.Windows.Forms.NumericUpDown NumericServerBackups;
         private System.Windows.Forms.NumericUpDown NumericPlayerdataBackups;
-
-        private System.Windows.Forms.Button ButtonOpenConsole;
 
         private System.Windows.Forms.CheckBox CheckBoxRollingServerBackups;
         private System.Windows.Forms.CheckBox CheckBoxRollingPlayerdataBackups;

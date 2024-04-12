@@ -52,7 +52,6 @@ public partial class ConsoleInterface : Form
     public ConsoleInterface(Section serverSection)
     {
         InitializeComponent();
-        this.StartPosition = FormStartPosition.CenterParent;
         this.TextBoxServerInput.AutoSize = false;
         this.TextBoxServerInput.Height = 32;
         this.TextBoxServerInput.SetInnerMargins(10);
@@ -70,6 +69,7 @@ public partial class ConsoleInterface : Form
     private void ConsoleInterface_Load(object sender, EventArgs e)
     {
         RichTextBoxConsole.SelectionStart = RichTextBoxConsole.Text.Length;
+        CenterToParent();
         
         // Starts off the task to update the console with the latest output
         this.ConsoleUpdateTask = Task.Run(UpdateConsoleTask);
@@ -78,11 +78,16 @@ public partial class ConsoleInterface : Form
     /// <summary>
     /// Stops the ongoing console update task and runs it again, clearing the console.
     /// </summary>
-    private void MenuItemRefreshConsole_Click(object sender, EventArgs e)
+    private async void MenuItemRefreshConsole_Click(object sender, EventArgs e)
     {
+        this.MenuItemRefreshConsole.Enabled = false;
+        
         this.ConsoleUpdateTask.Dispose();
         RichTextBoxConsole.Clear();
         this.ConsoleUpdateTask = Task.Run(UpdateConsoleTask);
+        
+        await Task.Delay(500);
+        this.MenuItemRefreshConsole.Enabled = true;
     }
     
     /// <summary>
