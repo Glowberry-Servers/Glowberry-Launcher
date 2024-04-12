@@ -42,7 +42,7 @@ public partial class ConsoleInterface : Form
     /// <summary>
     /// Whether the console should automatically scroll to the latest output or not.
     /// </summary>
-    private bool AutoScroll { get; set; } = true;
+    private new bool AutoScroll { get; set; } = true;
 
     /// <summary>
     /// Main constructor for the ConsoleInterface class. Sets the server section to use for the console and
@@ -61,7 +61,7 @@ public partial class ConsoleInterface : Form
         
         this.ServerSection = serverSection;
         this.InteractionsAPI = new ServerInteractions(serverSection.SimpleName);
-        this.MenuBarConsoleOptions.Renderer = new CustomMenuStripRenderer(Color.DarkGray);
+        TextBoxServerInput_TextChanged(null, null);
     }
     
     /// <summary>
@@ -91,7 +91,7 @@ public partial class ConsoleInterface : Form
     private void MenuItemAutoScroll_Click(object sender, EventArgs e)
     {
         this.AutoScroll = !this.AutoScroll;
-        MenuItemAutoScroll.BackColor = this.AutoScroll ? Color.DarkGray : Color.Gray;
+        MenuItemAutoScroll.Text = this.AutoScroll ? "Auto-Scroll Enabled" : "Auto-Scroll Disabled";
     }
 
     /// <summary>
@@ -125,11 +125,11 @@ public partial class ConsoleInterface : Form
                 // Checks if the server is still running, and if not, writes a message to the console in red saying so.
                 if (!this.InteractionsAPI.IsRunning() || latestLogPath == null)
                 {
-                    SendConsoleError("This server is not running. Please start it and run the console again.");
-                    TextBoxServerInput.Enabled = false;
+                    SendConsoleError("This server is not running. Please start it and refresh the console.");
+                    this.Invoke( new MethodInvoker( () => TextBoxServerInput.Enabled = false));
                     break;
                 }
-
+                
                 // Seeks the position indicated by the log bytesize and reads the text from that point onwards
                 this.Invoke(new MethodInvoker(() =>
                 {
@@ -221,6 +221,8 @@ public partial class ConsoleInterface : Form
         e.Handled = true;
         
         string command = TextBoxServerInput.Text.Substring(2);
+        if (command.Length == 0) return;
+        
         this.InteractionsAPI.WriteToServerStdin(command);
         
         TextBoxServerInput.Clear();
