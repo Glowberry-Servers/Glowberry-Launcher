@@ -32,6 +32,8 @@ namespace glowberry
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Logging.Logger.LoggingFilePath = Path.Combine(Constants.FileSystem.AddSection("logs").SectionFullPath, Logging.Logger.LoggingSession + ".log");
+            Logging.MinimumConsoleLoggingLevel = LoggingLevel.Info;
+            Logging.MinimumFileLoggingLevel = LoggingLevel.Debug;
 
             try
             {

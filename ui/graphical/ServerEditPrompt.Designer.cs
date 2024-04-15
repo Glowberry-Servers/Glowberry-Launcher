@@ -72,7 +72,6 @@ namespace glowberry.ui.graphical
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.CheckBoxRollingServerBackups = new System.Windows.Forms.CheckBox();
             this.NumericPlayerdataBackups = new System.Windows.Forms.NumericUpDown();
             this.CheckBoxRollingPlayerdataBackups = new System.Windows.Forms.CheckBox();
@@ -85,8 +84,10 @@ namespace glowberry.ui.graphical
             this.NumericPlayerdataBackupsDelay = new System.Windows.Forms.NumericUpDown();
             this.NumericServerBackupsDelay = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.CheckBoxStartOnBoot = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.CheckBoxHandleFirewall = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.CheckBoxStartOnBoot = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
@@ -200,7 +201,7 @@ namespace glowberry.ui.graphical
             // 
             this.CheckBoxCracked.Location = new System.Drawing.Point(170, 27);
             this.CheckBoxCracked.Name = "CheckBoxCracked";
-            this.CheckBoxCracked.Size = new System.Drawing.Size(105, 45);
+            this.CheckBoxCracked.Size = new System.Drawing.Size(162, 45);
             this.CheckBoxCracked.TabIndex = 17;
             this.CheckBoxCracked.Tag = "online-mode";
             this.CheckBoxCracked.Text = "Cracked";
@@ -210,7 +211,7 @@ namespace glowberry.ui.graphical
             // 
             this.checkBox2.Location = new System.Drawing.Point(170, 59);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(105, 45);
+            this.checkBox2.Size = new System.Drawing.Size(162, 45);
             this.checkBox2.TabIndex = 18;
             this.checkBox2.Tag = "pvp";
             this.checkBox2.Text = "PVP";
@@ -405,7 +406,7 @@ namespace glowberry.ui.graphical
             // 
             this.checkBox5.Location = new System.Drawing.Point(335, 27);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(160, 45);
+            this.checkBox5.Size = new System.Drawing.Size(162, 45);
             this.checkBox5.TabIndex = 51;
             this.checkBox5.Tag = "allow-flight";
             this.checkBox5.Text = "Allow Flight";
@@ -413,9 +414,9 @@ namespace glowberry.ui.graphical
             // 
             // checkBox9
             // 
-            this.checkBox9.Location = new System.Drawing.Point(335, 59);
+            this.checkBox9.Location = new System.Drawing.Point(503, 27);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(114, 45);
+            this.checkBox9.Size = new System.Drawing.Size(162, 45);
             this.checkBox9.TabIndex = 52;
             this.checkBox9.Tag = "usegui";
             this.checkBox9.Text = "Use GUI";
@@ -457,7 +458,7 @@ namespace glowberry.ui.graphical
             // 
             this.checkBox7.Location = new System.Drawing.Point(170, 91);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(105, 45);
+            this.checkBox7.Size = new System.Drawing.Size(162, 45);
             this.checkBox7.TabIndex = 58;
             this.checkBox7.Tag = "hardcore";
             this.checkBox7.Text = "Hardcore";
@@ -483,16 +484,6 @@ namespace glowberry.ui.graphical
             this.label15.Size = new System.Drawing.Size(1, 131);
             this.label15.TabIndex = 60;
             this.label15.Text = "label15";
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.Location = new System.Drawing.Point(335, 91);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(114, 45);
-            this.checkBox8.TabIndex = 65;
-            this.checkBox8.Tag = "upnpon";
-            this.checkBox8.Text = "Use UPnP";
-            this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // CheckBoxRollingServerBackups
             // 
@@ -620,16 +611,6 @@ namespace glowberry.ui.graphical
             this.label16.TabIndex = 79;
             this.label16.Text = "label16";
             // 
-            // CheckBoxStartOnBoot
-            // 
-            this.CheckBoxStartOnBoot.Location = new System.Drawing.Point(335, 124);
-            this.CheckBoxStartOnBoot.Name = "CheckBoxStartOnBoot";
-            this.CheckBoxStartOnBoot.Size = new System.Drawing.Size(160, 45);
-            this.CheckBoxStartOnBoot.TabIndex = 81;
-            this.CheckBoxStartOnBoot.Tag = "";
-            this.CheckBoxStartOnBoot.Text = "Start on Boot";
-            this.CheckBoxStartOnBoot.UseVisualStyleBackColor = true;
-            // 
             // label14
             // 
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -639,14 +620,46 @@ namespace glowberry.ui.graphical
             this.label14.TabIndex = 82;
             this.label14.Text = "label14";
             // 
+            // CheckBoxHandleFirewall
+            // 
+            this.CheckBoxHandleFirewall.Location = new System.Drawing.Point(335, 59);
+            this.CheckBoxHandleFirewall.Name = "CheckBoxHandleFirewall";
+            this.CheckBoxHandleFirewall.Size = new System.Drawing.Size(160, 45);
+            this.CheckBoxHandleFirewall.TabIndex = 83;
+            this.CheckBoxHandleFirewall.Tag = "handlefirewall";
+            this.CheckBoxHandleFirewall.Text = "Handle Firewall";
+            this.CheckBoxHandleFirewall.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.Location = new System.Drawing.Point(335, 91);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(162, 45);
+            this.checkBox8.TabIndex = 84;
+            this.checkBox8.Tag = "upnpon";
+            this.checkBox8.Text = "Use UPnP";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // CheckBoxStartOnBoot
+            // 
+            this.CheckBoxStartOnBoot.Location = new System.Drawing.Point(335, 123);
+            this.CheckBoxStartOnBoot.Name = "CheckBoxStartOnBoot";
+            this.CheckBoxStartOnBoot.Size = new System.Drawing.Size(162, 45);
+            this.CheckBoxStartOnBoot.TabIndex = 85;
+            this.CheckBoxStartOnBoot.Tag = "";
+            this.CheckBoxStartOnBoot.Text = "Start on Boot";
+            this.CheckBoxStartOnBoot.UseVisualStyleBackColor = true;
+            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(987, 546);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.CheckBoxStartOnBoot);
+            this.Controls.Add(this.checkBox8);
+            this.Controls.Add(this.CheckBoxHandleFirewall);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.NumericPlayerdataBackupsDelay);
@@ -660,7 +673,6 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.NumericPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingPlayerdataBackups);
             this.Controls.Add(this.CheckBoxRollingServerBackups);
-            this.Controls.Add(this.checkBox8);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox7);
@@ -713,6 +725,8 @@ namespace glowberry.ui.graphical
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.CheckBox CheckBoxHandleFirewall;
 
         private System.Windows.Forms.CheckBox CheckBoxStartOnBoot;
 

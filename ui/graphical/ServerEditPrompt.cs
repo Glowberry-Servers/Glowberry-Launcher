@@ -57,7 +57,7 @@ namespace glowberry.ui.graphical
             CheckBoxRollingServerBackups.Checked = EditingAPI.GetServerInformation().RollingServerBackups > 0;
             CheckBoxRollingPlayerdataBackups.Checked = EditingAPI.GetServerInformation().RollingPlayerdataBackups > 0;
             
-            CheckBoxStartOnBoot.Enabled = PermissionUtils.IsUserAdmin();
+            CheckBoxStartOnBoot.Enabled = CheckBoxHandleFirewall.Enabled = PermissionUtils.IsUserAdmin();
             CheckBoxStartOnBoot.Checked = WindowsSchedulerUtils.IsServerInScheduler(EditingAPI.GetServerSection());
 
             // Loads the icons for the folder browsing buttons

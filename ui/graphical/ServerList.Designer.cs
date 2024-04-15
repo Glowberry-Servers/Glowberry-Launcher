@@ -41,7 +41,6 @@
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.dnjlfe = new System.Windows.Forms.Label();
             this.GridServerList = new System.Windows.Forms.DataGridView();
-            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.ServerType = new System.Windows.Forms.DataGridViewImageColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +49,7 @@
             this.Play = new System.Windows.Forms.DataGridViewButtonColumn();
             this.StopButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ConsoleButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.ServerListLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).BeginInit();
             this.SuspendLayout();
@@ -135,7 +135,7 @@
             this.GridServerList.RowTemplate.Height = 100;
             this.GridServerList.ShowCellToolTips = false;
             this.GridServerList.ShowEditingIcon = false;
-            this.GridServerList.Size = new System.Drawing.Size(1164, 565);
+            this.GridServerList.Size = new System.Drawing.Size(1164, 584);
             this.GridServerList.TabIndex = 6;
             this.GridServerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridServerList_CellContentClick);
             this.GridServerList.SelectionChanged += new System.EventHandler(this.GridServerList_SelectionChanged);
