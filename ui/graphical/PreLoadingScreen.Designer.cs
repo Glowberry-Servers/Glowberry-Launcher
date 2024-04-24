@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
-using static glowberry.common.Constants;
+using static glowberry.common.configuration.Constants;
 
 namespace glowberry.ui.graphical
 {

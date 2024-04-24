@@ -9,9 +9,11 @@ using System.Reflection;
 using System.Windows.Forms;
 using glowberry.api.server;
 using glowberry.api.server.enumeration;
+using glowberry.utils;
 using LaminariaCore_General.common;
 using LaminariaCore_General.utils;
-using static glowberry.common.Constants;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using static glowberry.common.configuration.Constants;
 
 namespace glowberry.ui.graphical
 {
@@ -26,6 +28,12 @@ namespace glowberry.ui.graphical
         private ServerEditing EditingAPI { get; set; }
 
         /// <summary>
+        /// The values of the rolling backups that have been loaded into the form. This is useful
+        /// for resetting the values if the user decides to disable and re-enable the rolling backups.
+        /// </summary>
+        private int[] LoadedRollingValues { get; set; } = new int[2];
+
+        /// <summary>
         /// Main constructor for the ServerEditPrompt form. Initialises the form and loads the
         /// information from the server.properties file into the form.
         /// </summary>
@@ -38,11 +46,19 @@ namespace glowberry.ui.graphical
             
             // Loads the properties and settings into the form
             LoadToForm(EditingAPI.GetCurrentServerSettings());
+            LoadedRollingValues[0] = EditingAPI.GetServerInformation().RollingServerBackups;
+            LoadedRollingValues[1] = EditingAPI.GetServerInformation().RollingPlayerdataBackups;
 
             // Edits some values in the form that have to be manually placed
             CheckBoxCracked.Checked = EditingAPI.Check(ServerLogicChecks.IsCracked);
             CheckBoxSpawnProtection.Checked = EditingAPI.Check(ServerLogicChecks.IsSpawnProtectionEnabled);
             TextBoxServerName.Text = EditingAPI.GetServerName();
+            
+            CheckBoxRollingServerBackups.Checked = EditingAPI.GetServerInformation().RollingServerBackups > 0;
+            CheckBoxRollingPlayerdataBackups.Checked = EditingAPI.GetServerInformation().RollingPlayerdataBackups > 0;
+            
+            CheckBoxStartOnBoot.Enabled = CheckBoxHandleFirewall.Enabled = PermissionUtils.IsUserAdmin();
+            CheckBoxStartOnBoot.Checked = WindowsSchedulerUtils.IsServerInScheduler(EditingAPI.GetServerSection());
 
             // Loads the icons for the folder browsing buttons
             ButtonFolderBrowsing.Image = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(ConfigurationManager.AppSettings.Get("Asset.Icon.FolderBrowser"))));
@@ -55,6 +71,10 @@ namespace glowberry.ui.graphical
                 label.BackgroundImage = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(ConfigurationManager.AppSettings.Get("Asset.Icon.Tooltip"))));
                 label.BackgroundImageLayout = ImageLayout.Zoom;
             }
+            
+            // Disables (or enables) the additional backup settings
+            CheckBoxPlayerdataBackups_CheckedChanged(null, null);
+            CheckBoxServerBackups_CheckedChanged(null, null);
         }
 
         /// <summary>
@@ -100,7 +120,7 @@ namespace glowberry.ui.graphical
         /// <summary>
         /// Collects all the information from the form and returns it as a dictionary.
         /// </summary>
-        /// <returns>A dictionary containing all of the settings in the form as a dictionary</returns>
+        /// <returns>A dictionary containing all the settings in the form as a dictionary</returns>
         private Dictionary<string, string> FormToDictionary()
         {
             Dictionary<string, string> formInformation = new ();
@@ -108,7 +128,8 @@ namespace glowberry.ui.graphical
             // Gets the information from the valid controls, excluding the buttons and the checkboxes,
             // and adds it them to the dictionary
             Controls.OfType<Control>()
-                .Where(x => x.GetType() != typeof(CheckBox) && x.GetType() != typeof(Button) && x.Tag != null && x.Tag.ToString() != string.Empty).ToList()
+                .Where(x => x.GetType() != typeof(CheckBox) && x.GetType() != typeof(Button) && x.GetType() != typeof(Label) 
+                            && x.Tag != null && x.Tag.ToString() != string.Empty).ToList()
                 .ForEach(x => formInformation.Add(x.Tag.ToString(), x.Text));
 
             // Does the same, but specifically for checkboxes, since they have to be parsed for booleans
@@ -120,6 +141,10 @@ namespace glowberry.ui.graphical
             // sets the spawn protection to 0 if it is disabled in the form
             formInformation["online-mode"] = (!bool.Parse(formInformation["online-mode"])).ToString().ToLower();
             if (!CheckBoxSpawnProtection.Checked) formInformation["spawn-protection"] = "0";
+
+            // These two are exceptions just used as pointers internally, and this is the best way to remove them
+            formInformation.Remove("server");
+            formInformation.Remove("playerdata");
             
             return formInformation;
         }
@@ -185,6 +210,10 @@ namespace glowberry.ui.graphical
                 EditingAPI.ChangeServerName(TextBoxServerName.Text);
                 ServerList.INSTANCE.AddServerToList(EditingAPI.GetServerSection());
             }
+            
+            // Checks if the server needs to be either added or removed from the startup schedule
+            if (CheckBoxStartOnBoot.Checked) WindowsSchedulerUtils.AddServerToTaskScheduler(EditingAPI.GetServerSection());
+            else WindowsSchedulerUtils.RemoveServerFromTaskScheduler(EditingAPI.GetServerSection());
 
             Close();
         }
@@ -237,8 +266,8 @@ namespace glowberry.ui.graphical
             TextBox boundTextBox =
                 Controls.OfType<TextBox>().First(x => x.Tag.ToString() == button.Tag.ToString());
 
-            DialogResult result = FolderBrowser.ShowDialog();
-            if (result == DialogResult.OK) boundTextBox.Text = FolderBrowser.SelectedPath;
+            CommonOpenFileDialog fileDialog = new CommonOpenFileDialog { IsFolderPicker = true };;
+            if (fileDialog.ShowDialog() == CommonFileDialogResult.Ok) boundTextBox.Text = fileDialog.FileName;
         }
 
         /// <summary>
@@ -250,5 +279,50 @@ namespace glowberry.ui.graphical
         {
             ServerList.INSTANCE.SortGrid();
         }
+
+        /// <summary>
+        /// Unlocks the rolling backups numeric box when the checkbox is checked, and locks it when it is not.
+        /// Upon unlocking, the numeric box's minimum is set to 1 and upon locking, to -1, aswell as the value.
+        /// </summary>
+        private void HandleCheckBoxRollingBackupsNumeric(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox) sender;
+
+            foreach (NumericUpDown numericBox in Controls.OfType<NumericUpDown>())
+            {
+                // If the numeric box's name doesn't contain the tag of the checkbox, skip it.
+                if (!numericBox.Name.ToLower().Contains(checkBox.Tag.ToString())) continue;
+                if (numericBox.Name.Contains("Delay")) continue;
+                
+                numericBox.Enabled = checkBox.Checked;
+                numericBox.Minimum = checkBox.Checked ? 1 : -1;
+                
+                // If the numeric box is not visible, save the value to the loaded values array before resetting it.
+                if (!numericBox.Visible) LoadedRollingValues[checkBox.Tag.ToString() == "server" ? 0 : 1] = (int)numericBox.Value;
+
+                // Loads the value from the rolling backups, and calculates the definite value to set based on the minimum
+                int loadedValue = LoadedRollingValues[checkBox.Tag.ToString() == "server" ? 0 : 1];
+                int definiteValue = loadedValue >= numericBox.Minimum ? loadedValue : (int)numericBox.Minimum;
+                
+                numericBox.Value = checkBox.Checked ? numericBox.Value = definiteValue : numericBox.Value = -1;
+            }
+        }
+
+        /// <summary>
+        /// Changes the enabled status of the extra server backups information
+        /// to match the checked state of the server backups checkbox.
+        /// </summary>
+        private void CheckBoxServerBackups_CheckedChanged(object sender, EventArgs e) =>
+            CheckBoxRollingServerBackups.Enabled = NumericServerBackups.Enabled = 
+                LabelServerDelay.Enabled = NumericServerBackupsDelay.Enabled = CheckBoxServerBackups.Checked;
+
+
+        /// <summary>
+        /// Changes the enabled status of the extra playerdata backups information
+        /// to match the checked state of the playerdata backups checkbox.
+        /// </summary>
+        private void CheckBoxPlayerdataBackups_CheckedChanged(object sender, EventArgs e) =>
+            CheckBoxRollingPlayerdataBackups.Enabled = NumericPlayerdataBackups.Enabled =
+                LabelPlayerdataDelay.Enabled = NumericPlayerdataBackupsDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
     }
 }

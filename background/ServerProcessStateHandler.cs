@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using glowberry.common.interfaces;
 using glowberry.ui.graphical;
 
-namespace glowberry.common.background
+namespace glowberry.background
 {
     /// <summary>
     /// This class implements a background process for checking the state of every server every second, and
@@ -31,10 +31,16 @@ namespace glowberry.common.background
                     // Gets the server name from the row.
                     string serverName = row.Cells[2]?.Value.ToString();
                     if (serverName == null) continue;
-                    
-                    // Only update the server button state if the server is running.
-                    if (row.Cells[5]?.Value.ToString() is not ("Running" or "Starting" or "Stopping") && !FirstRunBypassFlag) continue;
-                    await ServerList.INSTANCE.UpdateServerButtonStateAsync(serverName);
+
+                    try
+                    {
+                        // Only update the server button state if the server is running.
+                        if (row.Cells[5]?.Value.ToString() is not ("Running" or "Starting" or "Stopping") &&
+                            !FirstRunBypassFlag) continue;
+                        await ServerList.INSTANCE.UpdateServerButtonStateAsync(serverName);
+                    }
+                    catch { // If the server isn't listed for some reason, just skip it.
+                    }
                 } 
                 
                 FirstRunBypassFlag = false;

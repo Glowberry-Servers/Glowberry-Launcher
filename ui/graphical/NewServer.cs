@@ -10,10 +10,11 @@ using System.Net.Http;
 using System.Windows.Forms;
 using glowberry.api.server;
 using glowberry.common;
+using glowberry.common.configuration;
 using glowberry.common.factories;
 using glowberry.common.handlers;
 using LaminariaCore_General.utils;
-using static glowberry.common.Constants;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace glowberry.ui.graphical
 {
@@ -40,9 +41,9 @@ namespace glowberry.ui.graphical
             string folderBrowser = ConfigurationManager.AppSettings.Get("Asset.Icon.FolderBrowser");
             string tooltipImage = ConfigurationManager.AppSettings.Get("Asset.Icon.Tooltip");
             
-            PictureBoxLoading.Image = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(loadingGif)));
-            ButtonFolderBrowser.Image = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(folderBrowser)));
-            Image tooltip = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(tooltipImage)));
+            PictureBoxLoading.Image = Image.FromFile(Constants.FileSystem.GetFirstDocumentNamed(Path.GetFileName(loadingGif)));
+            ButtonFolderBrowser.Image = Image.FromFile(Constants.FileSystem.GetFirstDocumentNamed(Path.GetFileName(folderBrowser)));
+            Image tooltip = Image.FromFile(Constants.FileSystem.GetFirstDocumentNamed(Path.GetFileName(tooltipImage)));
 
             // Iterates through all the labels in the form and sets the tooltip image if they're marked as such
             foreach (Label label in NewServerLayout.Controls.OfType<Label>()
@@ -233,10 +234,10 @@ namespace glowberry.ui.graphical
         /// <param name="e">The event arguments</param>
         private void FolderBrowserButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = FolderBrowser.ShowDialog();
-            if (result == DialogResult.OK)
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                int index = ComboBoxJavaVersion.Items.Add(FolderBrowser.SelectedPath);
+                int index = ComboBoxJavaVersion.Items.Add(dialog.FileName);
                 ComboBoxJavaVersion.SelectedItem = ComboBoxJavaVersion.Items[index];
             }
         }

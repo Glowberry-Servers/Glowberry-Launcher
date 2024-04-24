@@ -9,7 +9,7 @@ using glowberry.api;
 using glowberry.common;
 using glowberry.common.factories;
 using glowberry.utils;
-using static glowberry.common.Constants;
+using static glowberry.common.configuration.Constants;
 
 namespace glowberry.ui.graphical
 {

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Configuration;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using glowberry.background;
 using glowberry.common.background;
 using glowberry.ui.render;
 using LaminariaCore_Winforms.forms.extensions;
@@ -48,6 +48,7 @@ namespace glowberry.ui.graphical
 
             // Starts any background tasks.
             new Thread(new ServerProcessStateHandler().RunTask) { IsBackground = true }.Start();
+            
         }
 
         /// <summary>

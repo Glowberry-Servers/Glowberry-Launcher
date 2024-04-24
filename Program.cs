@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 using glowberry.common;
+using glowberry.common.configuration;
 using glowberry.ui.graphical;
 
 namespace glowberry
@@ -31,6 +32,8 @@ namespace glowberry
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Logging.Logger.LoggingFilePath = Path.Combine(Constants.FileSystem.AddSection("logs").SectionFullPath, Logging.Logger.LoggingSession + ".log");
+            Logging.MinimumConsoleLoggingLevel = LoggingLevel.Info;
+            Logging.MinimumFileLoggingLevel = LoggingLevel.Debug;
 
             try
             {
@@ -40,7 +43,7 @@ namespace glowberry
             }
             
             // Logs whatever fatal issue happens as a last resource.
-            catch (Exception e)
+            catch (ConfigurationException e)
             {
                 Logging.Logger.Fatal(@"An unexpected error occured and the program was forced to exit.");
                 Logging.Logger.Fatal(e.Message + "\n" + e.StackTrace, LoggingType.File);
