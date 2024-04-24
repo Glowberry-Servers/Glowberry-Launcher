@@ -135,7 +135,7 @@
             this.GridServerList.RowTemplate.Height = 100;
             this.GridServerList.ShowCellToolTips = false;
             this.GridServerList.ShowEditingIcon = false;
-            this.GridServerList.Size = new System.Drawing.Size(1164, 584);
+            this.GridServerList.Size = new System.Drawing.Size(1164, 577);
             this.GridServerList.TabIndex = 6;
             this.GridServerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridServerList_CellContentClick);
             this.GridServerList.SelectionChanged += new System.EventHandler(this.GridServerList_SelectionChanged);
