@@ -137,7 +137,7 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="LaminariaCore-General" Version="1.1.1" />
+      <PackageReference Include="LaminariaCore-General" Version="1.1.2" />
       <PackageReference Include="LaminariaCore-Winforms" Version="1.0.1" />
       <PackageReference Include="Open.Nat" Version="2.1.0" />
       <PackageReference Include="System.Text.Json" Version="9.0.0-preview.2.24128.5" />
