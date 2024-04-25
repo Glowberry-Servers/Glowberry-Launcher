@@ -138,6 +138,8 @@ public partial class ConsoleInterface : Form
         string logsPath = this.ServerSection.GetFirstSectionNamed("logs").SectionFullPath;
         string latestLogPath = Directory.GetFiles(logsPath).OrderByDescending(File.GetLastWriteTime).FirstOrDefault();
         
+        Logging.Logger.Info("Starting console update task.");
+        
         while (true)
         {
             // Checks if the task has been cancelled
@@ -160,6 +162,7 @@ public partial class ConsoleInterface : Form
                 // Checks if the server is still running, and if not, writes a message to the console in red saying so.
                 if (!this.InteractionsAPI.IsRunning() || latestLogPath == null)
                 {
+                    Logging.Logger.Info("Tried to update console, but server is not running.");
                     SendConsoleError("This server is not running. Please start it and refresh the console.");
                     this.Invoke( new MethodInvoker( () => TextBoxServerInput.Enabled = false));
                     break;

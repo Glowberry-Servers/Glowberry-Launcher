@@ -21,16 +21,17 @@ namespace glowberry.ui.graphical
         /// <summary>
         /// The singleton instance of the Mainframe.
         /// </summary>
-        public static Mainframe INSTANCE { get; } = new ();
+        public static Mainframe INSTANCE { get; set;  }
         
         /// <summary>
         /// Main constructor for the Mainframe. Loads up the server list. Private to enforce the
         /// singleton pattern.
         /// </summary>
-        private Mainframe()
+        public Mainframe()
         {
             InitializeComponent();
             MainLayout.SetAllFrom(NewServer.Instance.GetLayout());
+            INSTANCE = this;
         }
 
         /// <summary>

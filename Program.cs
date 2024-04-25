@@ -22,24 +22,24 @@ namespace glowberry
             }
         }
 
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             Logging.Logger.LoggingFilePath = Path.Combine(Constants.FileSystem.AddSection("logs").SectionFullPath, Logging.Logger.LoggingSession + ".log");
             Logging.MinimumConsoleLoggingLevel = LoggingLevel.Info;
             Logging.MinimumFileLoggingLevel = LoggingLevel.Debug;
 
             try
             {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                
                 Application.Run(new PreLoadingScreen());
                 Application.Run(new LoadingScreen());
-                Application.Run(Mainframe.INSTANCE);
+                Application.Run(new Mainframe());
             }
             
             // Logs whatever fatal issue happens as a last resource.
