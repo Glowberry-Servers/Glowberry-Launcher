@@ -135,6 +135,9 @@
         <Content Include="..\Glowberry-Console\bin\Release\glowberry.exe" Visible="False">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include="..\Glowberry-Console\bin\Release\glowberry.exe.config" Visible="False">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="LaminariaCore-General" Version="1.1.2" />
