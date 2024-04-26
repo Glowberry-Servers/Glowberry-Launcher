@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Windows.Forms;
 using glowberry.api.server;
 using glowberry.api.server.enumeration;
+using glowberry.common.caches;
+using glowberry.common.models;
 using glowberry.utils;
 using LaminariaCore_General.common;
 using LaminariaCore_General.utils;
@@ -195,7 +197,11 @@ namespace glowberry.ui.graphical
             // Gets the necessary resources to edit save the server's properties and settings
             string newServerSectionPath = Path.GetDirectoryName(EditingAPI.GetServerSection().SectionFullPath) + "/" + TextBoxServerName.Text;
 
-            try { EditingAPI.UpdateServerSettings(FormToDictionary()); }
+            try
+            {
+                _ = new ServerInformation().Update(FormToDictionary());  // Serves as a sanity check for the form values
+                EditingAPI.UpdateServerSettings(FormToDictionary());
+            }
             
             catch (SystemException)
             {
