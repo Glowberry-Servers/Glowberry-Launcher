@@ -58,6 +58,7 @@ namespace glowberry
         {
             Logging.Logger.Info("Starting launcher session logging.");
             Logging.Logger.Info($"Glowberry Launcher Version: {Version}");
+            Logging.Logger.Info($"DLL Version: {GlobalVersionManager.GetVersion("dll")}");
             Logging.Logger.Info($"User Domain Name: {Environment.UserDomainName}");
             Logging.Logger.Info($"User Name: {Environment.UserName}");
             Logging.Logger.Info($"Process ID: {Process.GetCurrentProcess().Id}");
