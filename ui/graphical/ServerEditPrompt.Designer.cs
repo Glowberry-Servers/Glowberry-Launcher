@@ -39,7 +39,6 @@ namespace glowberry.ui.graphical
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ButtonFolderBrowsing = new System.Windows.Forms.Button();
             this.ButtonFolderBrowsing2 = new System.Windows.Forms.Button();
@@ -50,7 +49,6 @@ namespace glowberry.ui.graphical
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.ButtonOpenServerFolder = new System.Windows.Forms.Button();
             this.ButtonSave = new System.Windows.Forms.Button();
@@ -88,6 +86,8 @@ namespace glowberry.ui.graphical
             this.CheckBoxHandleFirewall = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.CheckBoxStartOnBoot = new System.Windows.Forms.CheckBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSpawnProtection)).BeginInit();
@@ -156,15 +156,6 @@ namespace glowberry.ui.graphical
             this.textBox2.Size = new System.Drawing.Size(138, 26);
             this.textBox2.TabIndex = 6;
             this.textBox2.Tag = "baseport";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(319, 269);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(253, 26);
-            this.textBox5.TabIndex = 10;
-            this.textBox5.Tag = "serverbackupspath";
             // 
             // label7
             // 
@@ -266,15 +257,6 @@ namespace glowberry.ui.graphical
             this.label10.TabIndex = 32;
             this.label10.Text = "Level Type";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(13, 269);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(262, 26);
-            this.textBox7.TabIndex = 31;
-            this.textBox7.Tag = "level-type";
             // 
             // numericUpDown3
             // 
@@ -650,12 +632,32 @@ namespace glowberry.ui.graphical
             this.CheckBoxStartOnBoot.Text = "Start on Boot";
             this.CheckBoxStartOnBoot.UseVisualStyleBackColor = true;
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(14, 269);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(262, 26);
+            this.textBox7.TabIndex = 86;
+            this.textBox7.Tag = "level-type";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(318, 269);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(253, 26);
+            this.textBox5.TabIndex = 87;
+            this.textBox5.Tag = "serverbackupspath";
+            // 
             // ServerEditPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(987, 546);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.CheckBoxStartOnBoot);
             this.Controls.Add(this.checkBox8);
             this.Controls.Add(this.CheckBoxHandleFirewall);
@@ -695,13 +697,11 @@ namespace glowberry.ui.graphical
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ButtonFolderBrowsing2);
             this.Controls.Add(this.ButtonFolderBrowsing);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);

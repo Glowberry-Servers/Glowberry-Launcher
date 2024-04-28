@@ -58,6 +58,8 @@ namespace glowberry.ui.graphical
             
             CheckBoxRollingServerBackups.Checked = EditingAPI.GetServerInformation().RollingServerBackups > 0;
             CheckBoxRollingPlayerdataBackups.Checked = EditingAPI.GetServerInformation().RollingPlayerdataBackups > 0;
+            NumericServerBackups.Enabled = CheckBoxRollingServerBackups.Checked;
+            NumericPlayerdataBackups.Enabled = CheckBoxRollingPlayerdataBackups.Checked;
             
             CheckBoxStartOnBoot.Enabled = CheckBoxHandleFirewall.Enabled = PermissionUtils.IsUserAdmin();
             CheckBoxStartOnBoot.Checked = WindowsSchedulerUtils.IsServerInScheduler(EditingAPI.GetServerSection());
@@ -318,17 +320,25 @@ namespace glowberry.ui.graphical
         /// Changes the enabled status of the extra server backups information
         /// to match the checked state of the server backups checkbox.
         /// </summary>
-        private void CheckBoxServerBackups_CheckedChanged(object sender, EventArgs e) =>
-            CheckBoxRollingServerBackups.Enabled = NumericServerBackups.Enabled = 
-                LabelServerDelay.Enabled = NumericServerBackupsDelay.Enabled = CheckBoxServerBackups.Checked;
+        private void CheckBoxServerBackups_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBoxRollingServerBackups.Enabled = NumericServerBackups.Enabled =
+                LabelServerDelay.Enabled = CheckBoxServerBackups.Checked;
+            
+            NumericServerBackups.Enabled = CheckBoxRollingServerBackups.Checked;
+        }
 
 
         /// <summary>
         /// Changes the enabled status of the extra playerdata backups information
         /// to match the checked state of the playerdata backups checkbox.
         /// </summary>
-        private void CheckBoxPlayerdataBackups_CheckedChanged(object sender, EventArgs e) =>
+        private void CheckBoxPlayerdataBackups_CheckedChanged(object sender, EventArgs e)
+        {
             CheckBoxRollingPlayerdataBackups.Enabled = NumericPlayerdataBackups.Enabled =
-                LabelPlayerdataDelay.Enabled = NumericPlayerdataBackupsDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
+                LabelPlayerdataDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
+            
+            NumericPlayerdataBackups.Enabled = CheckBoxRollingPlayerdataBackups.Checked;
+        }
     }
 }
