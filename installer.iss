@@ -5,7 +5,7 @@
 #define MyAppVersion "1.5.0"
 #define MyAppPublisher "Glowberry Servers"
 #define MyAppURL "https://github.com/Glowberry-Servers/Glowberry-Launcher"
-#define MyAppExeName "Glowberry Launcher v1.5.0.exe"
+#define MyAppExeName "Glowberry Launcher.exe"
 #define MyAppAssocName "Executable File"
 #define MyAppAssocExt ".exe"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
@@ -53,7 +53,7 @@ Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\{#MyAppExeName}"; DestD
 Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\DotNetZip.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\DotNetZip.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\gbhelper.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Glowberry Launcher v1.5.0.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Glowberry Launcher.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Glowberry Launcher.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Glowberry Launcher.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\glowberry.exe"; DestDir: "{app}"; Flags: ignoreversion

@@ -13,7 +13,7 @@ namespace glowberry
     internal static class Program
     {
         /// <summary>
-        /// Get the program version for the DLL unless an override is specified, otherwise use its value.
+        /// Get the program version from the DLL unless an override is specified, otherwise use its value.
         /// </summary>
         public static string Version
         {

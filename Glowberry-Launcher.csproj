@@ -39,7 +39,7 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="GlowberryDLL">
-          <HintPath>..\GlowberryDLL\bin\Debug\GlowberryDLL.dll</HintPath>
+          <HintPath>..\GlowberryDLL\bin\Release\GlowberryDLL.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Configuration" />
@@ -124,7 +124,6 @@
     <ItemGroup>
         <Content Include=".gitignore" />
         <Content Include="app.manifest" />
-        <Content Include="Installer.nsi" />
         <Content Include="LICENSE.txt" />
         <Content Include="..\Glowberry-Assets\main\logo.ico" Visible="False">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
