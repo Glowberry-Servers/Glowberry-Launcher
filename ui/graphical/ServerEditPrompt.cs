@@ -58,6 +58,10 @@ namespace glowberry.ui.graphical
             
             CheckBoxRollingServerBackups.Checked = EditingAPI.GetServerInformation().RollingServerBackups > 0;
             CheckBoxRollingPlayerdataBackups.Checked = EditingAPI.GetServerInformation().RollingPlayerdataBackups > 0;
+            
+            NumericServerBackupsDelay.Enabled = CheckBoxServerBackups.Checked;
+            NumericPlayerdataBackupsDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
+            
             NumericServerBackups.Enabled = CheckBoxRollingServerBackups.Checked;
             NumericPlayerdataBackups.Enabled = CheckBoxRollingPlayerdataBackups.Checked;
             
@@ -323,9 +327,10 @@ namespace glowberry.ui.graphical
         private void CheckBoxServerBackups_CheckedChanged(object sender, EventArgs e)
         {
             CheckBoxRollingServerBackups.Enabled = NumericServerBackups.Enabled =
-                LabelServerDelay.Enabled = CheckBoxServerBackups.Checked;
+                LabelServerDelay.Enabled = NumericServerBackupsDelay.Enabled = NumericServerBackups.Enabled = CheckBoxServerBackups.Checked;
             
-            NumericServerBackups.Enabled = CheckBoxRollingServerBackups.Checked;
+            if (CheckBoxServerBackups.Checked)
+                NumericServerBackups.Enabled = CheckBoxRollingServerBackups.Checked;
         }
 
 
@@ -336,9 +341,11 @@ namespace glowberry.ui.graphical
         private void CheckBoxPlayerdataBackups_CheckedChanged(object sender, EventArgs e)
         {
             CheckBoxRollingPlayerdataBackups.Enabled = NumericPlayerdataBackups.Enabled =
-                LabelPlayerdataDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
+                LabelPlayerdataDelay.Enabled = NumericPlayerdataBackupsDelay.Enabled = NumericPlayerdataBackups.Enabled =
+                    CheckBoxPlayerdataBackups.Checked;
             
-            NumericPlayerdataBackups.Enabled = CheckBoxRollingPlayerdataBackups.Checked;
+            if (CheckBoxPlayerdataBackups.Checked)
+                NumericPlayerdataBackups.Enabled = CheckBoxRollingPlayerdataBackups.Checked;
         }
     }
 }
