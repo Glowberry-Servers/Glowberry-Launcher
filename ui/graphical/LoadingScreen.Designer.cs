@@ -40,9 +40,10 @@ namespace glowberry.ui.graphical
             // PictureBoxLoading
             // 
             this.PictureBoxLoading.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxLoading.Location = new System.Drawing.Point(722, 12);
+            this.PictureBoxLoading.Location = new System.Drawing.Point(1083, 18);
+            this.PictureBoxLoading.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PictureBoxLoading.Name = "PictureBoxLoading";
-            this.PictureBoxLoading.Size = new System.Drawing.Size(66, 62);
+            this.PictureBoxLoading.Size = new System.Drawing.Size(99, 95);
             this.PictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxLoading.TabIndex = 0;
             this.PictureBoxLoading.TabStop = false;
@@ -51,24 +52,26 @@ namespace glowberry.ui.graphical
             // 
             this.LabelStatus.BackColor = System.Drawing.Color.Transparent;
             this.LabelStatus.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelStatus.Location = new System.Drawing.Point(7, 456);
+            this.LabelStatus.Location = new System.Drawing.Point(10, 702);
+            this.LabelStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelStatus.Name = "LabelStatus";
-            this.LabelStatus.Size = new System.Drawing.Size(673, 16);
+            this.LabelStatus.Size = new System.Drawing.Size(1010, 25);
             this.LabelStatus.TabIndex = 1;
             this.LabelStatus.Text = "TEXT GOES HERE";
             // 
             // LoadingScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 485);
+            this.ClientSize = new System.Drawing.Size(1200, 746);
             this.Controls.Add(this.LabelStatus);
             this.Controls.Add(this.PictureBoxLoading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoadingScreen";
-            this.Text = "LoadingScreen";
+            this.Text = "Glowberry Launcher - Loading";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoadingScreen_FormClosing);
             this.Load += new System.EventHandler(this.LoadingScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLoading)).EndInit();

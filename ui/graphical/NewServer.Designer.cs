@@ -88,7 +88,7 @@
             this.label8.Size = new System.Drawing.Size(21, 22);
             this.label8.TabIndex = 19;
             this.label8.Tag = "tooltip";
-            this.ToolTips.SetToolTip(this.label8, "This is the server\'s name, which is used to identify each server internally. \r\nTh" + "is name will also be the one displayed in the listings when you try to run it.");
+            this.ToolTips.SetToolTip(this.label8, "This is the server\'s name, which is used to identify each server internally. \r\nTh" + "is name will also be the one displayed in the server list.\r\n");
             // 
             // label7
             // 
@@ -97,7 +97,7 @@
             this.label7.Size = new System.Drawing.Size(21, 22);
             this.label7.TabIndex = 18;
             this.label7.Tag = "tooltip";
-            this.ToolTips.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
+            this.ToolTips.SetToolTip(this.label7, "This is the server type, essentially the kind of server you want to run.\r\nIt can " + "be one with mods, plugins, vanilla, you call it!\r\n");
             // 
             // label6
             // 
@@ -106,7 +106,7 @@
             this.label6.Size = new System.Drawing.Size(21, 22);
             this.label6.TabIndex = 17;
             this.label6.Tag = "tooltip";
-            this.ToolTips.SetToolTip(this.label6, "This is the server\'s version, according to the selected server type.\r\nEach type h" + "as slightly different version ranges to be selected.");
+            this.ToolTips.SetToolTip(this.label6, "This is the server\'s version, according to the selected server type.\r\nEach type h" + "as different version ranges to be selected.");
             // 
             // label5
             // 

@@ -75,6 +75,7 @@ public partial class ConsoleInterface : Form
     private void ConsoleInterface_Load(object sender, EventArgs e)
     {
         RichTextBoxConsole.SelectionStart = RichTextBoxConsole.Text.Length;
+        this.Text += this.ServerSection.SimpleName;
         CenterToParent();
         
         // Starts off the task to update the console with the latest output
