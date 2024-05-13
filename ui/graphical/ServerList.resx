@@ -126,8 +126,10 @@ If this doesn't work for some reason, you can always create a virtual network fo
   </metadata>
   <data name="dnjlfe.ToolTip" xml:space="preserve">
     <value>This is the server list, which displays every server you have installed.
-Click in any of the Edit buttons to edit the information about a server.
+Click in any of the Options buttons to edit the information about a server.
 Click in any of the Start buttons to run a server.
+Click in any of the Stop/Kill buttons to stop a server.
+Click in any of the Console buttons to open a server's console.
 Click in the Refresh button to refresh the server list.</value>
   </data>
   <metadata name="ServerType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

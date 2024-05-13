@@ -41,30 +41,31 @@ namespace glowberry.ui.graphical
             // LabelDownloadingAsset
             // 
             this.LabelDownloadingAsset.Location = new System.Drawing.Point(0, 0);
+            this.LabelDownloadingAsset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelDownloadingAsset.Name = "LabelDownloadingAsset";
-            this.LabelDownloadingAsset.Size = new System.Drawing.Size(484, 62);
+            this.LabelDownloadingAsset.Size = new System.Drawing.Size(726, 95);
             this.LabelDownloadingAsset.TabIndex = 0;
             this.LabelDownloadingAsset.Text = "Downloading Assets...";
             this.LabelDownloadingAsset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProgressBarDownload
             // 
-            this.ProgressBarDownload.Location = new System.Drawing.Point(26, 71);
-            this.ProgressBarDownload.Margin = new System.Windows.Forms.Padding(2);
+            this.ProgressBarDownload.Location = new System.Drawing.Point(39, 109);
             this.ProgressBarDownload.MarqueeAnimationSpeed = 400;
             this.ProgressBarDownload.Name = "ProgressBarDownload";
-            this.ProgressBarDownload.Size = new System.Drawing.Size(436, 31);
+            this.ProgressBarDownload.Size = new System.Drawing.Size(654, 48);
             this.ProgressBarDownload.TabIndex = 1;
             // 
             // PreLoadingScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 110);
+            this.ClientSize = new System.Drawing.Size(726, 169);
             this.Controls.Add(this.ProgressBarDownload);
             this.Controls.Add(this.LabelDownloadingAsset);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PreLoadingScreen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PreLoadingScreen_FormClosing);
             this.Load += new System.EventHandler(this.PreLoadingScreen_Load);

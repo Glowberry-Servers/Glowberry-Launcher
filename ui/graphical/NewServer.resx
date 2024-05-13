@@ -120,10 +120,6 @@
   <metadata name="ToolTips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>326, 17</value>
   </metadata>
-  <data name="label7.ToolTip" xml:space="preserve">
-    <value>This is the server type, essentially the kind of server you want to run.
-It can be one with mods, plugins, vanilla, you call it! Each one needs to be treated slightly differently, but everything is handled automatically.</value>
-  </data>
   <data name="label5.ToolTip" xml:space="preserve">
     <value>This is the java version used to run the server. 
 Some versions need certain java versions to work, and most of the time every issue with building servers comes from 
