@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -44,6 +45,16 @@ public partial class ConsoleInterface : Form
     /// The token used to cancel the console update task.
     /// </summary>
     private CancellationTokenSource ConsoleUpdateToken { get; set; }
+    
+    /// <summary>
+    /// A list of messages that have been sent to the console.
+    /// </summary>
+    private List<string> LastMessages { get; set; } = new();
+    
+    /// <summary>
+    /// The position current position of the up/down controls going through the last messages.
+    /// </summary>
+    private int LastMessageScrollPosition { get; set; } = 0;
     
     /// <summary>
     /// Whether the console should automatically scroll to the latest output or not.
@@ -136,7 +147,7 @@ public partial class ConsoleInterface : Form
         long logBytesize = 0;
         
         // Gets the latest log file from the logs directory
-        string logsPath = this.ServerSection.GetFirstSectionNamed("logs").SectionFullPath;
+        string logsPath = this.ServerSection.AddSection("logs").SectionFullPath;
         string latestLogPath = Directory.GetFiles(logsPath).OrderByDescending(File.GetLastWriteTime).FirstOrDefault();
         
         Logging.Logger.Info("Starting console update task.");
@@ -264,7 +275,27 @@ public partial class ConsoleInterface : Form
         
         this.InteractionsAPI.WriteToServerStdin(command);
         
+        if (this.LastMessages.Count >= 10)
+            this.LastMessages.RemoveAt(0);
+        
+        this.LastMessages.Add(command);
+        
         TextBoxServerInput.Clear();
         TextBoxServerInput_TextChanged(null, null);
+    }
+
+    /// <summary>
+    /// Handles the up and down arrow keys to scroll through the last messages sent to the console.
+    /// </summary>
+    /// <param name="key">The key that was pressed</param>
+    private void HandleUpDownKeys(Keys key)
+    {
+        int increment = key == Keys.Up ? 1 : -1;
+        
+        if (LastMessages.Count == 0) return;
+        if (this.LastMessageScrollPosition + increment > this.LastMessages.Count - 1 || this.LastMessageScrollPosition - increment < 0) return;
+        
+        this.LastMessageScrollPosition += increment;
+        TextBoxServerInput.Text = this.LastMessages[this.LastMessages.Count - this.LastMessageScrollPosition];
     }
 }
