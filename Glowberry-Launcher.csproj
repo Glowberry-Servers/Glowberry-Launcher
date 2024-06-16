@@ -138,6 +138,7 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+    
     <ItemGroup>
       <PackageReference Include="LaminariaCore-General" Version="1.1.2" />
       <PackageReference Include="LaminariaCore-Winforms" Version="1.0.1" />
@@ -145,5 +146,28 @@
       <PackageReference Include="System.Text.Json" Version="9.0.0-preview.2.24128.5" />
       <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <COMReference Include="mscorlib">
+        <Guid>{BED7F4EA-1A96-11D2-8F08-00A0C9A6186D}</Guid>
+        <VersionMajor>2</VersionMajor>
+        <VersionMinor>0</VersionMinor>
+        <Lcid>0</Lcid>
+        <WrapperTool>tlbimp</WrapperTool>
+        <Isolated>False</Isolated>
+        <EmbedInteropTypes>True</EmbedInteropTypes>
+      </COMReference>
+    </ItemGroup>
+    
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+    <Target Name="AfterBuild">
+        <ItemGroup>
+            <ResourceFiles Include="$(OutputPath)\**\Microsoft.Data.SqlClient.resources.dll"/>
+            <SchedulerFiles Include="$(OutputPath)\**\Microsoft.Win32.TaskScheduler.resources.dll"/>
+        </ItemGroup>
+        <RemoveDir Directories="@(ResourceFiles->'%(RootDir)%(Directory)')" />
+        <RemoveDir Directories="@(SchedulerFiles->'%(RootDir)%(Directory)')" />
+    </Target>
+    
 </Project>

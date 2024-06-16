@@ -69,6 +69,7 @@ namespace glowberry
         
         /// <summary>
         /// Handles the fatal exceptions that occur in the program for any unhandled exceptions.
+        /// Captures the entire stack trace and logs it to the log file.
         /// </summary>
         static void FatalExceptionHandler(object sender, UnhandledExceptionEventArgs e) => 
             FatalExceptionHandler(sender, e.ExceptionObject.ToString());
@@ -87,6 +88,10 @@ namespace glowberry
         /// <param name="errorMessage">The error message to be printed in the file</param>
         static void FatalExceptionHandler(object sender, string errorMessage)
         {
+            // A failsafe to ensure that the error message is always logged.
+            string fatalErrorsPath = Path.GetDirectoryName(Application.ExecutablePath) + "/fatal.log";
+            File.WriteAllText(fatalErrorsPath, errorMessage);
+            
             Logging.Logger.Fatal(@"An unexpected error occured and the program was forced to exit.");
             Logging.Logger.Fatal(errorMessage, LoggingType.File);
 

@@ -36,7 +36,7 @@ namespace glowberry.ui.graphical
         private ServerList()
         {
             InitializeComponent();
-            this.ServersSection = FileSystem.GetFirstSectionNamed("servers");
+            this.ServersSection = FileSystem.AddSection("servers");
 
             // Sets the info layout pictures
             foreach (Label label in ServerListLayout.Controls.OfType<Label>().Where(x => x.Tag != null && x.Tag.ToString().Equals("tooltip")).ToList())
@@ -127,8 +127,10 @@ namespace glowberry.ui.graphical
             // Gets the image path for the server type, and adds the server to the list.
             // We have to parse the type to get the first word, since there could be snapshots of the type,
             // making the type similar to "serverType snapshots".
-            string typeImagePath = FileSystem.GetFirstSectionNamed("assets").GetFirstDocumentNamed(info.Type.Split(' ')[0].ToLower() + ".png");
-            if (typeImagePath == null || !File.Exists(typeImagePath)) typeImagePath = FileSystem.GetFirstSectionNamed("assets").GetFirstDocumentNamed("unknown.png");
+            string typeImagePath = FileSystem.AddSection("assets").GetFirstDocumentNamed(info.Type.Split(' ')[0].ToLower() + ".png");
+            
+            if (typeImagePath == null || !File.Exists(typeImagePath)) 
+                typeImagePath = FileSystem.AddSection("assets").GetFirstDocumentNamed("unknown.png");
             
             // Invokes the addition of the server to the list in the main thread.
             Mainframe.INSTANCE.Invoke(new MethodInvoker(() =>
@@ -363,7 +365,7 @@ namespace glowberry.ui.graphical
         {
             // Get the server's section from its name
             string serverName = buttonRow.Cells[2].Value.ToString();
-            Section serverSection = FileSystem.AddSection($"servers/{serverName}");
+            Section serverSection = FileSystem.GetFirstSectionNamed($"servers/{serverName}");
             
             // Create and show the edit prompt.
             ServerEditPrompt editPrompt = new (serverSection);
@@ -378,7 +380,7 @@ namespace glowberry.ui.graphical
         {
             // Get the server's section from its name
             string serverName = buttonRow.Cells[2].Value.ToString();
-            Section serverSection = FileSystem.AddSection($"servers/{serverName}");
+            Section serverSection = FileSystem.GetFirstSectionNamed($"servers/{serverName}");
             
             try
             {
