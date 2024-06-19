@@ -46,7 +46,7 @@ namespace glowberry.ui.graphical
             Image tooltip = Image.FromFile(Constants.FileSystem.GetFirstDocumentNamed(Path.GetFileName(tooltipImage)));
 
             // Iterates through all the labels in the form and sets the tooltip image if they're marked as such
-            foreach (Label label in NewServerLayout.Controls.OfType<Label>()
+            foreach (Label label in panel1.Controls.OfType<Label>()
                          .Where(x => x.Tag != null && x.Tag.ToString().Equals("tooltip")).ToList())
             {
                 label.BackgroundImage = tooltip;
@@ -145,7 +145,6 @@ namespace glowberry.ui.graphical
         [SuppressMessage("ReSharper", "LocalizableElement")]
         private async void ButtonBuild_Click(object sender, EventArgs e)
         {
-            LabelServerNameError.Visible = false;
             RichTextBoxConsoleOutput.Clear(); RichTextBoxConsoleOutput.ForeColor = Color.Black;
 
             try
@@ -221,7 +220,6 @@ namespace glowberry.ui.graphical
         /// <param name="e">The event arguments</param>
         private void TextBoxServerName_TextChanged(object sender, EventArgs e)
         {
-            LabelServerNameError.Visible = false;
             ButtonBuild.Enabled = TextBoxServerName.Text.Length > 0 &&
                                        ComboServerVersion.Text.Length > 0 && ComboServerVersion.Enabled;
         }

@@ -36,10 +36,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.ServerListLayout = new System.Windows.Forms.Panel();
-            this.jkghvcgjv = new System.Windows.Forms.Label();
-            this.ButtonRefresh = new System.Windows.Forms.Button();
+            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
             this.dnjlfe = new System.Windows.Forms.Label();
+            this.ServerListLayout = new System.Windows.Forms.Panel();
+            this.ButtonRefresh = new System.Windows.Forms.Button();
             this.GridServerList = new System.Windows.Forms.DataGridView();
             this.ServerType = new System.Windows.Forms.DataGridViewImageColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,55 +49,50 @@
             this.Play = new System.Windows.Forms.DataGridViewButtonColumn();
             this.StopButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ConsoleButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.jkghvcgjv = new System.Windows.Forms.Label();
             this.ServerListLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).BeginInit();
             this.SuspendLayout();
             // 
+            // dnjlfe
+            // 
+            this.dnjlfe.Location = new System.Drawing.Point(13, 22);
+            this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dnjlfe.Name = "dnjlfe";
+            this.dnjlfe.Size = new System.Drawing.Size(21, 22);
+            this.dnjlfe.TabIndex = 50;
+            this.dnjlfe.Tag = "tooltip";
+            this.ToolTips.SetToolTip(this.dnjlfe, resources.GetString("dnjlfe.ToolTip"));
+            // 
             // ServerListLayout
             // 
-            this.ServerListLayout.Controls.Add(this.jkghvcgjv);
             this.ServerListLayout.Controls.Add(this.ButtonRefresh);
             this.ServerListLayout.Controls.Add(this.dnjlfe);
             this.ServerListLayout.Controls.Add(this.GridServerList);
+            this.ServerListLayout.Controls.Add(this.label3);
+            this.ServerListLayout.Controls.Add(this.label2);
+            this.ServerListLayout.Controls.Add(this.label1);
+            this.ServerListLayout.Controls.Add(this.jkghvcgjv);
             this.ServerListLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ServerListLayout.Location = new System.Drawing.Point(0, 0);
             this.ServerListLayout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ServerListLayout.Name = "ServerListLayout";
             this.ServerListLayout.Size = new System.Drawing.Size(1200, 692);
-            this.ServerListLayout.TabIndex = 1;
-            // 
-            // jkghvcgjv
-            // 
-            this.jkghvcgjv.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.jkghvcgjv.Location = new System.Drawing.Point(48, 6);
-            this.jkghvcgjv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.jkghvcgjv.Name = "jkghvcgjv";
-            this.jkghvcgjv.Size = new System.Drawing.Size(1090, 62);
-            this.jkghvcgjv.TabIndex = 19;
-            this.jkghvcgjv.Text = resources.GetString("jkghvcgjv.Text");
-            this.jkghvcgjv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ServerListLayout.TabIndex = 3;
             // 
             // ButtonRefresh
             // 
             this.ButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonRefresh.Location = new System.Drawing.Point(1144, 26);
+            this.ButtonRefresh.Location = new System.Drawing.Point(1150, 13);
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(38, 38);
-            this.ButtonRefresh.TabIndex = 18;
+            this.ButtonRefresh.TabIndex = 25;
             this.ButtonRefresh.UseVisualStyleBackColor = true;
             this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
-            // 
-            // dnjlfe
-            // 
-            this.dnjlfe.Location = new System.Drawing.Point(19, 35);
-            this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dnjlfe.Name = "dnjlfe";
-            this.dnjlfe.Size = new System.Drawing.Size(21, 22);
-            this.dnjlfe.TabIndex = 17;
-            this.dnjlfe.Tag = "tooltip";
-            this.ToolTips.SetToolTip(this.dnjlfe, resources.GetString("dnjlfe.ToolTip"));
             // 
             // GridServerList
             // 
@@ -105,7 +100,6 @@
             this.GridServerList.AllowUserToDeleteRows = false;
             this.GridServerList.AllowUserToResizeColumns = false;
             this.GridServerList.AllowUserToResizeRows = false;
-            this.GridServerList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.GridServerList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -125,8 +119,9 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GridServerList.DefaultCellStyle = dataGridViewCellStyle6;
+            this.GridServerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridServerList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.GridServerList.Location = new System.Drawing.Point(18, 72);
+            this.GridServerList.Location = new System.Drawing.Point(30, 65);
             this.GridServerList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GridServerList.MultiSelect = false;
             this.GridServerList.Name = "GridServerList";
@@ -135,8 +130,8 @@
             this.GridServerList.RowTemplate.Height = 100;
             this.GridServerList.ShowCellToolTips = false;
             this.GridServerList.ShowEditingIcon = false;
-            this.GridServerList.Size = new System.Drawing.Size(1164, 577);
-            this.GridServerList.TabIndex = 6;
+            this.GridServerList.Size = new System.Drawing.Size(1140, 591);
+            this.GridServerList.TabIndex = 23;
             this.GridServerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridServerList_CellContentClick);
             this.GridServerList.SelectionChanged += new System.EventHandler(this.GridServerList_SelectionChanged);
             // 
@@ -225,6 +220,47 @@
             this.ConsoleButton.UseColumnTextForButtonValue = true;
             this.ConsoleButton.Width = 99;
             // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Location = new System.Drawing.Point(30, 656);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1140, 36);
+            this.label3.TabIndex = 22;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Location = new System.Drawing.Point(1170, 65);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 627);
+            this.label2.TabIndex = 21;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Location = new System.Drawing.Point(0, 65);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 627);
+            this.label1.TabIndex = 20;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // jkghvcgjv
+            // 
+            this.jkghvcgjv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.jkghvcgjv.Location = new System.Drawing.Point(0, 0);
+            this.jkghvcgjv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.jkghvcgjv.Name = "jkghvcgjv";
+            this.jkghvcgjv.Size = new System.Drawing.Size(1200, 65);
+            this.jkghvcgjv.TabIndex = 19;
+            this.jkghvcgjv.Text = resources.GetString("jkghvcgjv.Text");
+            this.jkghvcgjv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ServerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -238,6 +274,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label label3;
+
+        private System.Windows.Forms.Label label2;
+
+        private System.Windows.Forms.Label label1;
+
+        private System.Windows.Forms.MenuStrip MenuBar;
+        private System.Windows.Forms.ToolStripMenuItem NewServerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ServersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RadminVPNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WikiToolStripMenuItem;
 
         private System.Windows.Forms.DataGridViewButtonColumn ConsoleButton;
 
