@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerList));
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.dnjlfe = new System.Windows.Forms.Label();
             this.ServerListLayout = new System.Windows.Forms.Panel();
             this.ButtonRefresh = new System.Windows.Forms.Button();
-            this.dnjlfe = new System.Windows.Forms.Label();
             this.GridServerList = new System.Windows.Forms.DataGridView();
             this.ServerType = new System.Windows.Forms.DataGridViewImageColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +56,16 @@
             this.ServerListLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dnjlfe
+            // 
+            this.dnjlfe.Location = new System.Drawing.Point(13, 22);
+            this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dnjlfe.Name = "dnjlfe";
+            this.dnjlfe.Size = new System.Drawing.Size(21, 22);
+            this.dnjlfe.TabIndex = 50;
+            this.dnjlfe.Tag = "tooltip";
+            this.ToolTips.SetToolTip(this.dnjlfe, resources.GetString("dnjlfe.ToolTip"));
             // 
             // ServerListLayout
             // 
@@ -83,16 +93,6 @@
             this.ButtonRefresh.TabIndex = 25;
             this.ButtonRefresh.UseVisualStyleBackColor = true;
             this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
-            // 
-            // dnjlfe
-            // 
-            this.dnjlfe.Location = new System.Drawing.Point(13, 22);
-            this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dnjlfe.Name = "dnjlfe";
-            this.dnjlfe.Size = new System.Drawing.Size(21, 22);
-            this.dnjlfe.TabIndex = 50;
-            this.dnjlfe.Tag = "tooltip";
-            this.ToolTips.SetToolTip(this.dnjlfe, resources.GetString("dnjlfe.ToolTip"));
             // 
             // GridServerList
             // 
@@ -132,6 +132,8 @@
             this.GridServerList.ShowEditingIcon = false;
             this.GridServerList.Size = new System.Drawing.Size(1140, 591);
             this.GridServerList.TabIndex = 23;
+            this.GridServerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridServerList_CellContentClick);
+            this.GridServerList.SelectionChanged += new System.EventHandler(this.GridServerList_SelectionChanged);
             // 
             // ServerType
             // 

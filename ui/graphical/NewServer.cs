@@ -145,7 +145,6 @@ namespace glowberry.ui.graphical
         [SuppressMessage("ReSharper", "LocalizableElement")]
         private async void ButtonBuild_Click(object sender, EventArgs e)
         {
-            LabelServerNameError.Visible = false;
             RichTextBoxConsoleOutput.Clear(); RichTextBoxConsoleOutput.ForeColor = Color.Black;
 
             try
@@ -221,7 +220,6 @@ namespace glowberry.ui.graphical
         /// <param name="e">The event arguments</param>
         private void TextBoxServerName_TextChanged(object sender, EventArgs e)
         {
-            LabelServerNameError.Visible = false;
             ButtonBuild.Enabled = TextBoxServerName.Text.Length > 0 &&
                                        ComboServerVersion.Text.Length > 0 && ComboServerVersion.Enabled;
         }
