@@ -29,26 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerList));
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.dnjlfe = new System.Windows.Forms.Label();
-            this.MenuBar = new System.Windows.Forms.MenuStrip();
-            this.NewServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RadminVPNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ServerListLayout = new System.Windows.Forms.Panel();
-            this.jkghvcgjv = new System.Windows.Forms.Label();
             this.ButtonRefresh = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.dnjlfe = new System.Windows.Forms.Label();
             this.GridServerList = new System.Windows.Forms.DataGridView();
             this.ServerType = new System.Windows.Forms.DataGridViewImageColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,130 +49,50 @@
             this.Play = new System.Windows.Forms.DataGridViewButtonColumn();
             this.StopButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ConsoleButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.MenuBar.SuspendLayout();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.jkghvcgjv = new System.Windows.Forms.Label();
             this.ServerListLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).BeginInit();
             this.SuspendLayout();
             // 
-            // dnjlfe
-            // 
-            this.dnjlfe.Location = new System.Drawing.Point(19, 35);
-            this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dnjlfe.Name = "dnjlfe";
-            this.dnjlfe.Size = new System.Drawing.Size(21, 22);
-            this.dnjlfe.TabIndex = 17;
-            this.dnjlfe.Tag = "tooltip";
-            this.ToolTips.SetToolTip(this.dnjlfe, resources.GetString("dnjlfe.ToolTip"));
-            // 
-            // MenuBar
-            // 
-            this.MenuBar.BackColor = System.Drawing.Color.Crimson;
-            this.MenuBar.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.MenuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.NewServerToolStripMenuItem, this.ServersToolStripMenuItem, this.RadminVPNToolStripMenuItem, this.WikiToolStripMenuItem });
-            this.MenuBar.Location = new System.Drawing.Point(0, 0);
-            this.MenuBar.Name = "MenuBar";
-            this.MenuBar.Padding = new System.Windows.Forms.Padding(6, 2, 6, 2);
-            this.MenuBar.Size = new System.Drawing.Size(1200, 33);
-            this.MenuBar.TabIndex = 2;
-            this.MenuBar.Text = "menuStrip1";
-            // 
-            // NewServerToolStripMenuItem
-            // 
-            this.NewServerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.NewServerToolStripMenuItem.Name = "NewServerToolStripMenuItem";
-            this.NewServerToolStripMenuItem.Size = new System.Drawing.Size(59, 29);
-            this.NewServerToolStripMenuItem.Text = "New";
-            // 
-            // ServersToolStripMenuItem
-            // 
-            this.ServersToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ServersToolStripMenuItem.Name = "ServersToolStripMenuItem";
-            this.ServersToolStripMenuItem.Size = new System.Drawing.Size(81, 29);
-            this.ServersToolStripMenuItem.Text = "Servers";
-            // 
-            // RadminVPNToolStripMenuItem
-            // 
-            this.RadminVPNToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.RadminVPNToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RadminVPNToolStripMenuItem.Name = "RadminVPNToolStripMenuItem";
-            this.RadminVPNToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RadminVPNToolStripMenuItem.Size = new System.Drawing.Size(124, 29);
-            this.RadminVPNToolStripMenuItem.Text = "Radmin VPN";
-            // 
-            // WikiToolStripMenuItem
-            // 
-            this.WikiToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.WikiToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.WikiToolStripMenuItem.Name = "WikiToolStripMenuItem";
-            this.WikiToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
-            this.WikiToolStripMenuItem.Text = "Wiki";
-            // 
             // ServerListLayout
             // 
+            this.ServerListLayout.Controls.Add(this.ButtonRefresh);
+            this.ServerListLayout.Controls.Add(this.dnjlfe);
             this.ServerListLayout.Controls.Add(this.GridServerList);
             this.ServerListLayout.Controls.Add(this.label3);
             this.ServerListLayout.Controls.Add(this.label2);
             this.ServerListLayout.Controls.Add(this.label1);
             this.ServerListLayout.Controls.Add(this.jkghvcgjv);
-            this.ServerListLayout.Controls.Add(this.ButtonRefresh);
-            this.ServerListLayout.Controls.Add(this.dnjlfe);
             this.ServerListLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ServerListLayout.Location = new System.Drawing.Point(0, 33);
+            this.ServerListLayout.Location = new System.Drawing.Point(0, 0);
             this.ServerListLayout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ServerListLayout.Name = "ServerListLayout";
-            this.ServerListLayout.Size = new System.Drawing.Size(1200, 659);
+            this.ServerListLayout.Size = new System.Drawing.Size(1200, 692);
             this.ServerListLayout.TabIndex = 3;
-            // 
-            // jkghvcgjv
-            // 
-            this.jkghvcgjv.Dock = System.Windows.Forms.DockStyle.Top;
-            this.jkghvcgjv.Location = new System.Drawing.Point(0, 0);
-            this.jkghvcgjv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.jkghvcgjv.Name = "jkghvcgjv";
-            this.jkghvcgjv.Size = new System.Drawing.Size(1200, 62);
-            this.jkghvcgjv.TabIndex = 19;
-            this.jkghvcgjv.Text = resources.GetString("jkghvcgjv.Text");
-            this.jkghvcgjv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ButtonRefresh
             // 
             this.ButtonRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonRefresh.Location = new System.Drawing.Point(1144, 26);
+            this.ButtonRefresh.Location = new System.Drawing.Point(1150, 13);
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(38, 38);
-            this.ButtonRefresh.TabIndex = 18;
+            this.ButtonRefresh.TabIndex = 25;
             this.ButtonRefresh.UseVisualStyleBackColor = true;
+            this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
-            // label1
+            // dnjlfe
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Location = new System.Drawing.Point(0, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 597);
-            this.label1.TabIndex = 20;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(1170, 62);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 597);
-            this.label2.TabIndex = 21;
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.Location = new System.Drawing.Point(30, 623);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1140, 36);
-            this.label3.TabIndex = 22;
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dnjlfe.Location = new System.Drawing.Point(13, 22);
+            this.dnjlfe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dnjlfe.Name = "dnjlfe";
+            this.dnjlfe.Size = new System.Drawing.Size(21, 22);
+            this.dnjlfe.TabIndex = 50;
+            this.dnjlfe.Tag = "tooltip";
+            this.ToolTips.SetToolTip(this.dnjlfe, resources.GetString("dnjlfe.ToolTip"));
             // 
             // GridServerList
             // 
@@ -210,7 +121,7 @@
             this.GridServerList.DefaultCellStyle = dataGridViewCellStyle6;
             this.GridServerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridServerList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.GridServerList.Location = new System.Drawing.Point(30, 62);
+            this.GridServerList.Location = new System.Drawing.Point(30, 65);
             this.GridServerList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GridServerList.MultiSelect = false;
             this.GridServerList.Name = "GridServerList";
@@ -219,7 +130,7 @@
             this.GridServerList.RowTemplate.Height = 100;
             this.GridServerList.ShowCellToolTips = false;
             this.GridServerList.ShowEditingIcon = false;
-            this.GridServerList.Size = new System.Drawing.Size(1140, 561);
+            this.GridServerList.Size = new System.Drawing.Size(1140, 591);
             this.GridServerList.TabIndex = 23;
             // 
             // ServerType
@@ -307,22 +218,59 @@
             this.ConsoleButton.UseColumnTextForButtonValue = true;
             this.ConsoleButton.Width = 99;
             // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Location = new System.Drawing.Point(30, 656);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1140, 36);
+            this.label3.TabIndex = 22;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Location = new System.Drawing.Point(1170, 65);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 627);
+            this.label2.TabIndex = 21;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Location = new System.Drawing.Point(0, 65);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 627);
+            this.label1.TabIndex = 20;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // jkghvcgjv
+            // 
+            this.jkghvcgjv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.jkghvcgjv.Location = new System.Drawing.Point(0, 0);
+            this.jkghvcgjv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.jkghvcgjv.Name = "jkghvcgjv";
+            this.jkghvcgjv.Size = new System.Drawing.Size(1200, 65);
+            this.jkghvcgjv.TabIndex = 19;
+            this.jkghvcgjv.Text = resources.GetString("jkghvcgjv.Text");
+            this.jkghvcgjv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ServerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.ServerListLayout);
-            this.Controls.Add(this.MenuBar);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ServerList";
             this.Text = "Form1";
-            this.MenuBar.ResumeLayout(false);
-            this.MenuBar.PerformLayout();
             this.ServerListLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridServerList)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
         private System.Windows.Forms.Label label3;

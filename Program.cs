@@ -48,7 +48,7 @@ namespace glowberry
                 Application.Run(new LoadingScreen());
                 Application.Run(new Mainframe());
             }
-            catch (Exception e) { FatalExceptionHandler(null, e.Message); }
+            catch (Exception e) { FatalExceptionHandler(null, e.ToString()); }
         }
         
         /// <summary>
@@ -78,7 +78,7 @@ namespace glowberry
         /// Handles the thread exceptions that occur in the program for any unhandled exceptions.
         /// </summary>
         static void FatalExceptionHandler(object sender, ThreadExceptionEventArgs e) => 
-            FatalExceptionHandler(sender, e.Exception.Message);
+            FatalExceptionHandler(sender, e.Exception.ToString());
         
         /// <summary>
         /// Handles the fatal exceptions that occur in the program. This will log the error and prompt the user to open the

@@ -46,7 +46,7 @@ namespace glowberry.ui.graphical
             Image tooltip = Image.FromFile(Constants.FileSystem.GetFirstDocumentNamed(Path.GetFileName(tooltipImage)));
 
             // Iterates through all the labels in the form and sets the tooltip image if they're marked as such
-            foreach (Label label in NewServerLayout.Controls.OfType<Label>()
+            foreach (Label label in panel1.Controls.OfType<Label>()
                          .Where(x => x.Tag != null && x.Tag.ToString().Equals("tooltip")).ToList())
             {
                 label.BackgroundImage = tooltip;
