@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using glowberry.common;
@@ -20,7 +21,7 @@ namespace glowberry
             get
             {
                 string over = ConfigurationManager.AppSettings.Get("Version.App.Override");
-                return over == "disabled" ? GlobalVersionManager.GetVersion("launcher") : over;
+                return over == "disabled" ? Application.ProductVersion : over;
             }
         }
 
@@ -56,15 +57,16 @@ namespace glowberry
         /// </summary>
         static void LogComputerInformation()
         {
-            Logging.Logger.Info("Starting launcher session logging.");
+            Logging.Logger.Info("#############################################");
             Logging.Logger.Info($"Glowberry Launcher Version: {Version}");
-            Logging.Logger.Info($"DLL Version: {GlobalVersionManager.GetVersion("dll")}");
+            Logging.Logger.Info($"DLL Version: {Constants.GetDllVersion()}");
             Logging.Logger.Info($"User Domain Name: {Environment.UserDomainName}");
             Logging.Logger.Info($"User Name: {Environment.UserName}");
             Logging.Logger.Info($"Process ID: {Process.GetCurrentProcess().Id}");
             Logging.Logger.Info($"OS Version: {Environment.OSVersion.Platform} {Environment.OSVersion}");
-            Logging.Logger.Info($"Available RAM Memory: {Environment.WorkingSet / 1024 / 1024} MB");
+            Logging.Logger.Info($"Allocated RAM Memory: {Environment.WorkingSet / 1024 / 1024} MB");
             Logging.Logger.Info($"Available Logical Processors: {Environment.ProcessorCount}");
+            Logging.Logger.Info("#############################################" + Environment.NewLine);
         }
         
         /// <summary>
