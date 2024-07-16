@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Glowberry Launcher"
-#define MyAppVersion "1.5.1"
+#define MyAppVersion "1.5.3"
 #define MyAppPublisher "Glowberry Servers"
 #define MyAppURL "https://github.com/Glowberry-Servers/Glowberry-Launcher"
 #define MyAppExeName "Glowberry Launcher.exe"
@@ -28,7 +28,7 @@ LicenseFile=C:\dev\Glowberry\Glowberry-Launcher\LICENSE.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=commandline
-OutputBaseFilename=GlowberryLauncher-1.5.1-Setup
+OutputBaseFilename=GlowberryLauncher-1.5.3-Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
