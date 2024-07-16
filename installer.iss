@@ -49,37 +49,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\DotNetZip.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\DotNetZip.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\gbhelper.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Glowberry Launcher.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Glowberry Launcher.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Glowberry Launcher.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\glowberry.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\glowberry.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\GlowberryDLL.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\GlowberryDLL.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\HtmlAgilityPack.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\HtmlAgilityPack.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\LaminariaCore_General.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\LaminariaCore_Winforms.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\logo.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Microsoft.Win32.TaskScheduler.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Microsoft.WindowsAPICodePack.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\Open.Nat.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.Buffers.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.CodeDom.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.Memory.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.Numerics.Vectors.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.Runtime.CompilerServices.Unsafe.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.Text.Encodings.Web.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.Text.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.Threading.Tasks.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\System.ValueTuple.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\WindowsFirewallHelper.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\dev\Glowberry\Glowberry-Launcher\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion
+
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Tasks]
