@@ -221,6 +221,7 @@
             // 
             this.ComboBoxJavaVersion.DropDownHeight = 200;
             this.ComboBoxJavaVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxJavaVersion.DropDownWidth = 500;
             this.ComboBoxJavaVersion.FormattingEnabled = true;
             this.ComboBoxJavaVersion.IntegralHeight = false;
             this.ComboBoxJavaVersion.Location = new System.Drawing.Point(45, 6);

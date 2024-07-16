@@ -13,6 +13,7 @@ using glowberry.common;
 using glowberry.common.configuration;
 using glowberry.common.factories;
 using glowberry.common.handlers;
+using LaminariaCore_General.common;
 using LaminariaCore_General.utils;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -60,6 +61,8 @@ namespace glowberry.ui.graphical
             // Checks all the java versions available in Program Files and sets them in the java version box
             string programFilesJavaPath = Path.Combine(Environment.ExpandEnvironmentVariables("%ProgramW6432%"), "Java");
             string programFilesX86JavaPath = Path.Combine(Environment.ExpandEnvironmentVariables("%ProgramFiles(x86)%"), "Java");
+            
+            ComboBoxJavaVersion.Items.Add(@"Auto-Detect Version");
 
             if (Directory.Exists(programFilesJavaPath))
                 ComboBoxJavaVersion.Items.AddRange(
@@ -68,6 +71,10 @@ namespace glowberry.ui.graphical
             if (Directory.Exists(programFilesX86JavaPath))
                 ComboBoxJavaVersion.Items.AddRange(Directory.GetDirectories(programFilesX86JavaPath)
                     .ToArray<object>());
+            
+            // Also adds the java versions from the .Glowberry/runtime folder
+            Section runtimeSection = Constants.FileSystem.AddSection("runtime");
+            ComboBoxJavaVersion.Items.AddRange(Directory.GetDirectories(runtimeSection.SectionFullPath).ToArray<object>());
 
             // Automatically selects the first java version if there is one
             ComboBoxJavaVersion.SelectedIndex = ComboBoxJavaVersion.Items.Count > 0 ? 0 : -1;
