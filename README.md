@@ -4,8 +4,7 @@ Glowberry-Launcher is a program that allows you to create fully customizable Min
 
 ## Planned Features
 
-- ~~Server restarts: The ability to restart the server at any time.~~ | Added through the console version and the stop/kill buttons.
-- Rolling backups: The removal of older backups within a specified limit to conserve storage space.
+- Mod synchronisation w/FTP for clients
 
 ## Development Requirements
 
