@@ -27,7 +27,7 @@ namespace glowberry.ui.graphical
         /// <summary>
         /// The API instance to interact with the servers.
         /// </summary>
-        private ServerAPI ServerAPI { get; } = new ();
+        private ServerAPI ServerApi { get; } = new ServerAPI();
         
         /// <summary>
         /// Main constructor for the NewServer form. Private in order to enforce the usage
@@ -156,7 +156,7 @@ namespace glowberry.ui.graphical
 
             try
             {
-                ServerBuilding builder = ServerAPI.Builder(TextBoxServerName.Text, ComboBoxServerType.Text,
+                ServerBuilding builder = this.ServerApi.Builder(TextBoxServerName.Text, ComboBoxServerType.Text,
                     ComboServerVersion.Text);
                 
                 builder.VerifyInformation();

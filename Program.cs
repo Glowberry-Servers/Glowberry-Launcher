@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using glowberry.common;
