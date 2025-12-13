@@ -27,7 +27,7 @@ namespace glowberry.ui.graphical
         /// <summary>
         /// The API instance to interact with the servers.
         /// </summary>
-        private ServerAPI ServerAPI { get; } = new ();
+        private ServerAPI ServerApi { get; } = new ();
         
         /// <summary>
         /// Main constructor for the NewServer form. Private in order to enforce the usage
@@ -156,10 +156,15 @@ namespace glowberry.ui.graphical
 
             try
             {
-                ServerBuilding builder = ServerAPI.Builder(TextBoxServerName.Text, ComboBoxServerType.Text,
+                ServerBuilding builder = this.ServerApi.Builder(TextBoxServerName.Text, ComboBoxServerType.Text,
                     ComboServerVersion.Text);
                 
                 builder.VerifyInformation();
+                
+                // Check if the server type is fabric and if the version is auto-
+                if (ComboBoxServerType.Text.ToLower().Contains("fabric") && ComboBoxJavaVersion.Text.ToLower().Equals("auto-detect version"))
+                    throw new ArgumentException("Auto-Detection is disabled for Fabric servers.\n" +
+                                                "Please select specify the version to use.");
                 
                 // Starts to build the server, first disabling the controls so the user can't interact with them,
                 // then building the server, and finally re-enabling the controls.

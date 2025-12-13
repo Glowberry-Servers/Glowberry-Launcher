@@ -29,7 +29,7 @@ public partial class ConsoleInterface : Form
     /// <summary>
     /// The server interactions API to use for the console.
     /// </summary>
-    public ServerInteractions InteractionsAPI { get; set; }
+    public ServerInteractions InteractionsApi { get; set; }
     
     /// <summary>
     /// Whether the console has been closed or not.
@@ -76,7 +76,7 @@ public partial class ConsoleInterface : Form
         this.RichTextBoxConsole.SetInnerMargins(10);
         
         this.ServerSection = serverSection;
-        this.InteractionsAPI = new ServerInteractions(serverSection.SimpleName);
+        this.InteractionsApi = new ServerInteractions(serverSection.SimpleName);
         TextBoxServerInput_TextChanged(null, null);
     }
     
@@ -172,7 +172,7 @@ public partial class ConsoleInterface : Form
             try
             {
                 // Checks if the server is still running, and if not, writes a message to the console in red saying so.
-                if (!this.InteractionsAPI.IsRunning() || latestLogPath == null)
+                if (!this.InteractionsApi.IsRunning() || latestLogPath == null)
                 {
                     Logging.Logger.Info("Tried to update console, but server is not running.");
                     SendConsoleError("This server is not running. Please start it and refresh the console.");
@@ -273,7 +273,7 @@ public partial class ConsoleInterface : Form
         string command = TextBoxServerInput.Text.Substring(2);
         if (command.Length == 0) return;
         
-        this.InteractionsAPI.WriteToServerStdin(command);
+        this.InteractionsApi.WriteToServerStdin(command);
         
         if (this.LastMessages.Count >= 10)
             this.LastMessages.RemoveAt(0);

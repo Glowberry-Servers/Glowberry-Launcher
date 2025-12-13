@@ -207,7 +207,7 @@ namespace glowberry.ui.graphical
             if (info.CurrentServerProcessID != -1 && procName is "java" or "cmd")
             {
                 if (row.Cells[5].Value is not "Stopping") ForceUpdateServerState(serverName, "Running");
-                UpdateServerIP(editingApi.Raw());
+                this.UpdateServerIp(editingApi.Raw());
                 return; 
             }
             
@@ -260,7 +260,7 @@ namespace glowberry.ui.graphical
         /// Updates the server's IP address in the server list.
         /// </summary>
         /// <param name="editor">The ServerEditor instance to use</param>
-        public void UpdateServerIP(ServerEditor editor)
+        public void UpdateServerIp(ServerEditor editor)
         {
             // Gets the server's IP address and updates the server list.
             DataGridViewRow row = GetRowFromName(editor.ServerSection.SimpleName);
@@ -303,7 +303,7 @@ namespace glowberry.ui.graphical
                 // In case the user clicks on... The Server IP cell.
                 case 3 when e.RowIndex >= 0:
                 {
-                    await IPAddressCellClick(selectedRow);
+                    await IpAddressCellClick(selectedRow);
                     break;
                 }
 
@@ -344,7 +344,7 @@ namespace glowberry.ui.graphical
         /// When the user clicks on the IP address cell, copy the IP address to the clipboard.
         /// </summary>
         /// <param name="ipRow">The IP Address row in the grid</param>
-        private static async Task IPAddressCellClick(DataGridViewRow ipRow)
+        private static async Task IpAddressCellClick(DataGridViewRow ipRow)
         {
             // Prevent the user from spamming the "Copy to Clipboard" button.
             string value = ipRow.Cells[3].Value.ToString();
@@ -391,7 +391,7 @@ namespace glowberry.ui.graphical
                 watcher.Created += (sender, args) => 
                 {
                     new ServerAPI().Editor(serverName).Raw().SynchronizeSettings();
-                    this.UpdateServerIP(GlobalEditorsCache.INSTANCE.GetOrCreate(serverSection));
+                    this.UpdateServerIp(GlobalEditorsCache.INSTANCE.GetOrCreate(serverSection));
                     this.ForceUpdateServerState(serverName, "Running");
                     watcher.Dispose();
                 };

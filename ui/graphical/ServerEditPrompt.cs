@@ -27,7 +27,7 @@ namespace glowberry.ui.graphical
         /// <summary>
         /// The server API instance to use with this editing prompt.
         /// </summary>
-        private ServerEditing EditingAPI { get; set; }
+        private ServerEditing EditingApi { get; set; }
 
         /// <summary>
         /// The values of the rolling backups that have been loaded into the form. This is useful
@@ -44,20 +44,20 @@ namespace glowberry.ui.graphical
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterParent;
-            EditingAPI = new ServerAPI().Editor(serverSection.SimpleName);
+            this.EditingApi = new ServerAPI().Editor(serverSection.SimpleName);
             
             // Loads the properties and settings into the form
-            LoadToForm(EditingAPI.GetCurrentServerSettings());
-            LoadedRollingValues[0] = EditingAPI.GetServerInformation().RollingServerBackups;
-            LoadedRollingValues[1] = EditingAPI.GetServerInformation().RollingPlayerdataBackups;
+            LoadToForm(this.EditingApi.GetCurrentServerSettings());
+            LoadedRollingValues[0] = this.EditingApi.GetServerInformation().RollingServerBackups;
+            LoadedRollingValues[1] = this.EditingApi.GetServerInformation().RollingPlayerdataBackups;
 
             // Edits some values in the form that have to be manually placed
-            CheckBoxCracked.Checked = EditingAPI.Check(ServerLogicChecks.IsCracked);
-            CheckBoxSpawnProtection.Checked = EditingAPI.Check(ServerLogicChecks.IsSpawnProtectionEnabled);
-            TextBoxServerName.Text = EditingAPI.GetServerName();
+            CheckBoxCracked.Checked = this.EditingApi.Check(ServerLogicChecks.IsCracked);
+            CheckBoxSpawnProtection.Checked = this.EditingApi.Check(ServerLogicChecks.IsSpawnProtectionEnabled);
+            TextBoxServerName.Text = this.EditingApi.GetServerName();
             
-            CheckBoxRollingServerBackups.Checked = EditingAPI.GetServerInformation().RollingServerBackups > 0;
-            CheckBoxRollingPlayerdataBackups.Checked = EditingAPI.GetServerInformation().RollingPlayerdataBackups > 0;
+            CheckBoxRollingServerBackups.Checked = this.EditingApi.GetServerInformation().RollingServerBackups > 0;
+            CheckBoxRollingPlayerdataBackups.Checked = this.EditingApi.GetServerInformation().RollingPlayerdataBackups > 0;
             
             NumericServerBackupsDelay.Enabled = CheckBoxServerBackups.Checked;
             NumericPlayerdataBackupsDelay.Enabled = CheckBoxPlayerdataBackups.Checked;
@@ -66,7 +66,7 @@ namespace glowberry.ui.graphical
             NumericPlayerdataBackups.Enabled = CheckBoxRollingPlayerdataBackups.Checked;
             
             CheckBoxStartOnBoot.Enabled = CheckBoxHandleFirewall.Enabled = PermissionUtils.IsUserAdmin();
-            CheckBoxStartOnBoot.Checked = WindowsSchedulerUtils.IsServerInScheduler(EditingAPI.GetServerSection());
+            CheckBoxStartOnBoot.Checked = WindowsSchedulerUtils.IsServerInScheduler(this.EditingApi.GetServerSection());
 
             // Loads the icons for the folder browsing buttons
             ButtonFolderBrowsing.Image = Image.FromFile(FileSystem.GetFirstDocumentNamed(Path.GetFileName(ConfigurationManager.AppSettings.Get("Asset.Icon.FolderBrowser"))));
@@ -190,7 +190,7 @@ namespace glowberry.ui.graphical
         /// <param name="e">The event arguments</param>
         private void ButtonOpenServerFolder_Click(object sender, EventArgs e)
         {
-            Process.Start(EditingAPI.GetServerSection().SectionFullPath);
+            Process.Start(this.EditingApi.GetServerSection().SectionFullPath);
         }
 
         /// <summary>
@@ -201,12 +201,12 @@ namespace glowberry.ui.graphical
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             // Gets the necessary resources to edit save the server's properties and settings
-            string newServerSectionPath = Path.GetDirectoryName(EditingAPI.GetServerSection().SectionFullPath) + "/" + TextBoxServerName.Text;
+            string newServerSectionPath = Path.GetDirectoryName(this.EditingApi.GetServerSection().SectionFullPath) + "/" + TextBoxServerName.Text;
 
             try
             {
                 _ = new ServerInformation().Update(FormToDictionary());  // Serves as a sanity check for the form values
-                EditingAPI.UpdateServerSettings(FormToDictionary());
+                this.EditingApi.UpdateServerSettings(FormToDictionary());
             }
             
             catch (SystemException)
@@ -216,16 +216,16 @@ namespace glowberry.ui.graphical
             }
 
             // Renames the server's folder to the new name if it changed.
-            if (!EditingAPI.GetServerSection().SectionFullPath.EqualsPath(newServerSectionPath))
+            if (!this.EditingApi.GetServerSection().SectionFullPath.EqualsPath(newServerSectionPath))
             {
-                ServerList.INSTANCE.RemoveFromList(EditingAPI.GetServerName());
-                EditingAPI.ChangeServerName(TextBoxServerName.Text);
-                ServerList.INSTANCE.AddServerToList(EditingAPI.GetServerSection());
+                ServerList.INSTANCE.RemoveFromList(this.EditingApi.GetServerName());
+                this.EditingApi.ChangeServerName(TextBoxServerName.Text);
+                ServerList.INSTANCE.AddServerToList(this.EditingApi.GetServerSection());
             }
             
             // Checks if the server needs to be either added or removed from the startup schedule
-            if (CheckBoxStartOnBoot.Checked) WindowsSchedulerUtils.AddServerToTaskScheduler(EditingAPI.GetServerSection());
-            else WindowsSchedulerUtils.RemoveServerFromTaskScheduler(EditingAPI.GetServerSection());
+            if (CheckBoxStartOnBoot.Checked) WindowsSchedulerUtils.AddServerToTaskScheduler(this.EditingApi.GetServerSection());
+            else WindowsSchedulerUtils.RemoveServerFromTaskScheduler(this.EditingApi.GetServerSection());
 
             Close();
         }
@@ -255,8 +255,8 @@ namespace glowberry.ui.graphical
             try
             {
                 // Removes the server from the list, deletes the directory and closes the form.
-                ServerList.INSTANCE.RemoveFromList(EditingAPI.GetServerName());
-                EditingAPI.DeleteServer();
+                ServerList.INSTANCE.RemoveFromList(this.EditingApi.GetServerName());
+                this.EditingApi.DeleteServer();
                 Close();
             }
             catch (Exception exception)
