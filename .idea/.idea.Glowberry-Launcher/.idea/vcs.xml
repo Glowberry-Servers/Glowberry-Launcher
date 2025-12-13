@@ -3,5 +3,9 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Glowberry-Assets" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Glowberry-Console" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Glowberry-Helper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Glowberry-Web" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../GlowberryDLL" vcs="Git" />
   </component>
 </project>
